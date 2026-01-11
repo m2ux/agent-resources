@@ -11,7 +11,6 @@ Each workflow is a self-contained, revisioned artifact that an agent (or human) 
 - “Definition of done” and guardrails (what to do / what not to do)
 
 ## Layout
-Keep each workflow isolated so it maps cleanly to a submodule mount point.
 
 TBD
 
