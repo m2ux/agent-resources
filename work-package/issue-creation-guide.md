@@ -48,7 +48,7 @@ The issue specifies *requirements*; design work determines *implementation*.
 - May miss better approaches discovered during analysis
 
 **Where solutions belong:**
-- `.ai/planning/` documents (Phase 0)
+- `.engineering/artifacts/planning/` documents (Phase 0)
 - ADRs for architectural decisions (Phase 1)
 - PR descriptions for implementation details (Phase 5)
 

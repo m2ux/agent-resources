@@ -42,7 +42,7 @@ Test plans are lightweight documents that accompany ADRs and PRs, providing stru
 
 Before writing test cases, consult the **TDD Concepts Guide** for test design principles and patterns.
 
-📄 **Reference:** [TDD Concepts for Rust](/.ai/resources/tdd-concepts-rust.md)
+📄 **Reference:** [TDD Concepts for Rust](.engineering/agent/workflows/resources/tdd-concepts-rust.md)
 
 ### Key Principles to Apply
 
@@ -455,7 +455,7 @@ Test IDs hyperlink directly to test implementations:
 - ❌ Use vague objectives ("test the feature")
 - ❌ Skip line numbers in hyperlinks
 - ❌ Add redundant References section (links are inline)
-- ❌ Reference gitignored files (`.ai/planning/*`)
+- ❌ Reference gitignored files (`.engineering/artifacts/planning/*`)
 - ❌ Split test cases across multiple tables (use a single unified table)
 
 ---

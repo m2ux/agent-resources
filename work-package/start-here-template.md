@@ -22,7 +22,7 @@ The `START-HERE.md` file serves as the entry point and executive summary for a w
 - Work package has multiple tasks or phases
 - Multiple people may work on or review the work
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/START-HERE.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/START-HERE.md`
 
 ---
 

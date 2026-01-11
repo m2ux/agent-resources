@@ -183,7 +183,7 @@ After each task checkpoint, once the user has reviewed and responded to assumpti
 
 ## Assumptions Log Template
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/04-assumptions-log.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/04-assumptions-log.md`
 
 ~~~markdown
 # Assumptions Log

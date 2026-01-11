@@ -30,13 +30,13 @@ This workflow defines how to create high-level planning sessions that organize m
 
 ### Location Pattern
 ```
-.ai/planning/YYYY-MM-DD-descriptive-name/
+.engineering/artifacts/planning/YYYY-MM-DD-descriptive-name/
 ```
 
 **Examples:**
-- `.ai/planning/2025-11-23-integrated-roadmap/`
-- `.ai/planning/2025-12-01-performance-initiative/`
-- `.ai/planning/2025-12-15-api-redesign/`
+- `.engineering/artifacts/planning/2025-11-23-integrated-roadmap/`
+- `.engineering/artifacts/planning/2025-12-01-performance-initiative/`
+- `.engineering/artifacts/planning/2025-12-15-api-redesign/`
 
 **Naming Conventions:**
 - Use date prefix (YYYY-MM-DD) for chronological ordering
@@ -46,7 +46,7 @@ This workflow defines how to create high-level planning sessions that organize m
 ### Standard Structure
 
 ```
-.ai/planning/YYYY-MM-DD-name/
+.engineering/artifacts/planning/YYYY-MM-DD-name/
 ├── START-HERE.md              # Entry point (required)
 ├── README.md                  # Navigation (required)
 ├── 01-[ANALYSIS].md          # Context/background
@@ -679,7 +679,7 @@ Before starting implementation:
 
 ### Planning Folder Setup
 - [ ] Planning folder created with `YYYY-MM-DD-name/` pattern
-- [ ] Folder placed in `.ai/planning/`
+- [ ] Folder placed in `.engineering/artifacts/planning/`
 
 ### Core Documents
 - [ ] START-HERE.md written with:
@@ -726,7 +726,7 @@ Before starting implementation:
 
 ### Planning Session
 ```
-.ai/planning/2025-11-23-integrated-roadmap/
+.engineering/artifacts/planning/2025-11-23-integrated-roadmap/
 ├── START-HERE.md                      # Executive summary
 ├── README.md                          # Navigation
 ├── 01-COMPLETION-ANALYSIS.md         # What was done
@@ -807,7 +807,7 @@ Features implemented one at a time following priority, with commits after each t
 - **v1.0** (2025-11-24): Initial version split from combined workflow
 
 **Derived From:** Template developed through production use
-- Example: `.ai/planning/YYYY-MM-DD-project-roadmap/`
+- Example: `.engineering/artifacts/planning/YYYY-MM-DD-project-roadmap/`
 
 
 

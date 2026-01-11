@@ -143,7 +143,7 @@ Connect findings to requirements:
 
 Store research findings in a discrete planning document:
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/02-kb-research.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/02-kb-research.md`
 
 ### Template
 

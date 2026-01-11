@@ -199,7 +199,7 @@ Use this template to confirm elicited requirements with the user:
 
 ## Output Document Template
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/00-requirements-elicitation.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/00-requirements-elicitation.md`
 
 ```markdown
 # Requirements Elicitation: [Work Package Name]

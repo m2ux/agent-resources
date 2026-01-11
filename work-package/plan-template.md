@@ -26,7 +26,7 @@ The `01-work-package-plan.md` file serves as the detailed implementation specifi
 - Architectural decisions are required
 - Performance or quality targets must be met
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/01-work-package-plan.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/01-work-package-plan.md`
 
 ---
 

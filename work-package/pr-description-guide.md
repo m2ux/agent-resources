@@ -181,7 +181,7 @@ The PR description should focus on **what** and **why**, not mechanical details:
 | Commit list | Redundant with Git history | Git log / PR "Commits" tab |
 | Files changed | Redundant with diff | PR "Files changed" tab |
 | Line-by-line explanations | Clutters description | Inline PR comments |
-| Implementation steps | Not useful for review | Work package plan (`.ai/planning/`) |
+| Implementation steps | Not useful for review | Work package plan (`.engineering/artifacts/planning/`) |
 
 ---
 
@@ -394,7 +394,7 @@ gh pr ready
 - ❌ Duplicate information available in Git history
 - ❌ Include implementation details better suited to code comments
 - ❌ Use vague language ("some improvements", "various fixes")
-- ❌ Reference gitignored files (`.ai/planning/*`)
+- ❌ Reference gitignored files (`.engineering/artifacts/planning/*`)
 - ❌ Add process attribution ("per user request", "AI suggested")
 
 ---

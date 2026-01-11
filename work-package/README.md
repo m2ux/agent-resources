@@ -56,7 +56,7 @@ Start with [`_workflow.md`](_workflow.md) — the master document that defines a
 ## Example
 
 ```
-.ai/planning/2026-01-15-feature-name/
+.engineering/artifacts/planning/2026-01-15-feature-name/
 ├── START-HERE.md                    # Entry point
 ├── README.md                        # Overview
 ├── 00-requirements-elicitation.md   # Requirements

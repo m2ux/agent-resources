@@ -22,7 +22,7 @@ The `README.md` file serves as a quick-reference navigation hub for a work packa
 - Creating a new work package planning folder
 - Work package has multiple planning documents
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/README.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/README.md`
 
 ---
 

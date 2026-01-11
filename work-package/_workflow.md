@@ -9,7 +9,7 @@ This workflow defines how to plan and implement ONE work package from inception 
 
 ## ⚠️ MANDATORY: Read AGENTS.md First
 
-**Before starting any work package, agents MUST read and follow `.ai/AGENTS.md`.**
+**Before starting any work package, agents MUST read and follow `.engineering/agent/workflows/AGENTS.md`.**
 
 This file contains critical guidelines for:
 - Code modification boundaries (when to ask permission)
@@ -24,7 +24,7 @@ This file contains critical guidelines for:
 3. **Never add process attribution comments** to code
 4. **Never commit changes unless user explicitly asks**
 
-📄 **Reference:** `.ai/AGENTS.md`
+📄 **Reference:** `.engineering/agent/workflows/AGENTS.md`
 
 ---
 
@@ -542,7 +542,7 @@ After exploring requirements, **STOP and confirm with user:**
 
 ### 2.5 Elicitation Output
 
-**Create:** `.ai/planning/YYYY-MM-DD-work-package-name/00-requirements-elicitation.md`
+**Create:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/00-requirements-elicitation.md`
 
 📄 **Reference:** Follow the [Requirements Elicitation Guide](requirements-elicitation-guide.md) for the full template and methodology.
 
@@ -657,7 +657,7 @@ Before designing an approach, **research the knowledge base** using concept-rag 
 
 📄 **Reference:** [Knowledge Base Research Guide](knowledge-base-research-guide.md) — Full methodology, templates, and checkpoint format.
 
-**Output:** `.ai/planning/YYYY-MM-DD-work-package-name/02-kb-research.md`
+**Output:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/02-kb-research.md`
 
 ### 3.4 🛑 Knowledge Base Insights Checkpoint
 
@@ -676,7 +676,7 @@ After researching, **STOP and present findings** using the checkpoint template f
 
 **Use the `web_search` tool** to find current information.
 
-**Output:** Add web research findings to `.ai/planning/YYYY-MM-DD-work-package-name/02-kb-research.md` (or create separate `02b-web-research.md` if extensive).
+**Output:** Add web research findings to `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/02-kb-research.md` (or create separate `02b-web-research.md` if extensive).
 
 ### 3.6 🛑 Web Research Checkpoint
 
@@ -718,7 +718,7 @@ After gathering knowledge base and web research insights, **analyze the current 
 
 📄 **Reference:** [Implementation Analysis Guide](implementation-analysis-guide.md) — Full methodology, templates, and checkpoint format.
 
-**Output:** `.ai/planning/YYYY-MM-DD-work-package-name/03-implementation-analysis.md`
+**Output:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/03-implementation-analysis.md`
 
 ### 3.8 🛑 Analysis Findings Checkpoint
 
@@ -835,11 +835,11 @@ After designing the approach, **STOP and confirm:**
 
 > **Note:** Always use the folder pattern for consistency with [High-Level Planning Workflow](high-level-planning-workflow.md). Even simple work packages benefit from the structured navigation.
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/`
 
 **Structure:**
 ```
-.ai/planning/YYYY-MM-DD-work-package-name/
+.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/
 ├── START-HERE.md              # Executive summary (required) - includes issue link
 ├── README.md                  # Quick navigation (required)
 ├── 00-requirements-elicitation.md  # Elicited requirements (if requested)
@@ -853,7 +853,7 @@ After designing the approach, **STOP and confirm:**
 
 **For complex work packages**, add additional files as needed:
 ```
-.ai/planning/YYYY-MM-DD-work-package-name/
+.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/
 ├── START-HERE.md
 ├── README.md
 ├── 00-requirements-elicitation.md  # Elicited requirements (features only, see guide)
@@ -1590,7 +1590,7 @@ git commit -m "docs: finalize test plan with source links"
 
 ### 7.3 Work Package Completion Document
 
-**Create:** `.ai/planning/YYYY-MM-DD-work-package-name/COMPLETE.md`
+**Create:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/COMPLETE.md`
 
 📄 **Reference:** Follow the [Work Package Completion Template](complete-template.md) for the full template and guidelines.
 

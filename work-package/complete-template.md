@@ -25,7 +25,7 @@ The `COMPLETE.md` file serves as the completion record for a work package. It pr
 - All tests are passing
 - PR is ready for review
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/COMPLETE.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/COMPLETE.md`
 
 ---
 

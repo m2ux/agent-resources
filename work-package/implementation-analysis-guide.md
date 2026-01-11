@@ -141,7 +141,7 @@ Define measurable targets based on baselines:
 
 Store analysis findings in a discrete planning document:
 
-**Location:** `.ai/planning/YYYY-MM-DD-work-package-name/03-implementation-analysis.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/03-implementation-analysis.md`
 
 ### Template
 
