@@ -1,22 +1,67 @@
 # Agent Workflows
 
-A version-controlled collection of prompts, guides, and documentation for agentic software engineering workflows, intended to be consumed by other repositories via submodules.
+A version-controlled collection of packaged workflows for agentic software engineering, intended to be consumed by other repositories via submodules.
 
-## What’s in this repo
-Each workflow is a self-contained, revisioned artifact that an agent (or human) can follow consistently across projects.
+## Overview
 
-- Prompt templates (system/developer/task)
-- Step-by-step runbooks (planning, implementation, review, release)
-- Checklists (quality gates, security, tests, docs)
-- “Definition of done” and guardrails (what to do / what not to do)
+Each workflow is a self-contained, revisioned package that an agent (or human) can follow consistently across projects. Workflows include:
+
+- Step-by-step runbooks
+- Checklists and quality gates
+- Templates and scaffolding
+- Guardrails and constraints
+
+## Available Workflows
+
+| Workflow | Description |
+|----------|-------------|
+| [`work-package/`](work-package/) | Planning and implementation workflow for features and enhancements |
+
+*More workflows coming soon.*
 
 ## Layout
 
-TBD
+```
+agent-workflows/
+├── AGENTS.md              # AI agent behavior guidelines (shared)
+├── work-package/          # Work package workflow
+│   ├── _workflow.md       # Main workflow document
+│   ├── *-guide.md         # Step-by-step guides
+│   └── *-template.md      # Templates
+└── <future-workflow>/     # Additional workflows follow same pattern
+```
 
-## Using as a submodule
-Pin a specific workflow version in each target repo so agents behave deterministically over time.
+Each workflow folder contains:
+- `_workflow.md` — Master document defining phases and steps
+- `*-guide.md` — Detailed guidance for specific activities
+- `*-template.md` — Reusable templates
+
+## Using as a Submodule
+
+Pin a specific version in each target repo so agents behave deterministically.
 
 ```bash
-git submodule add <REPO_URL> .agent/workflows
-git submodule update --init --recursive
+# Add to your project's engineering branch
+git submodule add https://github.com/m2ux/agent-workflows.git workflows
+git commit -m "chore: add agent-workflows submodule"
+
+# Clone a repo with submodules
+git clone --recurse-submodules <repo-url>
+
+# Update submodule to latest
+git submodule update --remote workflows
+git commit -m "chore: update agent-workflows"
+```
+
+## Contributing
+
+To add a new workflow:
+
+1. Create a new top-level folder (e.g., `code-review/`)
+2. Add `_workflow.md` as the entry point
+3. Add supporting guides and templates
+4. Update this README's workflow table
+
+## License
+
+Apache-2.0
