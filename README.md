@@ -44,14 +44,16 @@ agent-workflows/
 ├── AGENTS.md              # AI agent behavior guidelines (shared)
 ├── deploy.sh              # Engineering branch deployment script
 ├── work-package/          # Work package workflow
-│   ├── _workflow.md       # Main workflow document
+│   ├── _START_HERE.md     # Entry point for workflow inclusion
+│   ├── workflow.md        # Main workflow document
 │   ├── *-guide.md         # Step-by-step guides
 │   └── *-template.md      # Templates
 └── <future-workflow>/     # Additional workflows follow same pattern
 ```
 
 Each workflow folder contains:
-- `_workflow.md` — Master document defining phases and steps
+- `_START_HERE.md` — Entry point with mandatory rules and getting started instructions
+- `workflow.md` — Master document defining phases and steps
 - `*-guide.md` — Detailed guidance for specific activities
 - `*-template.md` — Reusable templates
 
@@ -92,7 +94,7 @@ The script:
 cd .engineering
 
 # Update workflows to specific version
-./scripts/update-workflows.sh v0.2.0
+./scripts/update-workflows.sh v0.3.0
 
 # Update metadata to latest
 ./scripts/update-metadata.sh
@@ -103,9 +105,10 @@ cd .engineering
 To add a new workflow:
 
 1. Create a new top-level folder (e.g., `code-review/`)
-2. Add `_workflow.md` as the entry point
-3. Add supporting guides and templates
-4. Update this README's workflow table
+2. Add `_START_HERE.md` as the entry point with mandatory rules
+3. Add `workflow.md` as the main workflow document
+4. Add supporting guides and templates
+5. Update this README's workflow table
 
 ## License
 
