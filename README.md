@@ -24,6 +24,7 @@ Each workflow is a self-contained, revisioned package that an agent (or human) c
 ```
 agent-workflows/
 ├── AGENTS.md              # AI agent behavior guidelines (shared)
+├── deploy.sh              # Engineering branch deployment script
 ├── work-package/          # Work package workflow
 │   ├── _workflow.md       # Main workflow document
 │   ├── *-guide.md         # Step-by-step guides
@@ -36,21 +37,63 @@ Each workflow folder contains:
 - `*-guide.md` — Detailed guidance for specific activities
 - `*-template.md` — Reusable templates
 
-## Using as a Submodule
+## Deployment
 
-Pin a specific version in each target repo so agents behave deterministically.
+Deploy an engineering branch to any project:
 
 ```bash
-# Add to your project's engineering branch
-git submodule add https://github.com/m2ux/agent-workflows.git workflows
-git commit -m "chore: add agent-workflows submodule"
+# Copy deploy script to your project root
+cp /path/to/agent-workflows/deploy.sh ./
+# Or download directly:
+curl -O https://raw.githubusercontent.com/m2ux/agent-workflows/main/deploy.sh
 
-# Clone a repo with submodules
-git clone --recurse-submodules <repo-url>
+# Run it
+./deploy.sh
+```
 
-# Update submodule to latest
-git submodule update --remote workflows
-git commit -m "chore: update agent-workflows"
+The script:
+1. Creates an `engineering` branch if it doesn't exist
+2. Adds `.engineering/` to local git exclude
+3. Clones to `.engineering/`
+4. Initializes submodules (workflows + optional private metadata)
+5. Self-destructs
+
+### Options
+
+| Option | Description |
+|--------|-------------|
+| `--external-repo <url>` | Use external repo for engineering branch |
+| `--workflows-repo <url>` | Custom workflows repo |
+| `--metadata-repo <url>` | Custom metadata repo |
+| `--skip-metadata` | Skip private metadata submodule |
+| `--keep` | Don't self-destruct after deployment |
+
+### Result
+
+```
+my-project/
+└── .engineering/              # Locally ignored via .git/info/exclude
+    ├── artifacts/
+    │   ├── adr/
+    │   ├── planning/
+    │   ├── reviews/
+    │   └── templates/
+    ├── agent/
+    │   ├── workflows/         # ← This repo (submodule)
+    │   └── metadata/          # Private metadata (sparse checkout)
+    └── scripts/
+```
+
+### Submodule Management
+
+```bash
+cd .engineering
+
+# Update workflows to specific version
+./scripts/update-workflows.sh v0.2.0
+
+# Update metadata to latest
+./scripts/update-metadata.sh
 ```
 
 ## Contributing
