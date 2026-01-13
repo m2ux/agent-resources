@@ -344,6 +344,9 @@ if [ -n "$EXTERNAL_REPO" ]; then
     
     cd "$REPO_ROOT"
     
+    # Clean up temp clone
+    rm -rf "$TEMP_CLONE"
+    
     # Clone with sparse checkout to get only this project's engineering folder
     echo ""
     echo "Setting up .engineering/ with sparse checkout..."
@@ -353,21 +356,46 @@ if [ -n "$EXTERNAL_REPO" ]; then
     git sparse-checkout set "engineering/$PROJECT_NAME"
     git checkout HEAD
     
-    # Create symlink for convenience (so .engineering/ points to the actual content)
+    # Move content up so .engineering/ points directly to project folder
     cd "$REPO_ROOT"
     if [ -d "$ENGINEERING_DIR/engineering/$PROJECT_NAME" ]; then
-        # Move the nested content up and clean
         mv "$ENGINEERING_DIR" "${ENGINEERING_DIR}_tmp"
         mv "${ENGINEERING_DIR}_tmp/engineering/$PROJECT_NAME" "$ENGINEERING_DIR"
         rm -rf "${ENGINEERING_DIR}_tmp"
-        
-        # Re-clone properly as a simple folder (not a git repo)
-        rm -rf "$ENGINEERING_DIR"
-        cp -r "$TEMP_CLONE/engineering/$PROJECT_NAME" "$ENGINEERING_DIR"
     fi
     
-    # Clean up temp clone
-    rm -rf "$TEMP_CLONE"
+    # Clone submodules as standalone repos (external mode doesn't use git submodule refs)
+    echo ""
+    echo "Setting up agent repos..."
+    cd "$ENGINEERING_DIR"
+    
+    # Clone workflows
+    rm -rf agent/workflows 2>/dev/null || true
+    mkdir -p agent
+    git clone "$WORKFLOWS_REPO" agent/workflows 2>/dev/null || true
+    if [ -d "agent/workflows" ]; then
+        WORKFLOW_VERSION=$(get_latest_workflow_version)
+        cd agent/workflows
+        git fetch --tags 2>/dev/null || true
+        git checkout "$WORKFLOW_VERSION" 2>/dev/null || true
+        cd "$ENGINEERING_DIR"
+        echo "✓ agent/workflows ($WORKFLOW_VERSION)"
+    fi
+    
+    # Clone metadata with sparse checkout
+    if [ "$SKIP_METADATA" = false ]; then
+        rm -rf agent/metadata 2>/dev/null || true
+        if git clone --no-checkout "$METADATA_REPO" agent/metadata 2>/dev/null; then
+            cd agent/metadata
+            git sparse-checkout init --cone 2>/dev/null || true
+            git sparse-checkout set "projects/$PROJECT_NAME" 2>/dev/null || true
+            git checkout master 2>/dev/null || git checkout main 2>/dev/null || true
+            cd "$ENGINEERING_DIR"
+            echo "✓ agent/metadata (sparse: projects/$PROJECT_NAME)"
+        else
+            echo "⚠ agent/metadata skipped (private)"
+        fi
+    fi
     
     echo "✓ Deployed to .engineering/"
     
