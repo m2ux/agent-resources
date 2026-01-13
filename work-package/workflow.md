@@ -7,27 +7,6 @@ This workflow defines how to plan and implement ONE work package from inception 
 
 ---
 
-## ⚠️ MANDATORY: Read AGENTS.md First
-
-**Before starting any work package, agents MUST read and follow `.engineering/agent/workflows/AGENTS.md`.**
-
-This file contains critical guidelines for:
-- Code modification boundaries (when to ask permission)
-- Communication standards (tone, language, no process attribution)
-- Implementation workflow boundaries (one task at a time)
-- File and directory restrictions
-- Version control practices
-
-**Key rules from AGENTS.md that apply to this workflow:**
-1. **Do not modify code unless explicitly directed by the user**
-2. **Complete only ONE numbered task at a time** - stop and ask permission before proceeding
-3. **Never add process attribution comments** to code
-4. **Never commit changes unless user explicitly asks**
-
-📄 **Reference:** `.engineering/agent/workflows/AGENTS.md`
-
----
-
 ## Workflow
 ### Rules
 - **Agents must NOT proceed past checkpoints without user confirmation**.
