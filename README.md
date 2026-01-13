@@ -2,6 +2,24 @@
 
 Packaged workflows for agentic software engineering. Designed to be included as a version-pinned submodule within an orphan `engineering` branch, keeping workflow definitions separate from code history while remaining co-located with the project.
 
+The **engineering branch pattern** uses a Git orphan branch to store planning artifacts, ADRs, and agent configuration alongside your code without polluting its commit history. When cloned locally, it appears as a `.engineering/` folder:
+
+```
+my-project/
+├── src/                       # Your code (main branch)
+├── ...
+└── .engineering/              # Engineering branch (locally ignored)
+    ├── artifacts/
+    │   ├── adr/               # Architecture Decision Records
+    │   ├── planning/          # Work package plans
+    │   ├── reviews/           # Code reviews
+    │   └── templates/         # Reusable templates
+    ├── agent/
+    │   ├── workflows/         # ← This repo (submodule)
+    │   └── metadata/          # Private metadata (optional)
+    └── scripts/               # Update scripts
+```
+
 ## Overview
 
 Each workflow is a self-contained, revisioned package that an agent (or human) can follow consistently across projects. Workflows include:
