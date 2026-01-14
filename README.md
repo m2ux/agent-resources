@@ -37,6 +37,30 @@ Each workflow is a self-contained, revisioned package that an agent (or human) c
 
 *More workflows coming soon.*
 
+## Getting Started
+
+### 1. Deploy to Your Project
+
+```bash
+# Download and run the deployment script
+curl -O https://raw.githubusercontent.com/m2ux/agent-workflows/main/deploy.sh
+./deploy.sh
+```
+
+This creates a `.engineering/` folder containing the workflows. See [Deployment](#deployment) for options.
+
+### 2. Start a Work Package
+
+In your AI assistant chat, add the workflow entry point and describe your task:
+
+```
+@.engineering/agent/workflows/work-package/_START_HERE.md
+
+I want to implement [describe your feature, bug fix, or enhancement here]
+```
+
+The agent will read the mandatory rules and guide you through the workflow phases: issue creation, requirements, research, planning, implementation, and validation.
+
 ## Layout
 
 ```
