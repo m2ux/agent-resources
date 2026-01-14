@@ -1056,7 +1056,9 @@ git branch --show-current
 
 **After completing each task, explicitly identify assumptions made during implementation.**
 
-📄 **Reference:** Follow the [Assumptions Guide](assumptions-guide.md) for assumption categories, self-review questions, and the log template.
+**Preferred approach:** Use the interview-style review, presenting assumptions one at a time with numbered alternatives for the user to choose from.
+
+📄 **Reference:** Follow the [Assumptions Guide](assumptions-guide.md) for the interview format, assumption categories, self-review questions, and the log template.
 
 ### 5.3 Code Quality Checklist
 
@@ -1191,7 +1193,9 @@ WP: Hybrid Search Implementation (Task 2)
 
 ### 5.7 🛑 Task Progress & Assumption Review Checkpoint
 
-After each task, **STOP and report progress AND assumptions:**
+After each task, **STOP and report progress AND assumptions.**
+
+> **Note:** For assumption review, prefer the **interview-style approach** (one assumption at a time with alternatives) described in the [Assumptions Guide](assumptions-guide.md). The batch format below is an alternative when assumptions are straightforward.
 
 ```markdown
 ## ✅ Task N Complete
@@ -1385,7 +1389,7 @@ After completing all tasks, **STOP and present the significance assessment:**
 
 **Steps:**
 
-1. Create ADR file: `docs/decisions/adr-work-package-name.md`
+1. Create ADR file: `.engineering/artifacts/adr/NNNN-work-package-name.md`
 2. Set status to **Accepted** (since implementation is complete)
 3. Document the actual architectural decisions made during implementation
 4. Include **Consequences** section (positive, negative, neutral)
@@ -1400,7 +1404,7 @@ After creating the ADR, **STOP and confirm with user:**
 ```markdown
 ## 📋 ADR Created
 
-**ADR:** `docs/decisions/adr-work-package-name.md`
+**ADR:** `.engineering/artifacts/adr/NNNN-work-package-name.md`
 **Status:** Accepted
 
 **Key Decisions Documented:**
@@ -1629,11 +1633,11 @@ Update the PR description to reflect the completed implementation.
 📄 **Reference:** Follow the [PR Description Guide](pr-description-guide.md) for the full template and section guidelines.
 
 > **Important:** If an ADR exists, link to it on the *feature branch*, not main. Use the format:
-> `https://github.com/OWNER/REPO/blob/BRANCH-NAME/docs/decisions/adr-name.md`
+> `https://github.com/OWNER/REPO/blob/BRANCH-NAME/.engineering/artifacts/adr/NNNN-name.md`
 >
-> Example: `**ADR:** [adr-work-package-name](https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/feat/work-package-name/docs/decisions/adr-work-package-name.md)`
+> Example: `**ADR:** [NNNN-work-package-name](https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/feat/work-package-name/.engineering/artifacts/adr/NNNN-work-package-name.md)`
 >
-> Relative links like `docs/decisions/adr-name.md` resolve to main, which won't contain the ADR until the PR is merged.
+> Relative links like `.engineering/artifacts/adr/NNNN-name.md` resolve to main, which won't contain the ADR until the PR is merged.
 
 **Updating the PR Description:**
 

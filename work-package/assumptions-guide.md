@@ -157,6 +157,71 @@ This provides context for why an assumption was made and what alternatives were 
 
 ---
 
+## Interactive Assumption Review (Interview Style)
+
+**Preferred approach:** Present assumptions one at a time as questions, with numbered alternatives for the user to choose from.
+
+### Format
+
+For each assumption, present:
+
+```markdown
+## 📋 Assumption Review (N of M)
+
+**Type:** [Design | Behaviour | Scope | Interface | ...]
+
+**Assumption:** [The assumption made]
+
+**Rationale:** [Why this seemed reasonable]
+
+**Alternatives:**
+1. ✅ **Current choice** - [Description of current implementation]
+2. [Alternative approach] - [Brief description]
+3. [Another alternative] - [Brief description]
+4. Other (please specify)
+
+---
+**Options:** Type a number to select an alternative, or **"skip"** to confirm the current choice.
+```
+
+### User Response Options
+
+| Response | Meaning | Agent Action |
+|----------|---------|--------------|
+| `skip` | Current choice is correct | Mark confirmed, proceed to next |
+| `1`, `2`, `3`, etc. | Select numbered alternative | Implement change, mark corrected |
+| Free text | Custom alternative | Discuss and implement as directed |
+
+### Benefits
+
+- **Reduces cognitive load** — User reviews one decision at a time
+- **Surfaces alternatives** — Makes implicit trade-offs explicit
+- **Enables quick confirmation** — "skip" for uncontroversial assumptions
+- **Supports informed decisions** — User sees options before choosing
+
+### When to Use Interview Style
+
+Use the interview-style approach when:
+- Multiple assumptions need review (3+)
+- Assumptions involve design trade-offs with clear alternatives
+- User prefers interactive review over batch review
+
+Use batch/table format when:
+- Few assumptions (1-2)
+- Assumptions are straightforward confirmations
+- User explicitly requests summary format
+
+### Research Context
+
+Before presenting alternatives, the agent should research:
+- Existing patterns in the codebase for similar decisions
+- SDK/framework conventions that may apply
+- Previous implementations of similar functionality
+
+Include this context when presenting alternatives to enable informed decisions.
+
+---
+
 ## Workflow Integration
 
 ### When to Create the Log

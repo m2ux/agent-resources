@@ -612,18 +612,18 @@ The decision will be validated through:
 adr-descriptive-name.md
 ```
 
-- Use `adr-` prefix followed by kebab-case descriptive name
+- Use `NNNN-` prefix (sequential number) followed by kebab-case descriptive name
 - Keep names concise but meaningful
-- Examples: `adr-typescript-nodejs-runtime.md`, `adr-vector-storage.md`
+- Examples: `0001-typescript-nodejs-runtime.md`, `0002-vector-storage.md`
 
 ### Storage Location
 
 ```
-docs/decisions/
-├── adr-typescript-nodejs-runtime.md
-├── adr-lancedb-vector-storage.md
+.engineering/artifacts/adr/
+├── 0001-typescript-nodejs-runtime.md
+├── 0002-lancedb-vector-storage.md
 ├── ...
-└── adr-content-metadata-extraction.md
+└── NNNN-content-metadata-extraction.md
 ```
 
 ### Version Control
@@ -640,7 +640,7 @@ ADRs can operate at different scopes depending on the decision's impact:
 
 | Scope | Description | Storage | Example |
 |-------|-------------|---------|---------|
-| **Project** | Affects only this codebase | `docs/decisions/` | Choice of ORM library |
+| **Project** | Affects only this codebase | `.engineering/artifacts/adr/` | Choice of ORM library |
 | **Team** | Affects multiple projects owned by one team | Shared team docs repo | API versioning strategy |
 | **Organization** | Affects all teams | Central architecture docs | Authentication standard |
 
@@ -672,7 +672,7 @@ Start with plain Markdown files. Adopt tooling when:
 
 > "Get a sense of what works best for your team. Then, as your needs grow, go find a tool that fits those needs." — Head First Software Architecture
 
-**Recommendation:** For most projects, plain Markdown files in `docs/decisions/` with consistent naming are sufficient.
+**Recommendation:** For most projects, plain Markdown files in `.engineering/artifacts/adr/` with consistent naming are sufficient.
 
 ---
 
