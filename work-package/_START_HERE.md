@@ -17,7 +17,7 @@ This file contains critical guidelines for:
 3. **Never add process attribution comments** to code
 4. **Never commit changes unless user explicitly asks**
 
-📄 **Reference:** `.engineering/agent/workflows/AGENTS.md`
+📄 **Reference:** [AGENTS.md](../AGENTS.md)
 
 ---
 
@@ -37,7 +37,7 @@ The [Work Package Implementation Workflow](workflow.md) defines how to plan and 
 
 ## Getting Started
 
-1. **Read AGENTS.md** in the project root or `.engineering/agent/` directory
+1. **Read [AGENTS.md](../AGENTS.md)** (`.engineering/agent/workflows/AGENTS.md`)
 2. **Read the full [workflow.md](workflow.md)** to understand the complete process
 3. **Follow each phase in sequence**, respecting all checkpoints
 4. **Use the reference guides** linked from each workflow phase for detailed instructions
