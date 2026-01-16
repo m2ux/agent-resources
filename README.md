@@ -41,13 +41,15 @@ Each workflow is a self-contained, revisioned package that an agent (or human) c
 
 ### 1. Deploy to Your Project
 
+From the root of your target project:
+
 ```bash
 # Download and run the deployment script
 curl -O https://raw.githubusercontent.com/m2ux/agent-workflows/main/deploy.sh
 ./deploy.sh
 ```
 
-This creates a `.engineering/` folder containing the workflows. See [Deployment](#deployment) for options.
+This creates a `.engineering/` folder in your project containing the workflows. See [Deployment](#deployment) for options.
 
 ### 2. Start a Work Package
 

@@ -16,7 +16,7 @@ The primary technique used here is **assumption elevation** — the process of m
 
 ## Sources of False Assumptions
 
-Understanding *why* assumptions go wrong helps prevent errors. Four primary origins create incorrect assumptions:
+Understanding *why* assumptions go wrong helps prevent errors. Five primary origins create incorrect assumptions:
 
 | Source | Description | Prevention Strategy |
 |--------|-------------|---------------------|
@@ -24,6 +24,7 @@ Understanding *why* assumptions go wrong helps prevent errors. Four primary orig
 | **Invalidation over time** | Previously true assumptions that are no longer valid | Revisit assumptions when context, requirements, or environment changes |
 | **Turnpike effects** | Changing conditions that invalidate prior decisions mid-implementation | Monitor for environmental changes; re-validate long-standing assumptions |
 | **Requirements leakage** | Undocumented requirements communicated verbally or implied | Document all decisions, not just written requirements |
+| **Overlooking existing solutions** | Building new components when existing infrastructure already handles the case | Search codebase for similar patterns before proposing new abstractions; check build scripts, deployment tools, and adjacent layers |
 
 ---
 
@@ -72,21 +73,23 @@ After completing a task, review your implementation against these questions:
 ### Design Questions
 
 5. **What alternatives did I reject?** — Why was this approach chosen over others?
-6. **What implicit contracts exist?** — Are there undocumented expectations about inputs, ordering, or state?
-7. **What edge cases did I handle (or ignore)?** — How will the code behave in unexpected situations?
+6. **Is this problem already solved?** — Does existing infrastructure, configuration, or a different layer already handle this case? Check build scripts, deployment tools, and adjacent components before proposing new code.
+7. **Is this the simplest solution?** — Could this be solved with less code, fewer abstractions, or existing configuration? Complexity should be justified by requirements, not assumed.
+8. **What implicit contracts exist?** — Are there undocumented expectations about inputs, ordering, or state?
+9. **What edge cases did I handle (or ignore)?** — How will the code behave in unexpected situations?
 
 ### Scope Questions
 
-8. **What did I assume about scope boundaries?** — Did I make assumptions about what is explicitly *out of scope*?
-9. **What would I do differently with more context?** — Are there decisions I'm uncertain about?
+10. **What did I assume about scope boundaries?** — Did I make assumptions about what is explicitly *out of scope*?
+11. **What would I do differently with more context?** — Are there decisions I'm uncertain about?
 
 ### Context-Free Questions
 
 These high-level questions apply to any implementation task:
 
-10. **Process:** Who should have been consulted about this decision?
-11. **Product:** What problem does this solve, and did I solve the right one?
-12. **Meta:** Am I asking the right questions about this implementation?
+12. **Process:** Who should have been consulted about this decision?
+13. **Product:** What problem does this solve, and did I solve the right one?
+14. **Meta:** Am I asking the right questions about this implementation?
 
 ---
 
@@ -373,6 +376,7 @@ After each task checkpoint, once the user has reviewed and responded to assumpti
 | Invalidation over time | X | X% |
 | Turnpike effects | X | X% |
 | Requirements leakage | X | X% |
+| Overlooking existing solutions | X | X% |
 
 ### Ambiguity Source Analysis
 
