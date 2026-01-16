@@ -134,9 +134,10 @@ I didn't find a GitHub or Jira issue associated with this work package.
 - Stakeholder visibility
 
 **Options:**
-1. **Provide existing issue** - Share the issue number or URL
-2. **Create new issue** - I'll help draft one using the Issue Creation Guide
-3. **Skip issue** - Proceed without (not recommended for non-trivial work)
+1. **Provide existing issue** - Share the issue number or URL (GitHub #N or Jira PROJ-N)
+2. **Create GitHub issue** - I'll help draft one using the GitHub Issue Creation Guide
+3. **Create Jira issue** - I'll help draft one using the Jira Issue Creation Guide (Atlassian MCP)
+4. **Skip issue** - Proceed without (not recommended for non-trivial work)
 
 ---
 **Which option would you like?**
@@ -144,26 +145,33 @@ I didn't find a GitHub or Jira issue associated with this work package.
 
 ### 1.3 Creating a New Issue
 
-📄 **Reference:** Follow the [Issue Creation Guide](github-issue-creation.guide.md) for template, methodology, and rules about problem-focused (not solution-focused) issues.
+Choose the appropriate guide based on where the issue will be tracked:
+
+| Platform | Guide | When to Use |
+|----------|-------|-------------|
+| **GitHub** | [GitHub Issue Creation Guide](github-issue-creation.guide.md) | GitHub-hosted projects, open source |
+| **Jira** | [Jira Issue Creation Guide](jira-issue-creation.guide.md) | Enterprise projects, Atlassian ecosystem |
+
+> **Key Principle (both platforms):** Issues define *problems*, not solutions. Focus on what's broken/missing and why it matters.
 
 **Issue Creation Process:**
 
 ```
 ┌─────────────────────────────────────┐
-│ 1. Draft Problem Statement          │
+│ 1. Select Platform                  │
+│    - GitHub or Jira?                │
+│    - Follow appropriate guide       │
+└────────────┬────────────────────────┘
+             │
+┌────────────▼────────────────────────┐
+│ 2. Draft Problem Statement          │
 │    - What's broken/missing?         │
 │    - Current vs desired state       │
 └────────────┬────────────────────────┘
              │
 ┌────────────▼────────────────────────┐
-│ 2. Define Scope                     │
-│    - In scope items                 │
-│    - Out of scope items             │
-└────────────┬────────────────────────┘
-             │
-┌────────────▼────────────────────────┐
-│ 3. Write User Stories               │
-│    - As a [user], I want [X]        │
+│ 3. Define Scope & User Stories      │
+│    - In/out scope items             │
 │    - Acceptance criteria            │
 └────────────┬────────────────────────┘
              │
@@ -172,17 +180,18 @@ I didn't find a GitHub or Jira issue associated with this work package.
 └────────────┬────────────────────────┘
              │
 ┌────────────▼────────────────────────┐
-│ 4. Create GitHub Issue              │
-│    - Use gh api or gh issue create  │
+│ 4. Create Issue                     │
+│    - GitHub: gh CLI or API          │
+│    - Jira: Atlassian MCP tools      │
 └─────────────────────────────────────┘
 ```
 
-**Creating the issue:**
+#### GitHub Issue Creation
 
 ```bash
 # Write issue body to temp file
 cat > /tmp/issue-body.md << 'EOF'
-[Issue content following Issue Creation Guide template]
+[Issue content following GitHub Issue Creation Guide template]
 EOF
 
 # Create issue using GitHub CLI
@@ -192,6 +201,16 @@ gh issue create --title "Issue Title" --body "$(cat /tmp/issue-body.md)"
 gh api repos/OWNER/REPO/issues -X POST \
   -f title="Issue Title" \
   -f body="$(cat /tmp/issue-body.md)"
+```
+
+#### Jira Issue Creation
+
+Use Atlassian MCP tools (see [Jira Issue Creation Guide](jira-issue-creation.guide.md) for full workflow):
+
+```
+1. mcp_atlassian_getAccessibleAtlassianResources → cloudId
+2. mcp_atlassian_getVisibleJiraProjects → projectKey (🛑 ask user)
+3. mcp_atlassian_createJiraIssue → issue created
 ```
 
 ### 1.4 🛑 Issue Created Checkpoint
