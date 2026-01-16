@@ -14,10 +14,10 @@ my-project/
     │   ├── planning/          # Work package plans
     │   ├── reviews/           # Code reviews
     │   └── templates/         # Reusable templates
-    ├── agent/
-    │   ├── resources/         # ← This repo (submodule)
-    │   └── metadata/          # Private metadata (optional)
-    └── scripts/               # Update scripts
+    └── agent/
+        ├── resources/         # ← This repo (submodule)
+        │   └── scripts/       # Update scripts (included)
+        └── metadata/          # Private metadata (optional)
 ```
 
 ## Overview
@@ -67,6 +67,9 @@ The agent will read the mandatory rules and guide you through the workflow phase
 agent-resources/
 ├── AGENTS.md              # AI agent behavior guidelines (shared)
 ├── deploy.sh              # Engineering branch deployment script
+├── scripts/               # Submodule update scripts
+│   ├── update-resources.sh  # Update this submodule to a version tag
+│   └── update-metadata.sh   # Update metadata submodule to latest
 └── workflows/             # Workflow definitions
     └── work-package/      # Work package workflow
         ├── _START_HERE.md # Entry point for workflow inclusion
@@ -114,11 +117,11 @@ The script:
 ```bash
 cd .engineering
 
-# Update workflows to specific version
-./scripts/update-workflows.sh v0.3.0
+# Update resources to specific version
+./agent/resources/scripts/update-resources.sh v0.3.0
 
 # Update metadata to latest
-./scripts/update-metadata.sh
+./agent/resources/scripts/update-metadata.sh
 ```
 
 ## Contributing

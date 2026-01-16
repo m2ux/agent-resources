@@ -14,10 +14,9 @@ This repository is deployed as a **submodule work-tree** within a project's `.en
 .engineering/                  # Gitignored worktree (separate git repo)
 ├── agent/
 │   ├── resources/             # ← This repo (m2ux/agent-resources)
+│   │   └── scripts/           # Submodule update scripts (included)
 │   └── metadata/              # Submodule: m2ux/ai-metadata
-├── artifacts/                 # Project-specific planning artifacts
-└── scripts/
-    └── update-resources.sh    # Updates this submodule to a tagged version
+└── artifacts/                 # Project-specific planning artifacts
 ```
 
 The `.engineering/` folder is **gitignored** by the host project - it exists as a separate git repository for engineering artifacts, not tracked by the main project. Within it, `agent/resources/` and `agent/metadata/` are **submodule work-trees** pointing to external repositories.
