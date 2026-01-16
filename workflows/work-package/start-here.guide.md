@@ -1,4 +1,4 @@
-# Work Package START-HERE Template
+# Work Package START-HERE Guide
 
 **Purpose:** Guidelines for creating the `START-HERE.md` executive summary document for work package planning folders.
 
@@ -232,6 +232,6 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Work Package README](readme.template.md)
+- [Work Package README](readme.guide.md)
 - [High-Level Planning Workflow](high-level-planning-workflow.md)
 

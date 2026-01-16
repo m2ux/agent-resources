@@ -1,4 +1,4 @@
-# Work Package README Template
+# Work Package README Guide
 
 **Purpose:** Guidelines for creating the `README.md` quick navigation document for work package planning folders.
 
@@ -212,6 +212,6 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Work Package START-HERE](start-here.template.md)
+- [Work Package START-HERE](start-here.guide.md)
 - [High-Level Planning Workflow](high-level-planning-workflow.md)
 

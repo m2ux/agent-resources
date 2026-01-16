@@ -283,4 +283,4 @@ This guide is used in **Phase 4: Plan & Prepare** of the work package workflow.
 📄 **Related Guides:**
 - [Knowledge Base Research Guide](knowledge-base-research.guide.md) — Research before design
 - [Implementation Analysis Guide](implementation-analysis.guide.md) — Understand existing state
-- [Work Package Plan](../workflows/work-package/plan.template.md) — Document the design
+- [Work Package Plan](../workflows/work-package/plan.guide.md) — Document the design

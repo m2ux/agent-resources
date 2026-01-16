@@ -1,4 +1,4 @@
-# Work Package Plan Template
+# Work Package Plan Guide
 
 **Purpose:** Guidelines for creating the `01-work-package-plan.md` detailed implementation plan for work package planning folders.
 
@@ -384,8 +384,8 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Work Package START-HERE](start-here.template.md)
-- [Work Package README](readme.template.md)
+- [Work Package START-HERE](start-here.guide.md)
+- [Work Package README](readme.guide.md)
 - [Knowledge Base Research Guide](../guides/knowledge-base-research.guide.md)
 - [Implementation Analysis Guide](../guides/implementation-analysis.guide.md)
 - [Architecture Review Guide](../guides/architecture-review.guide.md)
