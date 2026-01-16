@@ -3,7 +3,7 @@
 
 This workflow defines how to plan and implement ONE work package from inception to merged PR. A **work package** is a discrete unit of work such as a feature, bug-fix, enhancement, refactoring, or any other deliverable change.
 
-**For multiple related work packages:** Use the [High-Level Planning Workflow](high-level-planning-workflow.md) to create a roadmap first.
+**For multiple related work packages:** Use the [Work Packages Workflow](_work-packages.md) to create a roadmap first.
 
 ---
 
@@ -136,7 +136,7 @@ I didn't find a GitHub or Jira issue associated with this work package.
 
 ### 1.3 Creating a New Issue
 
-📄 **Reference:** Follow the [Issue Creation Guide](issue-creation-guide.md) for template, methodology, and rules about problem-focused (not solution-focused) issues.
+📄 **Reference:** Follow the [Issue Creation Guide](github-issue-creation.guide.md) for template, methodology, and rules about problem-focused (not solution-focused) issues.
 
 **Issue Creation Process:**
 
@@ -332,7 +332,7 @@ It can be skipped when:
 
 - [ ] Checked for existing GitHub/Jira issue
 - [ ] 🛑 **Asked user if no issue found**
-- [ ] Issue created (if needed) following [Issue Creation Guide](issue-creation-guide.md)
+- [ ] Issue created (if needed) following [Issue Creation Guide](github-issue-creation.guide.md)
 - [ ] 🛑 **Issue confirmed with user**
 - [ ] Feature branch created with correct naming
 - [ ] Changelog added to `changes/changed/`
@@ -523,7 +523,7 @@ After exploring requirements, **STOP and confirm with user:**
 
 **Create:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/00-requirements-elicitation.md`
 
-📄 **Reference:** Follow the [Requirements Elicitation Guide](requirements-elicitation-guide.md) for the full template and methodology.
+📄 **Reference:** Follow the [Requirements Elicitation Guide](requirements-elicitation.guide.md) for the full template and methodology.
 
 The elicitation document captures:
 - Problem statement and goal
@@ -634,7 +634,7 @@ Before designing an approach, **research the knowledge base** using concept-rag 
 
 **⚠️ MANDATORY:** Call `get_guidance` before making other concept-rag MCP tool calls.
 
-📄 **Reference:** [Knowledge Base Research Guide](knowledge-base-research-guide.md) — Full methodology, templates, and checkpoint format.
+📄 **Reference:** [Knowledge Base Research Guide](knowledge-base-research.guide.md) — Full methodology, templates, and checkpoint format.
 
 **Output:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/02-kb-research.md`
 
@@ -691,11 +691,11 @@ After web research, **STOP and present findings:**
 **Are these external resources relevant? Any additional areas to research?**
 ```
 
-### 3.7 Current Implementation Analysis
+### 3.7 Implementation Analysis
 
 After gathering knowledge base and web research insights, **analyze the current implementation** to understand effectiveness, establish baselines, and identify opportunities for improvement.
 
-📄 **Reference:** [Implementation Analysis Guide](implementation-analysis-guide.md) — Full methodology, templates, and checkpoint format.
+📄 **Reference:** [Implementation Analysis Guide](implementation-analysis.guide.md) — Full methodology, templates, and checkpoint format.
 
 **Output:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/03-implementation-analysis.md`
 
@@ -740,7 +740,7 @@ Design the approach, create the work package plan, and prepare for implementatio
 
 **Consult the Design Framework Guide** before designing the approach to structure problem-solving and identify solution strategies.
 
-📄 **Reference:** [Design Framework Guide](design-framework-guide.md)
+📄 **Reference:** [Design Framework Guide](design-framework.guide.md)
 
 **The framework helps you:**
 - Define the problem clearly before jumping to solutions
@@ -812,7 +812,7 @@ After designing the approach, **STOP and confirm:**
 
 ### 4.5 Work Package Plan Folder
 
-> **Note:** Always use the folder pattern for consistency with [High-Level Planning Workflow](high-level-planning-workflow.md). Even simple work packages benefit from the structured navigation.
+> **Note:** Always use the folder pattern for consistency with [Work Packages Workflow](_work-packages.md). Even simple work packages benefit from the structured navigation.
 
 **Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/`
 
@@ -847,25 +847,25 @@ After designing the approach, **STOP and confirm:**
 
 #### START-HERE.md
 
-📄 **Reference:** Follow the [Work Package START-HERE Template](start-here-template.md) for the full template and guidelines.
+📄 **Reference:** Follow the [Work Package START-HERE](start-here.guide.md) for the full template and guidelines.
 
 ---
 
 #### README.md
 
-📄 **Reference:** Follow the [Work Package README Template](readme-template.md) for the full template and guidelines.
+📄 **Reference:** Follow the [Work Package README](readme.guide.md) for the full template and guidelines.
 
 ---
 
 #### 01-work-package-plan.md
 
-📄 **Reference:** Follow the [Work Package Plan Template](plan-template.md) for the full template and guidelines.
+📄 **Reference:** Follow the [Work Package Plan](plan.guide.md) for the full template and guidelines.
 
 ---
 
 #### 04-assumptions-log.md
 
-📄 **Reference:** Follow the [Assumptions Guide](assumptions-guide.md) for assumption categories, review process, and log template.
+📄 **Reference:** Follow the [Assumptions Guide](assumptions-review.guide.md) for assumption categories, review process, and log template.
 
 ### 4.6 Sync Feature Branch with Main
 
@@ -903,7 +903,7 @@ The test plan documents how the work package's requirements will be validated. A
 2. Use the **Initial Test Plan Template** (placeholder without source links)
 3. List planned test objectives (implementation details come later)
 
-📄 **Reference:** Follow the [Test Plan Creation Guide](test-plan-creation-guide.md) for templates, TDD principles, and guidelines.
+📄 **Reference:** Follow the [Test Plan Creation Guide](test-plan.guide.md) for templates, TDD principles, and guidelines.
 
 > **Note:** The test plan will be finalized in Phase 7 (Finalize) after implementation is complete, adding hyperlinks to actual test locations.
 
@@ -947,7 +947,7 @@ See `changes/changed/[number]-description.md`
 🚧 Implementation in progress
 ```
 
-📄 **Reference:** Follow the [PR Description Guide](pr-description-guide.md) for the full template.
+📄 **Reference:** Follow the [PR Description Guide](pr-description.guide.md) for the full template.
 
 ### 4.9 Create TODO List
 
@@ -1058,7 +1058,7 @@ git branch --show-current
 
 **Preferred approach:** Use the interview-style review, presenting assumptions one at a time with numbered alternatives for the user to choose from.
 
-📄 **Reference:** Follow the [Assumptions Guide](assumptions-guide.md) for the interview format, assumption categories, self-review questions, and the log template.
+📄 **Reference:** Follow the [Assumptions Guide](assumptions-review.guide.md) for the interview format, assumption categories, self-review questions, and the log template.
 
 ### 5.3 Code Quality Checklist
 
@@ -1195,7 +1195,7 @@ WP: Hybrid Search Implementation (Task 2)
 
 After each task, **STOP and report progress AND assumptions.**
 
-> **Note:** For assumption review, prefer the **interview-style approach** (one assumption at a time with alternatives) described in the [Assumptions Guide](assumptions-guide.md). The batch format below is an alternative when assumptions are straightforward.
+> **Note:** For assumption review, prefer the **interview-style approach** (one assumption at a time with alternatives) described in the [Assumptions Guide](assumptions-review.guide.md). The batch format below is an alternative when assumptions are straightforward.
 
 ```markdown
 ## ✅ Task N Complete
@@ -1300,7 +1300,7 @@ After each task, **STOP and report progress AND assumptions.**
 - [Any insights for future tasks]
 ```
 
-📄 **Reference:** See the [Assumptions Guide](assumptions-guide.md) for the log template.
+📄 **Reference:** See the [Assumptions Guide](assumptions-review.guide.md) for the log template.
 
 ### 5.9 Verify Architectural Significance
 
@@ -1395,7 +1395,7 @@ After completing all tasks, **STOP and present the significance assessment:**
 4. Include **Consequences** section (positive, negative, neutral)
 5. Commit with message: `docs(adr): add ADR for [work package name]`
 
-📄 **Reference:** Follow the [ADR Creation Guide](adr-creation-guide.md) for full template, architectural significance criteria, and guidelines.
+📄 **Reference:** Follow the [Architecture Review Guide](architecture-review.guide.md) for full template, architectural significance criteria, and guidelines.
 
 #### 🛑 ADR Checkpoint
 
@@ -1563,7 +1563,7 @@ If a placeholder test plan was created in Phase 4, update it with implementation
 3. Expand the table with Steps and Expected Result columns
 4. Add verified Running Tests commands
 
-📄 **Reference:** Use the **Final Test Plan Template** from the [Test Plan Creation Guide](test-plan-creation-guide.md).
+📄 **Reference:** Use the **Final Test Plan Template** from the [Test Plan Creation Guide](test-plan.guide.md).
 
 Commit with the ADR update or separately:
 
@@ -1575,7 +1575,7 @@ git commit -m "docs: finalize test plan with source links"
 
 **Create:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/COMPLETE.md`
 
-📄 **Reference:** Follow the [Work Package Completion Template](complete-template.md) for the full template and guidelines.
+📄 **Reference:** Follow the [Work Package Completion](complete.guide.md) for the full template and guidelines.
 
 ### 7.4 Inline Documentation
 
@@ -1630,7 +1630,7 @@ git push origin type/work-package-name
 
 Update the PR description to reflect the completed implementation.
 
-📄 **Reference:** Follow the [PR Description Guide](pr-description-guide.md) for the full template and section guidelines.
+📄 **Reference:** Follow the [PR Description Guide](pr-description.guide.md) for the full template and section guidelines.
 
 > **Important:** If an ADR exists, link to it on the *feature branch*, not main. Use the format:
 > `https://github.com/OWNER/REPO/blob/BRANCH-NAME/.engineering/artifacts/adr/NNNN-name.md`
@@ -1709,7 +1709,7 @@ Update work package plan status:
 ### Issue Verification & PR Creation (Phase 1)
 - [ ] Checked for existing GitHub/Jira issue
 - [ ] 🛑 **Asked user if no issue found**
-- [ ] Issue created if needed (see [Issue Creation Guide](issue-creation-guide.md))
+- [ ] Issue created if needed (see [Issue Creation Guide](github-issue-creation.guide.md))
 - [ ] 🛑 **Issue confirmed with user**
 - [ ] Feature branch created with correct naming
 - [ ] Changelog added to `changes/changed/`
@@ -1767,7 +1767,7 @@ Update work package plan status:
 ### Finalize (Phase 7)
 - [ ] ADR verified (if exists)
 - [ ] Test plan finalized with source links (if applicable)
-- [ ] COMPLETE.md written (see [Completion Template](complete-template.md))
+- [ ] COMPLETE.md written (see [Completion](complete.guide.md))
 - [ ] Inline docs complete
 
 ### Update PR (Phase 8)
@@ -1782,7 +1782,7 @@ Update work package plan status:
 
 | Don't | Why |
 |-------|-----|
-| Skip issue verification | No traceability, unclear requirements, stakeholders can't track (see [Issue Creation Guide](issue-creation-guide.md)) |
+| Skip issue verification | No traceability, unclear requirements, stakeholders can't track (see [Issue Creation Guide](github-issue-creation.guide.md)) |
 | Prescribe solutions in issues | Issues define problems, not implementations; constrains design options. **Never include "Solution", "Implementation Approach", algorithms, or code locations in issues.** |
 | Skip elicitation without asking user | User should decide if elicitation is needed; assumptions compound into wrong implementation |
 | Skip research without asking user | User should decide if research is needed; may miss patterns, best practices, or baseline analysis |
@@ -1802,18 +1802,18 @@ Update work package plan status:
 | Monolithic commits | Can't track issues, hard to review/revert |
 | Poor commit messages | No context for future maintainers |
 | Skip architectural significance check | Creates unnecessary ADRs for trivial changes or misses ADRs for significant ones |
-| Skip ADR for architecturally significant decisions | Decision rationale lost forever (see [ADR Creation Guide](adr-creation-guide.md)) |
+| Skip ADR for architecturally significant decisions | Decision rationale lost forever (see [Architecture Review Guide](architecture-review.guide.md)) |
 | Modify historical ADRs | ADRs are immutable historical records; create new ADR if decision changes |
-| Skip test plan | No traceability from docs to tests (see [Test Plan Creation Guide](test-plan-creation-guide.md)) |
+| Skip test plan | No traceability from docs to tests (see [Test Plan Creation Guide](test-plan.guide.md)) |
 | Skip validation | Broken code gets merged |
 | Multiple WPs at once | Mixed commits, confusing PRs |
 | Skip planning | Scope creep, wasted effort |
 | Skip checkpoints | Assumptions lead to wrong implementation |
 | Skip assumption review | Hidden design decisions compound errors; user loses opportunity to correct course early |
-| Skip KB research | Missing applicable patterns and practices (see [KB Research Guide](knowledge-base-research-guide.md)) |
+| Skip KB research | Missing applicable patterns and practices (see [KB Research Guide](knowledge-base-research.guide.md)) |
 | Skip `get_guidance` at session start | Inefficient searching, wrong tool selection, excessive tool calls |
 | Narrate search process | Users want synthesized answers with citations, not play-by-play of searches |
-| Skip analysis | No baseline, can't measure success, miss opportunities (see [Implementation Analysis Guide](implementation-analysis-guide.md)) |
+| Skip analysis | No baseline, can't measure success, miss opportunities (see [Implementation Analysis Guide](implementation-analysis.guide.md)) |
 
 ---
 

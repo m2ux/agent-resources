@@ -1,16 +1,16 @@
-# Self-Review Guide
+# Task Completion Review Guide
 
-**Purpose:** Define the self-review process for code and documentation changes during implementation. This guide covers assumption review, symbol verification, and quality checks that must be performed after each task.
+**Purpose:** Define the review process performed upon completing each implementation task. This guide covers the verification steps, assumption surfacing, and quality checks that ensure work is ready for user confirmation before proceeding to the next task.
 
-**When to use:** Throughout Phase 5 (Implementation) of the [Work Package Implementation Workflow](_workflow.md), after completing each task.
+**When to use:** Throughout Phase 5 (Implementation) of the [Work Package Implementation Workflow](_work-package.md), after completing each task.
 
 ---
 
 ## Overview
 
-**After completing each task, perform a self-review before requesting user confirmation.** This step catches errors, surfaces assumptions, and ensures all changes are grounded in the actual codebase.
+**After completing each task, perform a task completion review before requesting user confirmation.** This step catches errors, surfaces assumptions, and ensures all changes are grounded in the actual codebase.
 
-The self-review has three mandatory components:
+The task completion review has three mandatory components:
 
 1. **Symbol Verification** — Ensure all symbols have provenance in the codebase
 2. **Assumption Review** — Surface implicit design decisions for user validation
@@ -331,6 +331,6 @@ git diff origin/main --name-only
 
 ## Related Guides
 
-- [Assumptions Guide](assumptions-guide.md) — Detailed assumption categories and log template
-- [Work Package Workflow](_workflow.md) — Overall implementation workflow
-- [ADR Creation Guide](adr-creation-guide.md) — Architecture decision records
+- [Assumptions Guide](assumptions-review.guide.md) — Detailed assumption categories and log template
+- [Work Package Workflow](_work-package.md) — Overall implementation workflow
+- [Architecture Review Guide](architecture-review.guide.md) — Architecture decision records

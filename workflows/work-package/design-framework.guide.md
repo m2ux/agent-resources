@@ -37,7 +37,7 @@ Before designing a solution, apply a structured design framework to:
 
 This guide uses the **TRIZICS Software Design** methodology, adapted from systematic innovation principles.
 
-📄 **Full Reference:** [TRIZICS Software Design Quick Reference](.engineering/agent/workflows/resources/trizics-software-design-quick-reference.md)
+📄 **Full Reference:** [TRIZICS Software Design Quick Reference](.engineering/agent/resources/trizics-software-design-quick-reference.md)
 
 ### The 5-Step Design Roadmap
 
@@ -281,6 +281,6 @@ This guide is used in **Phase 4: Plan & Prepare** of the work package workflow.
 5. Proceed to implementation
 
 📄 **Related Guides:**
-- [Knowledge Base Research Guide](knowledge-base-research-guide.md) — Research before design
-- [Implementation Analysis Guide](implementation-analysis-guide.md) — Understand current state
-- [Work Package Plan Template](plan-template.md) — Document the design
+- [Knowledge Base Research Guide](knowledge-base-research.guide.md) — Research before design
+- [Implementation Analysis Guide](implementation-analysis.guide.md) — Understand existing state
+- [Work Package Plan](plan.guide.md) — Document the design

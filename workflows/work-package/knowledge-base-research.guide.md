@@ -316,7 +316,7 @@ We should probably use caching to make things faster.
 
 ## Integration with Workflow
 
-This guide supports Phase 0 (Planning) of the [Work Package Implementation Workflow](_workflow.md):
+This guide supports Phase 0 (Planning) of the [Work Package Implementation Workflow](_work-package.md):
 
 1. **After requirements confirmed** → Begin KB research
 2. **Complete research** → Store in `02-kb-research.md`
@@ -327,7 +327,7 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 
 ## Related Guides
 
-- [Work Package Implementation Workflow](_workflow.md)
-- [Implementation Analysis Guide](implementation-analysis-guide.md)
-- [ADR Creation Guide](adr-creation-guide.md)
+- [Work Package Implementation Workflow](_work-package.md)
+- [Implementation Analysis Guide](implementation-analysis.guide.md)
+- [Architecture Review Guide](architecture-review.guide.md)
 

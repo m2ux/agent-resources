@@ -6,6 +6,23 @@ This document provides guidelines for AI agents working on this project. It cove
 
 > **Note on Time Estimates:** All effort estimates refer to **agentic (AI-assisted) development time** plus separate **human review time**.
 
+## Deployment Context
+
+This repository is deployed as a **submodule work-tree** within a project's `.engineering` folder:
+
+```
+.engineering/                  # Gitignored worktree (separate git repo)
+├── agent/
+│   ├── resources/             # ← This repo (m2ux/agent-resources)
+│   │   └── scripts/           # Submodule update scripts (included)
+│   └── metadata/              # Submodule: m2ux/ai-metadata
+└── artifacts/                 # Project-specific planning artifacts
+```
+
+The `.engineering/` folder is **gitignored** by the host project - it exists as a separate git repository for engineering artifacts, not tracked by the main project. Within it, `agent/resources/` and `agent/metadata/` are **submodule work-trees** pointing to external repositories.
+
+Changes to this file require commits in this repository (`m2ux/agent-resources`), not in the host project.
+
 ## Agent Guardrails
 
 ### Code Modification Boundaries
@@ -33,22 +50,6 @@ This document provides guidelines for AI agents working on this project. It cove
 - Avoid changes to build scripts unless specifically requested
 - Be cautious with database migration files and schema changes
 - Request approval before modifying CI/CD configuration or Docker files
-
-### Gitignored Folders
-
-**NEVER commit files in `.ai/` folder - it is gitignored!**
-
-- `.ai/planning/*` - Local planning documents only
-- `.ai/prompts/*` - Workflow templates
-- `.ai/history/*` - Session history
-
-**What TO commit:** Source code, tests, ADRs in `docs/decisions/`, non-gitignored documentation.
-
-**NEVER reference `.ai/` paths in committed files:**
-- ❌ Do NOT reference `.ai/planning/*` in ADRs, source code, or any committed documentation
-- ❌ Do NOT include paths like `.ai/planning/YYYY-MM-DD-work-package-name/` in commit messages or ADRs
-- ✅ DO reference only committed files (e.g., ADRs, source code) in committed documentation
-- **Rationale:** `.ai/` folder is gitignored and local-only; references break for other developers
 
 ## Communication Standards
 
@@ -248,10 +249,10 @@ gh issue list
 
 **Before EVERY `git add` or `git commit`, verify:**
 
-- [ ] **NO files from `.ai/` are staged** - This folder is gitignored and local-only
 - [ ] User explicitly requested the commit
+- [ ] For Rust projects: Run `cargo fmt` to format code before committing
 
-The `.ai/` folder contains local planning documents, prompts, and session history that must NEVER be committed to the repository.
+**Rust formatting:** Always run `cargo fmt` before staging Rust files. Many Rust projects enforce formatting in CI, and unformatted code will fail checks.
 
 ### Destructive Operations
 

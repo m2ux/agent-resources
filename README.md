@@ -1,6 +1,6 @@
-# Agent Workflows
+# Agent Resources
 
-Packaged workflows for agentic software engineering. Designed to be included as a version-pinned submodule within an orphan `engineering` branch in your project repository, keeping workflow definitions separate from code history while remaining co-located with the project.
+Packaged workflows and resources for agentic software engineering. Designed to be included as a version-pinned submodule within an orphan `engineering` branch in your project repository, keeping workflow definitions separate from code history while remaining co-located with the project.
 
 The **engineering branch pattern** uses a Git orphan branch to store planning artifacts, ADRs, and agent configuration alongside your code without polluting its commit history. When cloned locally, it appears as a `.engineering/` folder:
 
@@ -14,10 +14,10 @@ my-project/
     │   ├── planning/          # Work package plans
     │   ├── reviews/           # Code reviews
     │   └── templates/         # Reusable templates
-    ├── agent/
-    │   ├── workflows/         # ← This repo (submodule)
-    │   └── metadata/          # Private metadata (optional)
-    └── scripts/               # Update scripts
+    └── agent/
+        ├── resources/         # ← This repo (submodule)
+        │   └── scripts/       # Update scripts (included)
+        └── metadata/          # Private metadata (optional)
 ```
 
 ## Overview
@@ -33,7 +33,7 @@ Each workflow is a self-contained, revisioned package that an agent (or human) c
 
 | Workflow | Description |
 |----------|-------------|
-| [`work-package/`](work-package/) | Planning and implementation workflow for features and enhancements |
+| [`work-package/`](workflows/work-package/) | Planning and implementation workflow for features and enhancements |
 
 *More workflows coming soon.*
 
@@ -41,12 +41,11 @@ Each workflow is a self-contained, revisioned package that an agent (or human) c
 
 ### 1. Deploy to Your Project
 
-git push
 From the root of your target project:
 
 ```bash
 # Download and run the deployment script
-curl -O https://raw.githubusercontent.com/m2ux/agent-workflows/main/deploy.sh
+curl -O https://raw.githubusercontent.com/m2ux/agent-resources/main/deploy.sh
 ./deploy.sh
 ```
 
@@ -57,7 +56,7 @@ This creates a `.engineering/` folder in your project containing the workflows. 
 In your AI assistant chat, add the workflow entry point and describe your task:
 
 ```
-@.engineering/agent/workflows/work-package/_START_HERE.md
+@.engineering/agent/resources/workflows/work-package/_START_HERE.md
 
 I want to implement [describe your feature, bug fix, or enhancement here]
 ```
@@ -67,22 +66,22 @@ The agent will read the mandatory rules and guide you through the workflow phase
 ## Layout
 
 ```
-agent-workflows/
+agent-resources/
 ├── AGENTS.md              # AI agent behavior guidelines (shared)
 ├── deploy.sh              # Engineering branch deployment script
-├── work-package/          # Work package workflow
-│   ├── _START_HERE.md     # Entry point for workflow inclusion
-│   ├── workflow.md        # Main workflow document
-│   ├── *-guide.md         # Step-by-step guides
-│   └── *-template.md      # Templates
-└── <future-workflow>/     # Additional workflows follow same pattern
+├── scripts/               # Submodule update scripts
+│   ├── update-resources.sh  # Update this submodule to a version tag
+│   └── update-metadata.sh   # Update metadata submodule to latest
+└── workflows/             # Workflow definitions
+    └── work-package/      # Work package workflow
+        ├── _START_HERE.md # Entry point for workflow inclusion
+        ├── _work-package.md  # Single work package workflow
+        ├── _work-packages.md # Multi work package workflow
+        ├── *.guide.md     # Step-by-step guides
+        └── references.md  # External references
 ```
 
-Each workflow folder contains:
-- `_START_HERE.md` — Entry point with mandatory rules and getting started instructions
-- `workflow.md` — Master document defining phases and steps
-- `*-guide.md` — Detailed guidance for specific activities
-- `*-template.md` — Reusable templates
+**Workflows** (`workflows/`) — Self-contained workflow definitions with all guides included
 
 ## Deployment
 
@@ -90,9 +89,9 @@ Deploy an engineering branch to any project:
 
 ```bash
 # Copy deploy script to your project root
-cp /path/to/agent-workflows/deploy.sh ./
+cp /path/to/agent-resources/deploy.sh ./
 # Or download directly:
-curl -O https://raw.githubusercontent.com/m2ux/agent-workflows/main/deploy.sh
+curl -O https://raw.githubusercontent.com/m2ux/agent-resources/main/deploy.sh
 
 # Run it
 ./deploy.sh
@@ -120,11 +119,11 @@ The script:
 ```bash
 cd .engineering
 
-# Update workflows to specific version
-./scripts/update-workflows.sh v0.3.0
+# Update resources to specific version
+./agent/resources/scripts/update-resources.sh v0.3.0
 
 # Update metadata to latest
-./scripts/update-metadata.sh
+./agent/resources/scripts/update-metadata.sh
 ```
 
 ## Contributing
@@ -133,7 +132,7 @@ To add a new workflow:
 
 1. Create a new top-level folder (e.g., `code-review/`)
 2. Add `_START_HERE.md` as the entry point with mandatory rules
-3. Add `workflow.md` as the main workflow document
+3. Add `_work-package.md` (single) or `_work-packages.md` (multi) as main workflow documents
 4. Add supporting guides and templates
 5. Update this README's workflow table
 

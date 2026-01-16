@@ -9,7 +9,7 @@
 #
 # Options:
 #   --external-repo <url>    Use external repo for engineering branch
-#   --workflows-repo <url>   Custom workflows repo (default: m2ux/agent-workflows)
+#   --resources-repo <url>   Custom resources repo (default: m2ux/agent-resources)
 #   --metadata-repo <url>    Custom metadata repo (default: m2ux/ai-metadata)
 #   --skip-metadata          Skip private metadata submodule
 #   --keep                   Don't self-destruct after deployment
@@ -21,7 +21,7 @@ set -e
 # Configuration
 # =============================================================================
 
-DEFAULT_WORKFLOWS_REPO="https://github.com/m2ux/agent-workflows.git"
+DEFAULT_RESOURCES_REPO="https://github.com/m2ux/agent-resources.git"
 DEFAULT_METADATA_REPO="https://github.com/m2ux/ai-metadata.git"
 DEFAULT_EXTERNAL_REPO="https://github.com/m2ux/ai-metadata.git"
 
@@ -35,7 +35,7 @@ ENGINEERING_DIR="$REPO_ROOT/.engineering"
 # =============================================================================
 
 EXTERNAL_REPO=""
-WORKFLOWS_REPO="$DEFAULT_WORKFLOWS_REPO"
+RESOURCES_REPO="$DEFAULT_RESOURCES_REPO"
 METADATA_REPO="$DEFAULT_METADATA_REPO"
 SKIP_METADATA=false
 KEEP_SCRIPT=false
@@ -52,8 +52,8 @@ while [[ $# -gt 0 ]]; do
             INTERACTIVE=false
             shift
             ;;
-        --workflows-repo)
-            WORKFLOWS_REPO="$2"
+        --resources-repo)
+            RESOURCES_REPO="$2"
             shift 2
             ;;
         --metadata-repo)
@@ -83,8 +83,8 @@ done
 # Helper Functions
 # =============================================================================
 
-get_latest_workflow_version() {
-    git ls-remote --tags --refs "$WORKFLOWS_REPO" 2>/dev/null | \
+get_latest_resources_version() {
+    git ls-remote --tags --refs "$RESOURCES_REPO" 2>/dev/null | \
         grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+$' | \
         sort -V | tail -1 || echo "main"
 }
@@ -122,7 +122,7 @@ engineering/
 │   ├── reviews/              # Code and architecture reviews
 │   └── templates/            # Reusable templates
 ├── agent/                    # Agent-related content
-│   ├── workflows/            # Agent workflows
+│   ├── resources/            # Agent resources and workflows
 │   └── metadata/             # Private metadata
 └── scripts/                  # Utility scripts
 \`\`\`
@@ -171,24 +171,24 @@ Engineering artifacts should be:
 - `artifacts/planning/` - Work package plans and specifications
 - `artifacts/reviews/` - Code and architecture reviews
 - `artifacts/templates/` - Reusable documentation templates
-- `agent/workflows/` - Agent workflow definitions
+- `agent/resources/` - Agent resources and workflow definitions
 - `agent/metadata/` - Private agent metadata
 - `scripts/` - Utility scripts
 EOF
     fi
 
-    if [ ! -f "$target_dir/scripts/update-workflows.sh" ]; then
-        cat > "$target_dir/scripts/update-workflows.sh" << 'EOF'
+    if [ ! -f "$target_dir/scripts/update-resources.sh" ]; then
+        cat > "$target_dir/scripts/update-resources.sh" << 'EOF'
 #!/usr/bin/env bash
 set -e
 VERSION="${1:-}"
-cd "$(dirname "$0")/../agent/workflows"
+cd "$(dirname "$0")/../agent/resources"
 git fetch --tags --quiet 2>/dev/null || true
 [ -z "$VERSION" ] && { echo "Usage: $0 <version>"; git tag -l 'v*' | sort -V; exit 1; }
 git checkout "$VERSION" --quiet
 echo "Updated to $VERSION"
 EOF
-        chmod +x "$target_dir/scripts/update-workflows.sh"
+        chmod +x "$target_dir/scripts/update-resources.sh"
     fi
 
     if [ ! -f "$target_dir/scripts/update-metadata.sh" ]; then
@@ -298,21 +298,21 @@ if [ -n "$EXTERNAL_REPO" ]; then
     # Add submodules if not present (run from repo root with full paths)
     ENG_PATH="engineering/$PROJECT_NAME"
     
-    if [ ! -d "$ENG_PATH/agent/workflows/.git" ] && [ ! -f "$ENG_PATH/agent/workflows/.git" ]; then
-        rm -rf "$ENG_PATH/agent/workflows" 2>/dev/null || true
-        git submodule add "$WORKFLOWS_REPO" "$ENG_PATH/agent/workflows" 2>/dev/null || true
+    if [ ! -d "$ENG_PATH/agent/resources/.git" ] && [ ! -f "$ENG_PATH/agent/resources/.git" ]; then
+        rm -rf "$ENG_PATH/agent/resources" 2>/dev/null || true
+        git submodule add "$RESOURCES_REPO" "$ENG_PATH/agent/resources" 2>/dev/null || true
         
-        WORKFLOW_VERSION=$(get_latest_workflow_version)
-        if [ -d "$ENG_PATH/agent/workflows" ]; then
-            cd "$ENG_PATH/agent/workflows"
+        RESOURCES_VERSION=$(get_latest_resources_version)
+        if [ -d "$ENG_PATH/agent/resources" ]; then
+            cd "$ENG_PATH/agent/resources"
             git fetch --tags 2>/dev/null || true
-            git checkout "$WORKFLOW_VERSION" 2>/dev/null || true
+            git checkout "$RESOURCES_VERSION" 2>/dev/null || true
             cd "$TEMP_CLONE"
-            echo "✓ Added agent/workflows submodule"
+            echo "✓ Added agent/resources submodule"
             NEEDS_COMMIT=true
         fi
     else
-        echo "✓ agent/workflows submodule exists"
+        echo "✓ agent/resources submodule exists"
     fi
     
     if [ "$SKIP_METADATA" = false ]; then
@@ -369,17 +369,17 @@ if [ -n "$EXTERNAL_REPO" ]; then
     echo "Setting up agent repos..."
     cd "$ENGINEERING_DIR"
     
-    # Clone workflows
-    rm -rf agent/workflows 2>/dev/null || true
+    # Clone resources
+    rm -rf agent/resources 2>/dev/null || true
     mkdir -p agent
-    git clone "$WORKFLOWS_REPO" agent/workflows 2>/dev/null || true
-    if [ -d "agent/workflows" ]; then
-        WORKFLOW_VERSION=$(get_latest_workflow_version)
-        cd agent/workflows
+    git clone "$RESOURCES_REPO" agent/resources 2>/dev/null || true
+    if [ -d "agent/resources" ]; then
+        RESOURCES_VERSION=$(get_latest_resources_version)
+        cd agent/resources
         git fetch --tags 2>/dev/null || true
-        git checkout "$WORKFLOW_VERSION" 2>/dev/null || true
+        git checkout "$RESOURCES_VERSION" 2>/dev/null || true
         cd "$ENGINEERING_DIR"
-        echo "✓ agent/workflows ($WORKFLOW_VERSION)"
+        echo "✓ agent/resources ($RESOURCES_VERSION)"
     fi
     
     # Clone metadata with sparse checkout
@@ -429,13 +429,13 @@ else
         
         # Add submodules for in-repo mode
         mkdir -p agent
-        git submodule add "$WORKFLOWS_REPO" agent/workflows 2>/dev/null || true
+        git submodule add "$RESOURCES_REPO" agent/resources 2>/dev/null || true
         
-        WORKFLOW_VERSION=$(get_latest_workflow_version)
-        if [ -d "agent/workflows" ]; then
-            cd agent/workflows
+        RESOURCES_VERSION=$(get_latest_resources_version)
+        if [ -d "agent/resources" ]; then
+            cd agent/resources
             git fetch --tags
-            git checkout "$WORKFLOW_VERSION" 2>/dev/null || true
+            git checkout "$RESOURCES_VERSION" 2>/dev/null || true
             cd ../..
         fi
         
@@ -472,7 +472,7 @@ else
     cd "$ENGINEERING_DIR"
     
     if [ -f .gitmodules ]; then
-        git submodule update --init agent/workflows 2>/dev/null && echo "✓ agent/workflows" || true
+        git submodule update --init agent/resources 2>/dev/null && echo "✓ agent/resources" || true
         
         if [ "$SKIP_METADATA" = false ]; then
             if git submodule update --init agent/metadata 2>/dev/null; then

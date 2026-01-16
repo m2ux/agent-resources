@@ -8,7 +8,7 @@ This workflow guides agents (and humans) through the complete lifecycle of a wor
 
 ## Entry Point
 
-Start with [`_workflow.md`](_workflow.md) — the master document that defines all phases and orchestrates the guides below.
+Start with [`_work-package.md`](_work-package.md) for single work packages or [`_work-packages.md`](_work-packages.md) for multi-package initiatives.
 
 ## Phases
 
@@ -26,29 +26,29 @@ Start with [`_workflow.md`](_workflow.md) — the master document that defines a
 
 | File | Purpose |
 |------|---------|
-| [`requirements-elicitation-guide.md`](requirements-elicitation-guide.md) | Structured approach to gathering requirements |
-| [`knowledge-base-research-guide.md`](knowledge-base-research-guide.md) | Research using knowledge base tools |
-| [`design-framework-guide.md`](design-framework-guide.md) | Design decision framework |
-| [`adr-creation-guide.md`](adr-creation-guide.md) | Creating Architecture Decision Records |
-| [`test-plan-creation-guide.md`](test-plan-creation-guide.md) | Test planning and strategy |
-| [`implementation-analysis-guide.md`](implementation-analysis-guide.md) | Analyzing implementation approach |
-| [`issue-creation-guide.md`](issue-creation-guide.md) | Creating GitHub issues |
-| [`pr-description-guide.md`](pr-description-guide.md) | Writing PR descriptions |
-| [`self-review-guide.md`](self-review-guide.md) | Pre-merge self-review checklist |
-| [`assumptions-guide.md`](assumptions-guide.md) | Tracking assumptions during work |
+| [`requirements-elicitation.guide.md`](requirements-elicitation.guide.md) | Structured approach to gathering requirements |
+| [`knowledge-base-research.guide.md`](knowledge-base-research.guide.md) | Research using knowledge base tools |
+| [`design-framework.guide.md`](design-framework.guide.md) | Design decision framework |
+| [`architecture-review.guide.md`](architecture-review.guide.md) | Architecture review and ADR creation |
+| [`test-plan.guide.md`](test-plan.guide.md) | Test planning and strategy |
+| [`implementation-analysis.guide.md`](implementation-analysis.guide.md) | Analyzing implementation approach |
+| [`github-issue-creation.guide.md`](github-issue-creation.guide.md) | Creating GitHub issues |
+| [`pr-description.guide.md`](pr-description.guide.md) | Writing PR descriptions |
+| [`task-completion-review.guide.md`](task-completion-review.guide.md) | Post-task verification checklist |
+| [`assumptions-review.guide.md`](assumptions-review.guide.md) | Tracking assumptions during work |
 
 ## Templates
 
 | File | Purpose |
 |------|---------|
-| [`start-here-template.md`](start-here-template.md) | Entry point for work package folder |
-| [`readme-template.md`](readme-template.md) | Work package README |
-| [`plan-template.md`](plan-template.md) | Work package plan structure |
-| [`complete-template.md`](complete-template.md) | Completion checklist |
+| [`start-here.guide.md`](start-here.guide.md) | Entry point for work package folder |
+| [`readme.guide.md`](readme.guide.md) | Work package README |
+| [`plan.guide.md`](plan.guide.md) | Work package plan structure |
+| [`complete.guide.md`](complete.guide.md) | Completion checklist |
 
 ## Usage
 
-1. Reference `_workflow.md` in your agent's context
+1. Reference `_work-package.md` or `_work-packages.md` in your agent's context
 2. Follow the phases sequentially
 3. Use guides as needed for specific activities
 4. Generate artifacts using templates
