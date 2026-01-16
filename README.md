@@ -70,18 +70,18 @@ agent-resources/
 ├── guides/                # Step-by-step guides (shared across workflows)
 │   ├── adr-creation-guide.md
 │   ├── assumptions-guide.md
-│   ├── plan-guide.md
-│   ├── complete-guide.md
 │   └── ...
 └── workflows/             # Workflow definitions
     └── work-package/      # Work package workflow
         ├── _START_HERE.md # Entry point for workflow inclusion
         ├── workflow.md    # Main workflow document
+        ├── plan-guide.md  # Work package specific guides
+        ├── complete-guide.md
         └── references.md  # External references
 ```
 
-**Guides** (`guides/`) — Detailed guidance and templates for specific activities, shared across workflows
-**Workflows** (`workflows/`) — Self-contained workflow definitions with entry points
+**Guides** (`guides/`) — Detailed guidance for specific activities, shared across workflows
+**Workflows** (`workflows/`) — Self-contained workflow definitions with workflow-specific guides
 
 ## Deployment
 

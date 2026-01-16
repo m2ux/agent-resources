@@ -41,10 +41,10 @@ Start with [`_workflow.md`](_workflow.md) — the master document that defines a
 
 | File | Purpose |
 |------|---------|
-| [`start-here-guide.md`](../../guides/start-here-guide.md) | Entry point for work package folder |
-| [`readme-guide.md`](../../guides/readme-guide.md) | Work package README |
-| [`plan-guide.md`](../../guides/plan-guide.md) | Work package plan structure |
-| [`complete-guide.md`](../../guides/complete-guide.md) | Completion checklist |
+| [`start-here-guide.md`](start-here-guide.md) | Entry point for work package folder |
+| [`readme-guide.md`](readme-guide.md) | Work package README |
+| [`plan-guide.md`](plan-guide.md) | Work package plan structure |
+| [`complete-guide.md`](complete-guide.md) | Completion checklist |
 
 ## Usage
 

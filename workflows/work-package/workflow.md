@@ -847,19 +847,19 @@ After designing the approach, **STOP and confirm:**
 
 #### START-HERE.md
 
-📄 **Reference:** Follow the [Work Package START-HERE Guide](../../guides/start-here-guide.md) for the full template and guidelines.
+📄 **Reference:** Follow the [Work Package START-HERE Guide](start-here-guide.md) for the full template and guidelines.
 
 ---
 
 #### README.md
 
-📄 **Reference:** Follow the [Work Package README Guide](../../guides/readme-guide.md) for the full template and guidelines.
+📄 **Reference:** Follow the [Work Package README Guide](readme-guide.md) for the full template and guidelines.
 
 ---
 
 #### 01-work-package-plan.md
 
-📄 **Reference:** Follow the [Work Package Plan Guide](../../guides/plan-guide.md) for the full template and guidelines.
+📄 **Reference:** Follow the [Work Package Plan Guide](plan-guide.md) for the full template and guidelines.
 
 ---
 
@@ -1575,7 +1575,7 @@ git commit -m "docs: finalize test plan with source links"
 
 **Create:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/COMPLETE.md`
 
-📄 **Reference:** Follow the [Work Package Completion Guide](../../guides/complete-guide.md) for the full template and guidelines.
+📄 **Reference:** Follow the [Work Package Completion Guide](complete-guide.md) for the full template and guidelines.
 
 ### 7.4 Inline Documentation
 
@@ -1767,7 +1767,7 @@ Update work package plan status:
 ### Finalize (Phase 7)
 - [ ] ADR verified (if exists)
 - [ ] Test plan finalized with source links (if applicable)
-- [ ] COMPLETE.md written (see [Completion Guide](../../guides/complete-guide.md))
+- [ ] COMPLETE.md written (see [Completion Guide](complete-guide.md))
 - [ ] Inline docs complete
 
 ### Update PR (Phase 8)
