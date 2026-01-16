@@ -73,12 +73,7 @@ agent-resources/
 │   ├── update-resources.sh  # Update this submodule to a version tag
 │   └── update-metadata.sh   # Update metadata submodule to latest
 └── workflows/             # Workflow definitions
-    ├── work-package/      # Work package workflow
-    │   ├── _START_HERE.md # Entry point for workflow inclusion
-    │   ├── _work-package.md  # Single work package workflow
-    │   ├── _work-packages.md # Multi work package workflow
-    │   ├── *.guide.md     # Step-by-step guides
-    │   └── references.md  # External references
+    ├── work-package/      # Work package(s) workflow
     ├── general/           # General purpose prompts and guides
     └── developer/         # Developer focused prompts and guides
 ```
