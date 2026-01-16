@@ -64,7 +64,8 @@ This workflow defines how to plan and implement ONE work package from inception 
    ├─ Create 04-assumptions-log.md (before Task 1)
    ├─ Task N.1: Code + Test + Commit
    ├─ Review assumptions made during implementation
-   ├─ 🛑 CHECKPOINT: "Task N complete. Review assumptions—confirm or correct?"
+   ├─ Code review (language-specific)
+   ├─ 🛑 CHECKPOINT: "Task N complete. Review assumptions + code review—confirm or correct?"
    ├─ Update 04-assumptions-log.md with outcomes
    ├─ Task N.2: Code + Test + Commit
    ├─ ...
@@ -1047,9 +1048,11 @@ git branch --show-current
        │
 6. Review assumptions made during implementation
        │
-7. 🛑 Report progress + assumptions to user
+7. Code review (language-specific)
        │
-8. Document assumptions + outcomes in 04-assumptions-log.md
+8. 🛑 Report progress + assumptions + review findings to user
+       │
+9. Document assumptions + outcomes in 04-assumptions-log.md
 ```
 
 ### 5.2 Assumption Review
@@ -1060,7 +1063,49 @@ git branch --show-current
 
 📄 **Reference:** Follow the [Assumptions Guide](assumptions-review.guide.md) for the interview format, assumption categories, self-review questions, and the log template.
 
-### 5.3 Code Quality Checklist
+### 5.3 Code Review
+
+**After reviewing assumptions, perform a language-specific code review** of the changes made during the task.
+
+#### Language Detection
+
+Detect the primary language used in the task based on:
+- File extensions of modified files (`.rs`, `.ts`, `.py`, etc.)
+- Project configuration files (`Cargo.toml`, `package.json`, `pyproject.toml`)
+- Existing codebase patterns
+
+#### Review Guide Selection
+
+| Language | Review Guide | When to Use |
+|----------|--------------|-------------|
+| Rust/Substrate | [Rust/Substrate Review Guide](../general/rust-substrate-review-prompt.md) | Rust projects, especially Substrate-based blockchain code |
+| TypeScript/JavaScript | *Guide not yet available* | Web/Node.js projects |
+| Python | *Guide not yet available* | Python projects |
+
+> **Note:** When a language-specific guide is not available, perform a general code review focusing on: code quality, error handling, test coverage, documentation, and adherence to project conventions.
+
+#### Review Scope
+
+For each task, the code review should focus on:
+
+1. **Changes made in this task only** (not the entire codebase)
+2. **Adherence to language idioms** and best practices
+3. **Error handling** completeness and appropriateness
+4. **Test coverage** of new/modified code
+5. **Documentation** of public APIs and complex logic
+
+#### Review Output
+
+After the review, note:
+- **Issues found** (with severity: Critical/High/Medium/Low)
+- **Recommendations** for improvement
+- **Whether fixes are required** before proceeding
+
+**If Critical or High severity issues are found:** Fix them before reporting progress to the user.
+
+**If Medium or Low severity issues are found:** Document them and include in the progress report for user decision.
+
+### 5.4 Code Quality Checklist
 
 - [ ] Follows existing patterns and architecture
 - [ ] Type-safe (compiler checks pass)
@@ -1069,7 +1114,7 @@ git branch --show-current
 - [ ] Documentation comments on public APIs
 - [ ] No debug prints in production code
 
-### 5.4 Testing as You Code
+### 5.5 Testing as You Code
 
 **Don't defer testing - write tests alongside implementation:**
 
@@ -1088,7 +1133,7 @@ git branch --show-current
 | TypeScript | `npm test` | `npm test -- path/to/test` |
 | Python | `pytest` | `pytest path/to/test.py` |
 
-### 5.5 Commit Strategy
+### 5.6 Commit Strategy
 
 **Commit after each task** following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
@@ -1174,7 +1219,7 @@ across different scoring strategies.
 WP: Hybrid Search Implementation (Task 2)
 ```
 
-### 5.6 Task Completion Checklist
+### 5.7 Task Completion Checklist
 
 - [ ] Implementation matches plan
 - [ ] Unit tests written (100% of new code)
@@ -1186,14 +1231,17 @@ WP: Hybrid Search Implementation (Task 2)
 - [ ] Committed with clear message
 - [ ] TODO marked as `completed`
 - [ ] Assumptions documented and reported to user
+- [ ] Code review performed (language-specific)
+- [ ] Critical/High severity issues fixed before reporting
 - [ ] 🛑 **User confirmed assumptions or corrections applied**
 - [ ] Assumptions and outcomes recorded in `04-assumptions-log.md`
 
 **⚠️ Do NOT mark a task complete if any tests are failing.**
+**⚠️ Do NOT proceed if Critical or High severity code review issues remain unfixed.**
 
-### 5.7 🛑 Task Progress & Assumption Review Checkpoint
+### 5.8 🛑 Task Progress & Assumption Review Checkpoint
 
-After each task, **STOP and report progress AND assumptions.**
+After each task, **STOP and report progress, assumptions, AND code review findings.**
 
 > **Note:** For assumption review, prefer the **interview-style approach** (one assumption at a time with alternatives) described in the [Assumptions Guide](assumptions-review.guide.md). The batch format below is an alternative when assumptions are straightforward.
 
@@ -1215,6 +1263,33 @@ After each task, **STOP and report progress AND assumptions.**
 - ✅ Build successful
 
 **Committed:** `abc123` - "feat: [message]"
+
+---
+
+### 🔬 Code Review
+
+**Language Detected:** [Rust/TypeScript/Python/Other]
+**Review Guide Used:** [Guide name or "General review"]
+
+#### Review Summary
+
+| Severity | Count | Status |
+|----------|-------|--------|
+| Critical | 0 | ✅ None found |
+| High | 0 | ✅ None found |
+| Medium | X | ⚠️ Documented below |
+| Low | X | ℹ️ Documented below |
+
+#### Issues Found (if any)
+
+**Issue #1: [Brief Title]** (Medium/Low)
+- **Location:** `file_path:line_numbers`
+- **Description:** [Brief technical explanation]
+- **Recommendation:** [Suggested fix]
+- **Action:** [Fixed | Deferred for user decision]
+
+#### Review Notes
+- [Any observations about code quality, patterns, or improvements]
 
 ---
 
@@ -1265,7 +1340,7 @@ After each task, **STOP and report progress AND assumptions.**
 
 **⚠️ Do NOT proceed until user has reviewed and confirmed assumptions.** If assumptions are incorrect, make necessary adjustments before moving on.
 
-### 5.8 Updating the Assumptions Log
+### 5.9 Updating the Assumptions Log
 
 **After the user responds to the checkpoint**, update `04-assumptions-log.md`:
 
@@ -1302,7 +1377,7 @@ After each task, **STOP and report progress AND assumptions.**
 
 📄 **Reference:** See the [Assumptions Guide](assumptions-review.guide.md) for the log template.
 
-### 5.9 Verify Architectural Significance
+### 5.10 Verify Architectural Significance
 
 **After all tasks are complete**, verify whether the implementation warrants an ADR before creating one.
 
@@ -1368,7 +1443,7 @@ After completing all tasks, **STOP and present the significance assessment:**
 **Do you agree with this assessment? Should I [create/skip] the ADR?**
 ```
 
-### 5.10 Create ADR (If Architecturally Significant)
+### 5.11 Create ADR (If Architecturally Significant)
 
 **If the significance assessment indicates an ADR is warranted**, create one to document the architectural decisions made during implementation.
 
@@ -1755,6 +1830,8 @@ Update work package plan status:
 - [ ] `04-assumptions-log.md` created before Task 1
 - [ ] Tasks completed with progress reports 🛑
 - [ ] Assumptions documented and reviewed with user after each task 🛑
+- [ ] Code review performed after each task (language-specific)
+- [ ] Critical/High severity issues fixed before reporting
 - [ ] Assumptions and outcomes recorded in `04-assumptions-log.md` after each task
 - [ ] ✅ All unit tests passing (100% pass rate)
 - [ ] ✅ All integration tests passing (100% pass rate)
