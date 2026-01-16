@@ -143,6 +143,24 @@ I didn't find a GitHub or Jira issue associated with this work package.
 **Which option would you like?**
 ```
 
+#### Jira Confirmation (If Option 3 Selected)
+
+If the user selects Jira issue creation, **confirm the target organization:**
+
+```markdown
+## ⚠️ Jira Issue Creation Confirmation
+
+Creating a Jira issue will use the **Atlassian MCP server** configured for this environment.
+
+**This will create a real ticket** in your organization's Jira instance.
+
+Before proceeding, please confirm:
+- You have the necessary permissions to create issues
+- You want to create a ticket in this organization's Jira
+
+**Proceed with Jira issue creation?** (yes/no)
+```
+
 ### 1.3 Creating a New Issue
 
 Choose the appropriate guide based on where the issue will be tracked:
