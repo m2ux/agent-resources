@@ -34,8 +34,8 @@ Each workflow is a self-contained, revisioned package that an agent (or human) c
 | Workflow | Description |
 |----------|-------------|
 | [`work-package/`](workflows/work-package/) | Planning and implementation workflow for features and enhancements |
-
-*More workflows coming soon.*
+| [`general/`](workflows/general/) | General purpose prompts and guides |
+| [`developer/`](workflows/developer/) | Developer focused prompts and guides |
 
 ## Getting Started
 
@@ -73,12 +73,14 @@ agent-resources/
 │   ├── update-resources.sh  # Update this submodule to a version tag
 │   └── update-metadata.sh   # Update metadata submodule to latest
 └── workflows/             # Workflow definitions
-    └── work-package/      # Work package workflow
-        ├── _START_HERE.md # Entry point for workflow inclusion
-        ├── _work-package.md  # Single work package workflow
-        ├── _work-packages.md # Multi work package workflow
-        ├── *.guide.md     # Step-by-step guides
-        └── references.md  # External references
+    ├── work-package/      # Work package workflow
+    │   ├── _START_HERE.md # Entry point for workflow inclusion
+    │   ├── _work-package.md  # Single work package workflow
+    │   ├── _work-packages.md # Multi work package workflow
+    │   ├── *.guide.md     # Step-by-step guides
+    │   └── references.md  # External references
+    ├── general/           # General purpose prompts and guides
+    └── developer/         # Developer focused prompts and guides
 ```
 
 **Workflows** (`workflows/`) — Self-contained workflow definitions with all guides included
