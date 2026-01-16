@@ -70,10 +70,8 @@ agent-resources/
 ├── guides/                # Step-by-step guides (shared across workflows)
 │   ├── adr-creation-guide.md
 │   ├── assumptions-guide.md
-│   └── ...
-├── templates/             # Reusable templates (shared across workflows)
-│   ├── plan-template.md
-│   ├── complete-template.md
+│   ├── plan-guide.md
+│   ├── complete-guide.md
 │   └── ...
 └── workflows/             # Workflow definitions
     └── work-package/      # Work package workflow
@@ -82,8 +80,7 @@ agent-resources/
         └── references.md  # External references
 ```
 
-**Guides** (`guides/`) — Detailed guidance for specific activities, shared across workflows
-**Templates** (`templates/`) — Reusable document templates, shared across workflows
+**Guides** (`guides/`) — Detailed guidance and templates for specific activities, shared across workflows
 **Workflows** (`workflows/`) — Self-contained workflow definitions with entry points
 
 ## Deployment

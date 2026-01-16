@@ -232,6 +232,6 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Work Package README Template](readme-template.md)
+- [Work Package README Guide](readme-guide.md)
 - [High-Level Planning Workflow](high-level-planning-workflow.md)
 

@@ -212,6 +212,6 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Work Package START-HERE Template](start-here-template.md)
+- [Work Package START-HERE Guide](start-here-guide.md)
 - [High-Level Planning Workflow](high-level-planning-workflow.md)
 
