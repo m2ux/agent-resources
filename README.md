@@ -75,8 +75,8 @@ agent-resources/
     └── work-package/      # Work package workflow
         ├── _START_HERE.md # Entry point for workflow inclusion
         ├── workflow.md    # Main workflow document
-        ├── plan-guide.md  # Work package specific guides
-        ├── complete-guide.md
+        ├── plan.md        # Work package templates
+        ├── complete.md
         └── references.md  # External references
 ```
 

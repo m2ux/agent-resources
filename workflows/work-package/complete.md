@@ -1,4 +1,4 @@
-# Work Package Completion Template Guide
+# Work Package Completion Template
 
 **Purpose:** Guidelines for creating the `COMPLETE.md` document that records what was actually implemented in a work package.
 
@@ -354,8 +354,8 @@ This guide supports Phase 8 (Finalize) of the [Work Package Implementation Workf
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Work Package Plan Guide](plan-guide.md)
-- [Work Package START-HERE Guide](start-here-guide.md)
+- [Work Package Plan](plan.md)
+- [Work Package START-HERE](start-here.md)
 - [ADR Creation Guide](../guides/adr-creation-guide.md)
 - [PR Description Guide](../guides/pr-description-guide.md)
 

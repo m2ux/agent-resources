@@ -58,8 +58,8 @@ For navigation between workflow documents, see the [Work Package Implementation 
 
 | Template | Purpose |
 |----------|---------|
-| [Complete Guide](complete-guide.md) | Work package completion documentation |
-| [Plan Guide](plan-guide.md) | Implementation planning |
-| [README Guide](readme-guide.md) | Work package folder README |
-| [START-HERE Guide](start-here-guide.md) | Work package entry point |
+| [Complete](complete.md) | Work package completion documentation |
+| [Plan](plan.md) | Implementation planning |
+| [README](readme.md) | Work package folder README |
+| [START-HERE](start-here.md) | Work package entry point |
 | [High-Level Planning Workflow](high-level-planning-workflow.md) | Planning process overview |
