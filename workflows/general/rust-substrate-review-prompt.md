@@ -55,9 +55,9 @@ Before starting a review, determine:
 | Context | Generate Report? | Location |
 |---------|------------------|----------|
 | Task review (Phase 5) | ❌ No | Findings in checkpoint template |
-| PR review | ⚠️ Optional | PR comment or `.engineering/artifacts/reviews/` |
-| Module audit | ✅ Yes | `.engineering/artifacts/reviews/` |
-| Directory audit | ✅ Yes | `.engineering/artifacts/reviews/` |
+| PR review | ⚠️ Optional | `.engineering/artifacts/reviews/pr{N}/` |
+| Module audit | ✅ Yes | `.engineering/artifacts/reviews/pr{N}/` or `audits/` |
+| Directory audit | ✅ Yes | `.engineering/artifacts/reviews/pr{N}/` or `audits/` |
 
 **Task reviews** embed findings directly in the task checkpoint template (see [Work Package Workflow](../work-package/_work-package.md), Phase 5.8).
 
@@ -67,10 +67,18 @@ Before starting a review, determine:
 
 ```
 .engineering/artifacts/reviews/
-├── YYYY-MM-DD-module-name-review.md
-├── YYYY-MM-DD-pr-NNN-review.md
-└── ...
+├── pr471/                              # PR-specific folder
+│   ├── YYYY-MM-DD-module-name-review.md
+│   └── YYYY-MM-DD-task-N-review.md
+├── pr472/
+│   └── ...
+└── audits/                             # Standalone audits (not PR-related)
+    └── YYYY-MM-DD-module-name-review.md
 ```
+
+**PR reviews:** Create a subfolder named `pr{number}` (e.g., `pr471`) to group all reviews for that PR.
+
+**Standalone audits:** Store in `audits/` subfolder when not associated with a PR.
 
 ### File Naming Convention
 
@@ -79,9 +87,9 @@ YYYY-MM-DD-{scope-description}-review.md
 ```
 
 **Examples:**
-- `2026-01-16-midnight-pallet-review.md`
-- `2026-01-16-pr-378-review.md`
-- `2026-01-16-ledger-types-review.md`
+- `reviews/pr471/2026-01-16-midnight-pallet-review.md`
+- `reviews/pr471/2026-01-16-task-3-review.md`
+- `reviews/audits/2026-01-16-ledger-types-review.md`
 
 ### Report Template
 
@@ -558,7 +566,11 @@ When conducting a comprehensive review:
 
 2. **Create output file:**
    ```
-   .engineering/artifacts/reviews/YYYY-MM-DD-{scope}-review.md
+   # For PR-related reviews:
+   .engineering/artifacts/reviews/pr{N}/YYYY-MM-DD-{scope}-review.md
+   
+   # For standalone audits:
+   .engineering/artifacts/reviews/audits/YYYY-MM-DD-{scope}-review.md
    ```
 
 3. **Conduct review** using criteria in this guide
