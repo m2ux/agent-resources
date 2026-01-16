@@ -1,4 +1,4 @@
-# Test Suite Review and Evaluation Prompt
+# Test Suite Review and Evaluation Guide
 
 **Target Module:** `{TARGET_PATH}`
 
@@ -263,13 +263,11 @@ Scrutinize test structure and infrastructure:
 async fn test_function_name() {
 ```
 
-## Required AI Output Format
+## Required Output Format
 
 Begin your review with the following header information (auto-populated):
 
-**AI Test Suite Review Report**
-**Reviewer:** AI Agent (Senior Test Architect)
-**Review Date:** [Current date and time]
+**Test Suite Review Report**
 **Module Analyzed:** [Auto-detected module name and path]
 **Test Suite Type:** [Auto-detected: Unit/Integration/Mixed/Other]
 **Test Files Reviewed:** [Total count and file list]
@@ -758,17 +756,6 @@ Provide detailed assessment:
 2. Write complete markdown report using the `write` tool
 3. Include all review findings, metrics, and recommendations
 4. Verify report is created successfully before proceeding to implementation phase
-
-**Example Report Structure:**
-```markdown
-# {Module Name} - Test Suite Review Report
-
-**Reviewer:** AI Agent (Senior Test Architect)
-**Review Date:** {Current Date}
-**Module:** {Target Path}
-
-[Complete review content following the format above]
-```
 
 ---
 

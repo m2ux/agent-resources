@@ -1,6 +1,146 @@
-# Rust/Substrate Code Review Prompt
+# Rust/Substrate Code Review Guide
 
-**Target Module:** `{TARGET_PATH}`
+**Purpose:** Guidelines for conducting code reviews of Rust and Substrate codebases. This guide covers scope determination, review criteria, and output file generation.
+
+---
+
+## Overview
+
+Code review is a structured process for evaluating code quality, correctness, and adherence to best practices. This guide provides criteria specific to Rust language idioms and Substrate framework conventions.
+
+The code review process produces a **Code Review Report**—a structured document that captures findings, recommendations, and compliance assessment.
+
+---
+
+## Review Scope
+
+### Scope Types
+
+Code reviews can operate at different scopes depending on context:
+
+| Scope Type | Description | When to Use |
+|------------|-------------|-------------|
+| **Task Changes** | Files modified in current task | During work package implementation (Phase 5) |
+| **PR Changes** | All files in a pull request | PR review before merge |
+| **Module** | Single module or crate | Focused module audit |
+| **Directory** | All files in a directory tree | Broader architectural review |
+
+### Determining Scope
+
+**For Task Reviews (Work Package Phase 5):**
+- Review only files modified in the current task
+- Focus on new/changed code, not entire files
+- Use git diff to identify changed lines
+
+**For Module/Directory Reviews:**
+- Specify the target path explicitly
+- Consider module boundaries and dependencies
+- Include related test files
+
+### Scope Selection Checklist
+
+Before starting a review, determine:
+
+- [ ] **What triggered this review?** (Task completion, PR, audit request)
+- [ ] **What files are in scope?** (Changed files only, or broader)
+- [ ] **What is the review depth?** (Quick check vs comprehensive audit)
+- [ ] **Is this Substrate-specific code?** (Pallets, runtime, etc.)
+
+---
+
+## Output Files
+
+### When to Generate a Report File
+
+| Context | Generate Report? | Location |
+|---------|------------------|----------|
+| Task review (Phase 5) | ❌ No | Findings in checkpoint template |
+| PR review | ⚠️ Optional | PR comment or `.engineering/artifacts/reviews/` |
+| Module audit | ✅ Yes | `.engineering/artifacts/reviews/` |
+| Directory audit | ✅ Yes | `.engineering/artifacts/reviews/` |
+
+**Task reviews** embed findings directly in the task checkpoint template (see [Work Package Workflow](../work-package/_work-package.md), Phase 5.8).
+
+**Standalone reviews** (module/directory audits, comprehensive PR reviews) generate a separate report file.
+
+### Storage Location
+
+```
+.engineering/artifacts/reviews/
+├── YYYY-MM-DD-module-name-review.md
+├── YYYY-MM-DD-pr-NNN-review.md
+└── ...
+```
+
+### File Naming Convention
+
+```
+YYYY-MM-DD-{scope-description}-review.md
+```
+
+**Examples:**
+- `2026-01-16-midnight-pallet-review.md`
+- `2026-01-16-pr-378-review.md`
+- `2026-01-16-ledger-types-review.md`
+
+### Report Template
+
+```markdown
+# Code Review Report
+
+**Date:** YYYY-MM-DD
+**Reviewer:** [Agent/Human name]
+**Scope:** [Module/PR/Directory path]
+**Files Reviewed:** [Count]
+
+## Summary
+
+- **Overall Quality:** X/5 ⭐
+- **Critical Issues:** X
+- **High Issues:** X
+- **Medium Issues:** X
+- **Low Issues:** X
+
+## Module Overview
+
+[Brief description of what was reviewed]
+
+## Findings
+
+### Critical Issues
+[List or "None found"]
+
+### High Priority Issues
+[List or "None found"]
+
+### Medium Priority Issues
+[List or "None found"]
+
+### Low Priority Issues
+[List or "None found"]
+
+## Strengths
+
+[Notable positive patterns observed]
+
+## Recommendations Summary
+
+1. **Immediate:** [Critical/High items]
+2. **Near-term:** [Medium items]
+3. **Long-term:** [Low items]
+
+## Compliance
+
+| Category | Status | Score |
+|----------|--------|-------|
+| Rust Idioms | ✓/✗ | X% |
+| Substrate Framework | ✓/✗ | X% |
+| Architecture | ✓/✗ | X% |
+| Documentation | ✓/✗ | X% |
+| Testing | ✓/✗ | X% |
+```
+
+---
 
 ## Reviewer Role & Instructions
 
@@ -37,23 +177,34 @@ When implementing review recommendations, maintain professional code quality:
 ## Pre-Review Setup
 
 **CRITICAL FIRST STEPS:**
-1. **Get current date and time** for timestamping your review
-2. **Analyze the target folder structure** at the specified target module path
-3. **Identify the module's purpose** by examining:
+
+1. **Determine scope type** (see Review Scope section above):
+   - Task changes → Review modified files only
+   - PR review → Review all PR files
+   - Module/Directory audit → Review specified path
+
+2. **Get current date and time** for timestamping
+
+3. **Identify files to review:**
+   - For task reviews: `git diff --name-only` for changed files
+   - For PR reviews: Files in the PR diff
+   - For audits: All `.rs` files in the target path
+
+4. **Analyze the target structure:**
    - File organization and naming patterns
    - Public APIs and main entry points
    - Documentation and comments
    - Integration with parent modules
-4. **Determine review scope** based on:
-   - Recent changes (if git history available)
-   - Module complexity and size
-   - Dependencies and external integrations
+
+5. **Determine output destination:**
+   - Task review → Checkpoint template (no separate file)
+   - Standalone review → `.engineering/artifacts/reviews/`
 
 ---
 
-## Review Scope & Context Discovery
+## Context Discovery
 
-Conduct a comprehensive code review of the Rust module at the specified path
+Before reviewing code, understand the context:
 
 **Auto-Discovery Tasks:**
 - Identify module type (pallet, utility library, integration layer, etc.)
@@ -61,6 +212,16 @@ Conduct a comprehensive code review of the Rust module at the specified path
 - Assess test coverage and testing strategy
 - Understand the module's role in the larger system
 - Note any configuration or environment dependencies
+
+**For Task Reviews:**
+- Understand the task goal from the work package plan
+- Focus on whether changes achieve the task objectives
+- Verify changes don't introduce regressions
+
+**For Standalone Reviews:**
+- Document the module's primary purpose
+- Note key components and architecture
+- Assess overall complexity
 
 ---
 
@@ -254,13 +415,10 @@ For each issue, provide:
 
 ---
 
-## Required AI Output Format
+## Required Output Format
 
 Begin your review with the following header information (auto-populated):
 
-**AI Code Review Report**
-**Reviewer:** AI Agent (Rust/Substrate Architect)
-**Review Date:** [Current date and time]
 **Module Analyzed:** [Auto-detected module name and path]
 **Module Type:** [Auto-detected: Pallet/Library/Integration/Other]
 **Files Reviewed:** [Total count and file list]
@@ -377,20 +535,81 @@ After implementing all numbered recommendations, provide:
 
 ## Usage Instructions
 
-### Template Deployment:
-1. Replace `{TARGET_PATH}` on line 2 with the target module path (e.g., `pallets/your-pallet/src`)
-2. Deploy this prompt to your code reviewer
-3. Ensure the reviewer has access to:
-   - The target module's file system
-   - Current date/time for timestamping
-   - Reference materials and documentation
+### For Task Reviews
 
-### Example Folder Paths:
-- `pallets/your-pallet`
-- `utils/your-client`
-- `node/runtime`
+When reviewing code as part of task implementation:
+
+1. **Identify changed files** using git diff
+2. **Apply review criteria** from this guide
+3. **Report findings** in the task checkpoint template (Phase 5.8)
+4. **Fix Critical/High issues** before proceeding
+5. **Document Medium/Low issues** for user decision
+
+No separate report file is generated; findings are embedded in the checkpoint.
+
+### For Standalone Reviews (Module/PR Audits)
+
+When conducting a comprehensive review:
+
+1. **Determine scope:**
+   - Module path (e.g., `pallets/midnight/src`)
+   - PR number (e.g., PR #378)
+   - Directory (e.g., `node/runtime`)
+
+2. **Create output file:**
+   ```
+   .engineering/artifacts/reviews/YYYY-MM-DD-{scope}-review.md
+   ```
+
+3. **Conduct review** using criteria in this guide
+
+4. **Generate report** using the Report Template
+
+5. **Commit report** (if part of a work package)
+
+### Example Scope Paths
+
+| Scope Type | Example Path |
+|------------|--------------|
+| Pallet | `pallets/midnight` |
+| Utility crate | `primitives/types` |
+| Runtime | `runtime/src` |
+| Node service | `node/service` |
+| PR | `PR #378` (review all changed files) |
+
+---
+
+## Checklist
+
+Before completing a review, verify:
+
+### Scope & Setup
+- [ ] Scope type determined (task/PR/module/directory)
+- [ ] Files to review identified
+- [ ] Output destination determined
+
+### Review Completeness
+- [ ] All files in scope reviewed
+- [ ] All review criteria categories assessed
+- [ ] Issues categorized by severity
+- [ ] Recommendations prioritized
+
+### Output
+- [ ] Findings documented (checkpoint or report file)
+- [ ] Critical/High issues flagged for immediate action
+- [ ] Compliance checklist completed
+
+---
+
+## Related Guides
+
+- [Work Package Implementation Workflow](../work-package/_work-package.md) — Task review integration (Phase 5.3)
+- [Architecture Review Guide](../work-package/architecture-review.guide.md) — For architectural decisions
+
+---
 
 ## Reference Materials
+
 - [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)
 - [Substrate Documentation](https://docs.substrate.io/)
 - [Polkadot SDK Documentation](https://paritytech.github.io/polkadot-sdk/)
