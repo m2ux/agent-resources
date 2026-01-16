@@ -41,7 +41,7 @@ This workflow defines how to plan and implement ONE work package from inception 
    ├─ Analyze current implementation (effectiveness, gaps, metrics)
    ├─ Establish baseline metrics with evidence
    ├─ Identify opportunities for improvement
-   ├─ Create 03-implementation-analysis.md
+   ├─ Create 01-implementation-analysis.md
    └─ 🛑 CHECKPOINT: "Would you like to perform research?"
 
 4. RESEARCH (20-45m) [If requested]
@@ -65,15 +65,16 @@ This workflow defines how to plan and implement ONE work package from inception 
 
 6. IMPLEMENT TASKS (varies)
    ├─ 🛑 VERIFY: On feature branch before any code changes
-   ├─ Create 04-assumptions-log.md (before Task 1)
+   ├─ Create 05-assumptions-log.md (before Task 1)
    ├─ Task N.1: Code + Test + Commit
    ├─ Review assumptions made during implementation
-   ├─ Code review (language-specific)
-   ├─ 🛑 CHECKPOINT: "Task N complete. Review assumptions + code review—confirm or correct?"
-   ├─ Update 04-assumptions-log.md with outcomes
+   ├─ 🛑 CHECKPOINT: "Task N complete. Review assumptions—confirm or correct?"
+   ├─ Update 05-assumptions-log.md with outcomes
    ├─ Task N.2: Code + Test + Commit
    ├─ ...
-   ├─ Verify architectural significance (after all tasks complete)
+   ├─ Code review (language-specific, after all tasks)
+   ├─ 🛑 CHECKPOINT: "Review findings—address issues?"
+   ├─ Verify architectural significance
    ├─ 🛑 CHECKPOINT: "Is this architecturally significant? Create ADR?"
    ├─ Create ADR (if architecturally significant)
    └─ 🛑 CHECKPOINT: "ADR captures final architecture decisions?"
@@ -97,6 +98,7 @@ This workflow defines how to plan and implement ONE work package from inception 
    └─ Mark PR ready for review
 
 10. POST-IMPLEMENTATION
+    ├─ Capture session history (private metadata only)
     ├─ After PR merged: Update status
     └─ Select next work package
 ```
@@ -582,7 +584,7 @@ The elicitation document captures:
 
 📄 **Reference:** [Implementation Analysis Guide](implementation-analysis.guide.md) — Full methodology, templates, and checkpoint format.
 
-**Output:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/03-implementation-analysis.md`
+**Output:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/01-implementation-analysis.md`
 
 **Analysis should cover:**
 - Current usage patterns and behavior
@@ -635,7 +637,7 @@ It can be skipped when:
 - [ ] Current implementation analyzed
 - [ ] Baseline metrics established with evidence
 - [ ] Gaps and opportunities identified
-- [ ] `03-implementation-analysis.md` created
+- [ ] `01-implementation-analysis.md` created
 - [ ] 🛑 **Research decision obtained from user**
 
 ---
@@ -856,10 +858,10 @@ After designing the approach, **STOP and confirm:**
 ├── START-HERE.md              # Executive summary (required) - includes issue link
 ├── README.md                  # Quick navigation (required)
 ├── 00-requirements-elicitation.md  # Elicited requirements (if requested)
-├── 01-work-package-plan.md    # Detailed implementation plan (required)
+├── 03-work-package-plan.md    # Detailed implementation plan (required)
 ├── 02-kb-research.md          # Knowledge base research findings (recommended)
-├── 03-implementation-analysis.md  # Current implementation analysis (recommended)
-└── 04-assumptions-log.md      # Assumptions and outcomes (created during implementation)
+├── 01-implementation-analysis.md  # Current implementation analysis (recommended)
+└── 05-assumptions-log.md      # Assumptions and outcomes (created during implementation)
 ```
 
 > **Issue Reference:** The `START-HERE.md` should include the issue link from Phase 1 (e.g., `**Issue:** [#51](https://github.com/OWNER/REPO/issues/51)`).
@@ -870,11 +872,11 @@ After designing the approach, **STOP and confirm:**
 ├── START-HERE.md
 ├── README.md
 ├── 00-requirements-elicitation.md  # Elicited requirements (features only, see guide)
-├── 01-work-package-plan.md    # Implementation plan
+├── 03-work-package-plan.md    # Implementation plan
 ├── 02-kb-research.md          # KB research (see Knowledge Base Research Guide)
-├── 03-implementation-analysis.md  # Analysis (see Implementation Analysis Guide)
-├── 04-assumptions-log.md      # Assumptions made and outcomes (see below)
-└── 05-testing-plan.md         # Detailed testing (if needed)
+├── 01-implementation-analysis.md  # Analysis (see Implementation Analysis Guide)
+├── 05-assumptions-log.md      # Assumptions made and outcomes (see below)
+└── 04-test-plan.md         # Detailed testing (if needed)
 ```
 
 ---
@@ -891,13 +893,13 @@ After designing the approach, **STOP and confirm:**
 
 ---
 
-#### 01-work-package-plan.md
+#### 03-work-package-plan.md
 
 📄 **Reference:** Follow the [Work Package Plan](plan.guide.md) for the full template and guidelines.
 
 ---
 
-#### 04-assumptions-log.md
+#### 05-assumptions-log.md
 
 📄 **Reference:** Follow the [Assumptions Guide](assumptions-review.guide.md) for assumption categories, review process, and log template.
 
@@ -1036,9 +1038,9 @@ Before starting implementation, **present the plan summary:**
   - [ ] `START-HERE.md` - Executive summary
   - [ ] `README.md` - Quick navigation
   - [ ] `00-requirements-elicitation.md` - Elicited requirements (if requested)
-  - [ ] `01-work-package-plan.md` - Implementation details
+  - [ ] `03-work-package-plan.md` - Implementation details
   - [ ] `02-kb-research.md` - Knowledge base findings
-  - [ ] `03-implementation-analysis.md` - Analysis findings
+  - [ ] `01-implementation-analysis.md` - Analysis findings
 - [ ] Feature branch synced with main
 - [ ] On correct feature branch (not main/master) 🛑
 - [ ] Test plan created (if applicable)
@@ -1067,25 +1069,33 @@ git branch --show-current
 ### 6.1 Task Implementation Pattern
 
 ```
-0. Verify on feature branch (NOT main/master)
-       │
-1. Read task spec (goal, deliverables)
-       │
-2. Implement (bottom-up, follow existing patterns)
-       │
-3. Test immediately (100% coverage of new code)
-       │
-4. Commit with clear message
-       │
-5. Update TODO (mark completed, next in_progress)
-       │
-6. Review assumptions made during implementation
-       │
-7. Code review (language-specific)
-       │
-8. 🛑 Report progress + assumptions + review findings to user
-       │
-9. Document assumptions + outcomes in 04-assumptions-log.md
+FOR EACH TASK:
+  0. Verify on feature branch (NOT main/master)
+         │
+  1. Read task spec (goal, deliverables)
+         │
+  2. Implement (bottom-up, follow existing patterns)
+         │
+  3. Test immediately (100% coverage of new code)
+         │
+  4. Commit with clear message
+         │
+  5. Update TODO (mark completed, next in_progress)
+         │
+  6. Review assumptions made during implementation
+         │
+  7. 🛑 Report progress + assumptions to user
+         │
+  8. Document assumptions + outcomes in 05-assumptions-log.md
+
+AFTER ALL TASKS COMPLETE:
+  9. Code review (language-specific)
+         │
+  10. 🛑 Report review findings to user
+         │
+  11. Verify architectural significance
+         │
+  12. Create ADR (if significant)
 ```
 
 ### 6.2 Assumption Review
@@ -1096,49 +1106,7 @@ git branch --show-current
 
 📄 **Reference:** Follow the [Assumptions Guide](assumptions-review.guide.md) for the interview format, assumption categories, self-review questions, and the log template.
 
-### 6.3 Code Review
-
-**After reviewing assumptions, perform a language-specific code review** of the changes made during the task.
-
-#### Language Detection
-
-Detect the primary language used in the task based on:
-- File extensions of modified files (`.rs`, `.ts`, `.py`, etc.)
-- Project configuration files (`Cargo.toml`, `package.json`, `pyproject.toml`)
-- Existing codebase patterns
-
-#### Review Guide Selection
-
-| Language | Review Guide | When to Use |
-|----------|--------------|-------------|
-| Rust/Substrate | [Rust/Substrate Review Guide](../general/rust-substrate-review-prompt.md) | Rust projects, especially Substrate-based blockchain code |
-| TypeScript/JavaScript | *Guide not yet available* | Web/Node.js projects |
-| Python | *Guide not yet available* | Python projects |
-
-> **Note:** When a language-specific guide is not available, perform a general code review focusing on: code quality, error handling, test coverage, documentation, and adherence to project conventions.
-
-#### Review Scope
-
-For each task, the code review should focus on:
-
-1. **Changes made in this task only** (not the entire codebase)
-2. **Adherence to language idioms** and best practices
-3. **Error handling** completeness and appropriateness
-4. **Test coverage** of new/modified code
-5. **Documentation** of public APIs and complex logic
-
-#### Review Output
-
-After the review, note:
-- **Issues found** (with severity: Critical/High/Medium/Low)
-- **Recommendations** for improvement
-- **Whether fixes are required** before proceeding
-
-**If Critical or High severity issues are found:** Fix them before reporting progress to the user.
-
-**If Medium or Low severity issues are found:** Document them and include in the progress report for user decision.
-
-### 6.4 Code Quality Checklist
+### 6.3 Code Quality Checklist
 
 - [ ] Follows existing patterns and architecture
 - [ ] Type-safe (compiler checks pass)
@@ -1147,7 +1115,7 @@ After the review, note:
 - [ ] Documentation comments on public APIs
 - [ ] No debug prints in production code
 
-### 6.5 Testing as You Code
+### 6.4 Testing as You Code
 
 **Don't defer testing - write tests alongside implementation:**
 
@@ -1166,7 +1134,7 @@ After the review, note:
 | TypeScript | `npm test` | `npm test -- path/to/test` |
 | Python | `pytest` | `pytest path/to/test.py` |
 
-### 6.6 Commit Strategy
+### 6.5 Commit Strategy
 
 **Commit after each task** following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
@@ -1252,7 +1220,7 @@ across different scoring strategies.
 WP: Hybrid Search Implementation (Task 2)
 ```
 
-### 6.7 Task Completion Checklist
+### 6.6 Task Completion Checklist
 
 - [ ] Implementation matches plan
 - [ ] Unit tests written (100% of new code)
@@ -1264,17 +1232,14 @@ WP: Hybrid Search Implementation (Task 2)
 - [ ] Committed with clear message
 - [ ] TODO marked as `completed`
 - [ ] Assumptions documented and reported to user
-- [ ] Code review performed (language-specific)
-- [ ] Critical/High severity issues fixed before reporting
 - [ ] 🛑 **User confirmed assumptions or corrections applied**
-- [ ] Assumptions and outcomes recorded in `04-assumptions-log.md`
+- [ ] Assumptions and outcomes recorded in `05-assumptions-log.md`
 
 **⚠️ Do NOT mark a task complete if any tests are failing.**
-**⚠️ Do NOT proceed if Critical or High severity code review issues remain unfixed.**
 
-### 6.8 🛑 Task Progress & Assumption Review Checkpoint
+### 6.7 🛑 Task Progress & Assumption Review Checkpoint
 
-After each task, **STOP and report progress, assumptions, AND code review findings.**
+After each task, **STOP and report progress and assumptions.**
 
 > **Note:** For assumption review, prefer the **interview-style approach** (one assumption at a time with alternatives) described in the [Assumptions Guide](assumptions-review.guide.md). The batch format below is an alternative when assumptions are straightforward.
 
@@ -1296,33 +1261,6 @@ After each task, **STOP and report progress, assumptions, AND code review findin
 - ✅ Build successful
 
 **Committed:** `abc123` - "feat: [message]"
-
----
-
-### 🔬 Code Review
-
-**Language Detected:** [Rust/TypeScript/Python/Other]
-**Review Guide Used:** [Guide name or "General review"]
-
-#### Review Summary
-
-| Severity | Count | Status |
-|----------|-------|--------|
-| Critical | 0 | ✅ None found |
-| High | 0 | ✅ None found |
-| Medium | X | ⚠️ Documented below |
-| Low | X | ℹ️ Documented below |
-
-#### Issues Found (if any)
-
-**Issue #1: [Brief Title]** (Medium/Low)
-- **Location:** `file_path:line_numbers`
-- **Description:** [Brief technical explanation]
-- **Recommendation:** [Suggested fix]
-- **Action:** [Fixed | Deferred for user decision]
-
-#### Review Notes
-- [Any observations about code quality, patterns, or improvements]
 
 ---
 
@@ -1373,9 +1311,9 @@ After each task, **STOP and report progress, assumptions, AND code review findin
 
 **⚠️ Do NOT proceed until user has reviewed and confirmed assumptions.** If assumptions are incorrect, make necessary adjustments before moving on.
 
-### 6.9 Updating the Assumptions Log
+### 6.8 Updating the Assumptions Log
 
-**After the user responds to the checkpoint**, update `04-assumptions-log.md`:
+**After the user responds to the checkpoint**, update `05-assumptions-log.md`:
 
 ```markdown
 ## Task N: [Task Name]
@@ -1409,6 +1347,82 @@ After each task, **STOP and report progress, assumptions, AND code review findin
 ```
 
 📄 **Reference:** See the [Assumptions Guide](assumptions-review.guide.md) for the log template.
+
+### 6.9 Code Review (After All Tasks Complete)
+
+**After completing all tasks**, perform a language-specific code review of all changes made during implementation.
+
+#### Language Detection
+
+Detect the primary language used based on:
+- File extensions of modified files (`.rs`, `.ts`, `.py`, etc.)
+- Project configuration files (`Cargo.toml`, `package.json`, `pyproject.toml`)
+- Existing codebase patterns
+
+#### Review Guide Selection
+
+| Language | Review Guide | When to Use |
+|----------|--------------|-------------|
+| Rust/Substrate | [Rust/Substrate Review Guide](../general/rust-substrate-review-prompt.md) | Rust projects, especially Substrate-based blockchain code |
+| TypeScript/JavaScript | *Guide not yet available* | Web/Node.js projects |
+| Python | *Guide not yet available* | Python projects |
+
+> **Note:** When a language-specific guide is not available, perform a general code review focusing on: code quality, error handling, test coverage, documentation, and adherence to project conventions.
+
+#### Review Scope
+
+The code review should cover:
+
+1. **All changes made during implementation** (entire work package diff)
+2. **Adherence to language idioms** and best practices
+3. **Error handling** completeness and appropriateness
+4. **Test coverage** of new/modified code
+5. **Documentation** of public APIs and complex logic
+
+#### 🛑 Code Review Checkpoint
+
+After completing the review, **STOP and present findings:**
+
+```markdown
+## 🔬 Code Review Complete
+
+**Language Detected:** [Rust/TypeScript/Python/Other]
+**Review Guide Used:** [Guide name or "General review"]
+**Files Reviewed:** [Count]
+
+### Review Summary
+
+| Severity | Count | Status |
+|----------|-------|--------|
+| Critical | X | [✅ Fixed / ⚠️ Needs action] |
+| High | X | [✅ Fixed / ⚠️ Needs action] |
+| Medium | X | [⚠️ Documented] |
+| Low | X | [ℹ️ Documented] |
+
+### Issues Found
+
+**Issue #1: [Brief Title]** (Severity)
+- **Location:** `file_path:line_numbers`
+- **Description:** [Brief technical explanation]
+- **Recommendation:** [Suggested fix]
+- **Status:** [Fixed | Needs user decision]
+
+### Strengths Observed
+
+- [Notable positive patterns]
+
+### Recommendations
+
+1. [Any remaining suggestions]
+
+---
+**Critical/High issues must be addressed before proceeding.**
+**Medium/Low issues: Address now or defer?**
+```
+
+**If Critical or High severity issues remain:** Address them before proceeding.
+
+**If only Medium or Low severity issues remain:** User decides whether to address now or defer.
 
 ### 6.10 Verify Architectural Significance
 
@@ -1795,7 +1809,63 @@ Update WP-COMPLETE.md with final PR number and status.
 
 ## Phase 10: Post-Implementation
 
-### 10.1 After PR Merged
+### 10.1 Capture Session History (Private)
+
+**⚠️ PRIVATE DATA:** Chat history contains potentially sensitive session data. It must ONLY be stored in the private metadata location specified below. NEVER commit this data to the repository.
+
+**Location:**
+```
+.engineering/agent/metadata/projects/<project-name>/<work-package-name>/history/
+```
+
+**Structure:**
+```
+.engineering/agent/metadata/projects/
+└── <project-name>/
+    └── <work-package-name>/
+        └── history/
+            ├── session-YYYY-MM-DD-HH-MM.md    # Session transcript
+            └── summary.md                      # Session summary
+```
+
+**Session Transcript** (`session-YYYY-MM-DD-HH-MM.md`):
+- Complete chat history from the work package session
+- Includes all agent-user exchanges
+- Preserves decision rationale and context
+
+**Session Summary** (`summary.md`):
+```markdown
+# Work Package Session Summary
+
+**Work Package:** [Name]
+**PR:** #[number]
+**Sessions:** [Count]
+**Date Range:** YYYY-MM-DD to YYYY-MM-DD
+
+## Key Decisions Made
+- [Decision 1] - [Brief rationale]
+- [Decision 2] - [Brief rationale]
+
+## Assumptions Confirmed
+- [Assumption 1]
+- [Assumption 2]
+
+## Issues Encountered
+- [Issue 1] - [Resolution]
+
+## Lessons Learned
+- [Insight 1]
+- [Insight 2]
+```
+
+**Privacy Rules:**
+- ❌ NEVER commit history files to the repository
+- ❌ NEVER reference history files in committed documentation
+- ❌ NEVER copy history content to `.engineering/artifacts/` or any committed location
+- ✅ ONLY store in `.engineering/agent/metadata/` (private, gitignored)
+- ✅ Ensure `.engineering/agent/` is in `.gitignore`
+
+### 10.2 After PR Merged
 
 Update work package plan status:
 ```markdown
@@ -1804,7 +1874,7 @@ Update work package plan status:
 **Merged:** [Date]
 ```
 
-### 10.2 Select Next Work Package
+### 10.3 Select Next Work Package
 
 - Review priority list
 - Check dependencies
@@ -1837,7 +1907,7 @@ Update work package plan status:
 - [ ] Current implementation analyzed
 - [ ] Baseline metrics established with evidence
 - [ ] Gaps and opportunities identified
-- [ ] `03-implementation-analysis.md` created
+- [ ] `01-implementation-analysis.md` created
 - [ ] 🛑 **Research decision obtained from user** (Phase 3.3 checkpoint)
 
 ### Research (Phase 4 - If Requested)
@@ -1863,12 +1933,12 @@ Update work package plan status:
 - [ ] Ready to implement confirmed 🛑
 
 ### Implementation (Phase 6)
-- [ ] `04-assumptions-log.md` created before Task 1
+- [ ] `05-assumptions-log.md` created before Task 1
 - [ ] Tasks completed with progress reports 🛑
 - [ ] Assumptions documented and reviewed with user after each task 🛑
-- [ ] Code review performed after each task (language-specific)
-- [ ] Critical/High severity issues fixed before reporting
-- [ ] Assumptions and outcomes recorded in `04-assumptions-log.md` after each task
+- [ ] Assumptions and outcomes recorded in `05-assumptions-log.md` after each task
+- [ ] Code review performed after all tasks complete (language-specific)
+- [ ] Critical/High severity issues addressed before proceeding 🛑
 - [ ] ✅ All unit tests passing (100% pass rate)
 - [ ] ✅ All integration tests passing (100% pass rate)
 - [ ] ✅ All e2e tests passing (100% pass rate)

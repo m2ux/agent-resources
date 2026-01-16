@@ -141,7 +141,7 @@ Define measurable targets based on baselines:
 
 Store analysis findings in a discrete planning document:
 
-**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/03-implementation-analysis.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/01-implementation-analysis.md`
 
 ### Template
 
@@ -391,10 +391,10 @@ After completing analysis, present findings to the user for confirmation:
 
 ## Integration with Workflow
 
-This guide supports Phase 0 (Planning) of the [Work Package Implementation Workflow](_work-package.md):
+This guide supports implementation analysis:
 
 1. **After KB research confirmed** → Begin implementation analysis
-2. **Complete analysis** → Store in `03-implementation-analysis.md`
+2. **Complete analysis** → Store in `01-implementation-analysis.md`
 3. **Present checkpoint** → Get user confirmation
 4. **Proceed to design** → Use baselines to inform success criteria
 

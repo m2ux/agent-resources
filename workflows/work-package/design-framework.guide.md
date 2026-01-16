@@ -271,7 +271,7 @@ Then work backward to find practical approximations.
 
 ## Integration with Workflow
 
-This guide is used in **Phase 4: Plan & Prepare** of the work package workflow.
+This guide is used during the planning stage of work package implementation.
 
 **Typical Flow:**
 1. Research phase completes (knowledge base, web research, implementation analysis)

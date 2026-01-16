@@ -333,7 +333,7 @@ Update `COMPLETE.md` at these points:
 
 | Document | Relationship |
 |----------|--------------|
-| `01-work-package-plan.md` | Original plan; COMPLETE records what actually happened |
+| `03-work-package-plan.md` | Original plan; COMPLETE records what actually happened |
 | `START-HERE.md` | Update status to Complete after COMPLETE.md created |
 | ADR | Design decisions in COMPLETE.md may warrant formal ADRs |
 | PR Description | COMPLETE.md provides content for PR description |
@@ -342,7 +342,7 @@ Update `COMPLETE.md` at these points:
 
 ## Integration with Workflow
 
-This guide supports Phase 8 (Finalize) of the [Work Package Implementation Workflow](_work-package.md):
+This guide supports the finalization stage of work package implementation:
 
 1. **After implementation complete** → Create COMPLETE.md
 2. **Document actual results** → Compare to original plan

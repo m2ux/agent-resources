@@ -47,9 +47,9 @@ The `README.md` file serves as a quick-reference navigation hub for a work packa
 | Document | Description | Status |
 |----------|-------------|--------|
 | **[START-HERE.md](START-HERE.md)** | 👈 **Read first** | ✅ |
-| [01-work-package-plan.md](01-work-package-plan.md) | Implementation details | 📋 Ready |
+| [03-work-package-plan.md](03-work-package-plan.md) | Implementation details | 📋 Ready |
 | [02-kb-research.md](02-kb-research.md) | Knowledge base research findings | 📋 Ready |
-| [03-implementation-analysis.md](03-implementation-analysis.md) | Current implementation analysis | 📋 Ready |
+| [01-implementation-analysis.md](01-implementation-analysis.md) | Current implementation analysis | 📋 Ready |
 
 ---
 
@@ -64,8 +64,8 @@ The `README.md` file serves as a quick-reference navigation hub for a work packa
 ## 🚀 Next Steps
 
 1. Read [START-HERE.md](START-HERE.md)
-2. Review [02-kb-research.md](02-kb-research.md) and [03-implementation-analysis.md](03-implementation-analysis.md)
-3. Review [01-work-package-plan.md](01-work-package-plan.md)
+2. Review [02-kb-research.md](02-kb-research.md) and [01-implementation-analysis.md](01-implementation-analysis.md)
+3. Review [03-work-package-plan.md](03-work-package-plan.md)
 4. Follow implementation workflow
 
 ---
@@ -129,10 +129,10 @@ List all documents in the planning folder with clear descriptions:
 | Document | Description |
 |----------|-------------|
 | `START-HERE.md` | Executive summary and entry point |
-| `01-work-package-plan.md` | Detailed implementation plan |
+| `03-work-package-plan.md` | Detailed implementation plan |
 | `02-kb-research.md` | Knowledge base research findings |
-| `03-implementation-analysis.md` | Current implementation analysis |
-| `04-testing-plan.md` | Detailed testing plan (if needed) |
+| `01-implementation-analysis.md` | Current implementation analysis |
+| `04-test-plan.md` | Detailed testing plan (if needed) |
 | `COMPLETE.md` | Completion summary (after done) |
 
 ### Priority Table
@@ -201,7 +201,7 @@ Update this document when:
 
 ## Integration with Workflow
 
-This guide supports Phase 0 (Planning) of the [Work Package Implementation Workflow](_work-package.md):
+This guide supports work package planning:
 
 1. **Create planning folder** → Create README.md alongside START-HERE.md
 2. **Add documents** → Update What's Inside table

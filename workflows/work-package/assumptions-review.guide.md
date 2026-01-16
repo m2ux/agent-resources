@@ -2,7 +2,7 @@
 
 **Purpose:** Define rules for identifying, documenting, and reviewing assumptions during implementation. This guide covers both the review process and the log template.
 
-**When to use:** Throughout Phase 2 (Implementation) of the [Work Package Implementation Workflow](_work-package.md).
+**When to use:** Throughout implementation, after completing each task.
 
 ---
 
@@ -229,7 +229,7 @@ Include this context when presenting alternatives to enable informed decisions.
 
 ### When to Create the Log
 
-Create `04-assumptions-log.md` at the start of Phase 2, before beginning Task 1.
+Create `05-assumptions-log.md` at the start of implementation, before beginning Task 1.
 
 ### When to Update the Log
 
@@ -251,7 +251,7 @@ After each task checkpoint, once the user has reviewed and responded to assumpti
 
 ## Assumptions Log Template
 
-**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/04-assumptions-log.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/05-assumptions-log.md`
 
 ~~~markdown
 # Assumptions Log

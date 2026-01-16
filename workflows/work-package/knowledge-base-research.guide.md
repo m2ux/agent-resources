@@ -316,7 +316,7 @@ We should probably use caching to make things faster.
 
 ## Integration with Workflow
 
-This guide supports Phase 0 (Planning) of the [Work Package Implementation Workflow](_work-package.md):
+This guide supports knowledge base research:
 
 1. **After requirements confirmed** → Begin KB research
 2. **Complete research** → Store in `02-kb-research.md`

@@ -2,7 +2,7 @@
 
 **Purpose:** Define the review process performed upon completing each implementation task. This guide covers the verification steps, assumption surfacing, and quality checks that ensure work is ready for user confirmation before proceeding to the next task.
 
-**When to use:** Throughout Phase 5 (Implementation) of the [Work Package Implementation Workflow](_work-package.md), after completing each task.
+**When to use:** After completing each implementation task.
 
 ---
 
@@ -248,7 +248,7 @@ Include symbol verification in the task checkpoint:
 
 ## Updating the Review Log
 
-After user confirmation, update `04-review-log.md` (formerly assumptions log):
+After user confirmation, update `05-assumptions-log.md` (formerly assumptions log):
 
 ```markdown
 ## Task N: [Task Name]

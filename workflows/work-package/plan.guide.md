@@ -1,12 +1,12 @@
 # Work Package Plan Guide
 
-**Purpose:** Guidelines for creating the `01-work-package-plan.md` detailed implementation plan for work package planning folders.
+**Purpose:** Guidelines for creating the `03-work-package-plan.md` detailed implementation plan for work package planning folders.
 
 ---
 
 ## Overview
 
-The `01-work-package-plan.md` file serves as the detailed implementation specification for a work package. It provides:
+The `03-work-package-plan.md` file serves as the detailed implementation specification for a work package. It provides:
 - Problem statement and scope definition
 - Summary of research and analysis findings
 - Proposed approach with alternatives considered
@@ -20,13 +20,13 @@ The `01-work-package-plan.md` file serves as the detailed implementation specifi
 
 ## When to Create
 
-**Always create `01-work-package-plan.md` when:**
+**Always create `03-work-package-plan.md` when:**
 - Work package has 3+ distinct tasks
 - Multiple components or files will be modified
 - Architectural decisions are required
 - Performance or quality targets must be met
 
-**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/01-work-package-plan.md`
+**Location:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/03-work-package-plan.md`
 
 ---
 
@@ -57,7 +57,7 @@ The `01-work-package-plan.md` file serves as the detailed implementation specifi
 
 *See companion planning artifacts for full details:*
 - **Knowledge Base Research:** [02-kb-research.md](02-kb-research.md)
-- **Implementation Analysis:** [03-implementation-analysis.md](03-implementation-analysis.md)
+- **Implementation Analysis:** [01-implementation-analysis.md](01-implementation-analysis.md)
 
 ### Key Findings Summary
 
@@ -221,7 +221,7 @@ Link to companion artifacts and summarize key findings. Don't duplicate the full
 
 *See companion planning artifacts for full details:*
 - **Knowledge Base Research:** [02-kb-research.md](02-kb-research.md)
-- **Implementation Analysis:** [03-implementation-analysis.md](03-implementation-analysis.md)
+- **Implementation Analysis:** [01-implementation-analysis.md](01-implementation-analysis.md)
 
 ### Key Findings Summary
 
@@ -365,14 +365,14 @@ Document blockers and mitigation strategies:
 | `START-HERE.md` | High-level summary; plan provides details |
 | `README.md` | Navigation; links to this plan |
 | `02-kb-research.md` | Source for key findings; plan summarizes |
-| `03-implementation-analysis.md` | Source for baselines; plan summarizes |
+| `01-implementation-analysis.md` | Source for baselines; plan summarizes |
 | ADR | Formal decision record; plan is working document |
 
 ---
 
 ## Integration with Workflow
 
-This guide supports Phase 0 (Planning) of the [Work Package Implementation Workflow](_work-package.md):
+This guide supports work package planning:
 
 1. **After research and analysis** → Create implementation plan
 2. **During planning** → Define tasks and success criteria

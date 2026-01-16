@@ -92,9 +92,9 @@ The `START-HERE.md` file serves as the entry point and executive summary for a w
 |----------|-------------|
 | **[START-HERE.md](START-HERE.md)** | 👈 You are here |
 | [README.md](README.md) | Quick navigation |
-| [01-work-package-plan.md](01-work-package-plan.md) | Implementation details |
+| [03-work-package-plan.md](03-work-package-plan.md) | Implementation details |
 | [02-kb-research.md](02-kb-research.md) | Knowledge base research |
-| [03-implementation-analysis.md](03-implementation-analysis.md) | Implementation analysis |
+| [01-implementation-analysis.md](01-implementation-analysis.md) | Implementation analysis |
 
 ---
 
@@ -220,7 +220,7 @@ Update this document at these points:
 
 ## Integration with Workflow
 
-This guide supports Phase 0 (Planning) of the [Work Package Implementation Workflow](_work-package.md):
+This guide supports work package planning:
 
 1. **Create planning folder** → Create START-HERE.md first
 2. **Complete planning** → Update status to Ready

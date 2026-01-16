@@ -17,7 +17,7 @@ Start with [`_work-package.md`](_work-package.md) for single work packages or [`
 | **1. Setup** | Create folder structure, initialize documents | `START-HERE.md`, `README.md` |
 | **2. Requirements** | Elicit and document requirements | `00-requirements-elicitation.md` |
 | **3. Research** | Explore codebase, research solutions | Research notes |
-| **4. Planning** | Create detailed work package plan | `01-work-package-plan.md` |
+| **4. Planning** | Create detailed work package plan | `03-work-package-plan.md` |
 | **5. Implementation** | Execute the plan | Code changes |
 | **6. Review** | Self-review before merge | PR description |
 | **7. Completion** | Final checks, cleanup | Updated docs |
@@ -60,7 +60,7 @@ Start with [`_work-package.md`](_work-package.md) for single work packages or [`
 ├── START-HERE.md                    # Entry point
 ├── README.md                        # Overview
 ├── 00-requirements-elicitation.md   # Requirements
-├── 01-work-package-plan.md          # Detailed plan
-├── 02-test-plan.md                  # Test strategy
-└── 04-assumptions-log.md            # Tracked assumptions
+├── 03-work-package-plan.md          # Detailed plan
+├── 04-test-plan.md                  # Test strategy
+└── 05-assumptions-log.md            # Tracked assumptions
 ```
