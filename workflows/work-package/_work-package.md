@@ -99,6 +99,7 @@ This workflow defines how to plan and implement ONE work package from inception 
 
 10. POST-IMPLEMENTATION
     ├─ Capture session history (if metadata repo exists)
+    ├─ Workflow retrospective → 06-workflow-retrospective.md
     ├─ After PR merged: Update status
     └─ Select next work package
 ```
@@ -1716,7 +1717,122 @@ fi
 - ✅ ONLY store in `.engineering/agent/metadata/` (private, gitignored)
 - ✅ Ensure `.engineering/agent/` is in `.gitignore`
 
-### 10.2 After PR Merged
+### 10.2 Workflow Retrospective
+
+**Analyze the session to identify potential workflow improvements.** Review all user questions, requests, and feedback that were NOT direct responses to checkpoint questions.
+
+#### What to Analyze
+
+Scan the chat history for:
+
+| Signal Type | Examples | Indicates |
+|-------------|----------|-----------|
+| **Clarification requests** | "What do you mean by X?", "Can you explain Y?" | Unclear instructions or missing context |
+| **Corrections** | "No, I meant...", "Actually, do this instead" | Ambiguous workflow steps or assumptions |
+| **Frustration signals** | "Why are you doing X?", "I already said..." | Workflow friction or missed requirements |
+| **Process questions** | "Should I do X first?", "What about Y?" | Missing guidance or unclear sequencing |
+| **Feature requests** | "Can you also...", "It would be helpful if..." | Missing workflow capabilities |
+| **Skipped steps** | User asks to skip or abbreviate | Unnecessary complexity or over-engineering |
+
+#### Retrospective Report
+
+**Create:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/06-workflow-retrospective.md`
+
+```markdown
+# Workflow Retrospective: [Work Package Name]
+
+**Date:** YYYY-MM-DD
+**Work Package:** [Name]
+**PR:** #[number]
+
+---
+
+## Session Analysis
+
+**Total User Messages:** [count]
+**Checkpoint Responses:** [count]
+**Non-Checkpoint Interactions:** [count]
+
+---
+
+## Observations
+
+### Clarification Requests
+
+| # | User Message | Context | Potential Issue |
+|---|--------------|---------|-----------------|
+| 1 | "[Quote]" | [Phase/step] | [What was unclear] |
+
+### Corrections Made
+
+| # | Original Action | User Correction | Root Cause |
+|---|-----------------|-----------------|------------|
+| 1 | [What agent did] | "[User correction]" | [Why this happened] |
+
+### Process Questions
+
+| # | Question | Answer Given | Workflow Gap |
+|---|----------|--------------|--------------|
+| 1 | "[Question]" | [Response] | [Missing guidance] |
+
+### Frustration Signals
+
+| # | Signal | Context | Friction Point |
+|---|--------|---------|----------------|
+| 1 | "[Quote]" | [Situation] | [What caused friction] |
+
+---
+
+## Improvement Recommendations
+
+### High Priority
+
+| # | Issue | Recommendation | Affected Section |
+|---|-------|----------------|------------------|
+| 1 | [Issue summary] | [Specific change] | [Workflow section] |
+
+### Medium Priority
+
+| # | Issue | Recommendation | Affected Section |
+|---|-------|----------------|------------------|
+| 1 | [Issue summary] | [Specific change] | [Workflow section] |
+
+### Low Priority / Observations
+
+| # | Observation | Consideration |
+|---|-------------|---------------|
+| 1 | [Pattern noticed] | [Potential improvement] |
+
+---
+
+## Metrics
+
+| Metric | Value | Notes |
+|--------|-------|-------|
+| Phases completed | X/10 | [Any skipped] |
+| Checkpoints triggered | X | [Expected vs actual] |
+| User corrections | X | [Trend] |
+| Workflow deviations | X | [Types] |
+
+---
+
+## Summary
+
+**Overall Session Quality:** [Smooth / Minor friction / Significant issues]
+
+**Key Takeaway:** [One sentence summary of most important finding]
+
+**Action Required:** [Yes - create issue / No - informational only]
+```
+
+#### When to Skip
+
+Skip the retrospective if:
+- Session was straightforward with only checkpoint responses
+- No clarification requests, corrections, or process questions occurred
+- Work package was trivial (single task, <30 min)
+
+### 10.3 After PR Merged
 
 Update work package plan status:
 ```markdown
@@ -1725,7 +1841,7 @@ Update work package plan status:
 **Merged:** [Date]
 ```
 
-### 10.3 Select Next Work Package
+### 10.4 Select Next Work Package
 
 - Review priority list
 - Check dependencies
