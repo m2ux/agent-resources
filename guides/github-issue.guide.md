@@ -455,7 +455,7 @@ Before submitting an issue, verify:
 
 ## Related Guides
 
-- [ADR Creation Guide](adr.guide.md) - For documenting design decisions (comes after issue)
+- [Architecture Review Guide](architecture-review.guide.md) - For documenting design decisions (comes after issue)
 - [PR Description Guide](pr-description.guide.md) - For describing implementations (comes after design)
 - [Implementation Analysis Guide](implementation-analysis.guide.md) - For planning implementation approach
 

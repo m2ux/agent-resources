@@ -333,4 +333,4 @@ git diff origin/main --name-only
 
 - [Assumptions Guide](assumptions-review.guide.md) — Detailed assumption categories and log template
 - [Work Package Workflow](_workflow.md) — Overall implementation workflow
-- [ADR Creation Guide](adr.guide.md) — Architecture decision records
+- [Architecture Review Guide](architecture-review.guide.md) — Architecture decision records

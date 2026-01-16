@@ -1,12 +1,14 @@
-# Architecture Decision Record (ADR) Creation Guide
+# Architecture Review Guide
 
-**Purpose:** Guidelines for creating well-structured Architecture Decision Records that document design decisions, rationale, and consequences.
+**Purpose:** Guidelines for conducting architecture reviews that evaluate design decisions against quality attributes, constraints, and trade-offs. This process produces an **Architecture Decision Record (ADR)** as its primary work product.
 
 ---
 
 ## Overview
 
-Architecture Decision Records (ADRs) are lightweight text documents that capture individual design decisions along with their context, rationale, and consequences. They bridge the gap between architecture and agile development by treating decisions as first-class artifacts.
+Architecture review is a structured process for evaluating significant design decisions before or during implementation. The review examines context, constraints, alternatives, and trade-offs to ensure decisions are well-reasoned and properly documented.
+
+The architecture review process produces an **Architecture Decision Record (ADR)**—a lightweight text document that captures the decision along with its context, rationale, and consequences. ADRs bridge the gap between architecture and agile development by treating decisions as first-class artifacts.
 
 > **Key Insight:** ADRs appeal to agile teams because they are lightweight, focused on single decisions, and treat decisions as artifacts that the team writes down. (Source: "Love Unrequited" - Michael Keeling, IEEE Software 2022)
 

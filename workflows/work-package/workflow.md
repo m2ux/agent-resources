@@ -1395,7 +1395,7 @@ After completing all tasks, **STOP and present the significance assessment:**
 4. Include **Consequences** section (positive, negative, neutral)
 5. Commit with message: `docs(adr): add ADR for [work package name]`
 
-📄 **Reference:** Follow the [ADR Creation Guide](../../guides/adr.guide.md) for full template, architectural significance criteria, and guidelines.
+📄 **Reference:** Follow the [Architecture Review Guide](../../guides/architecture-review.guide.md) for full template, architectural significance criteria, and guidelines.
 
 #### 🛑 ADR Checkpoint
 
@@ -1802,7 +1802,7 @@ Update work package plan status:
 | Monolithic commits | Can't track issues, hard to review/revert |
 | Poor commit messages | No context for future maintainers |
 | Skip architectural significance check | Creates unnecessary ADRs for trivial changes or misses ADRs for significant ones |
-| Skip ADR for architecturally significant decisions | Decision rationale lost forever (see [ADR Creation Guide](../../guides/adr.guide.md)) |
+| Skip ADR for architecturally significant decisions | Decision rationale lost forever (see [Architecture Review Guide](../../guides/architecture-review.guide.md)) |
 | Modify historical ADRs | ADRs are immutable historical records; create new ADR if decision changes |
 | Skip test plan | No traceability from docs to tests (see [Test Plan Creation Guide](../../guides/test-plan.guide.md)) |
 | Skip validation | Broken code gets merged |

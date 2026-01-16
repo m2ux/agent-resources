@@ -388,5 +388,5 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 - [Work Package README](readme.template.md)
 - [Knowledge Base Research Guide](../guides/knowledge-base-research.guide.md)
 - [Implementation Analysis Guide](../guides/implementation-analysis.guide.md)
-- [ADR Creation Guide](../guides/adr.guide.md)
+- [Architecture Review Guide](../guides/architecture-review.guide.md)
 

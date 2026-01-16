@@ -29,7 +29,7 @@ Start with [`_workflow.md`](_workflow.md) — the master document that defines a
 | [`requirements-elicitation.guide.md`](../../guides/requirements-elicitation.guide.md) | Structured approach to gathering requirements |
 | [`knowledge-base-research.guide.md`](../../guides/knowledge-base-research.guide.md) | Research using knowledge base tools |
 | [`design-framework.guide.md`](../../guides/design-framework.guide.md) | Design decision framework |
-| [`adr.guide.md`](../../guides/adr.guide.md) | Creating Architecture Decision Records |
+| [`architecture-review.guide.md`](../../guides/architecture-review.guide.md) | Architecture review and ADR creation |
 | [`test-plan.guide.md`](../../guides/test-plan.guide.md) | Test planning and strategy |
 | [`implementation-analysis.guide.md`](../../guides/implementation-analysis.guide.md) | Analyzing implementation approach |
 | [`github-issue.guide.md`](../../guides/github-issue.guide.md) | Creating GitHub issues |

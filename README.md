@@ -68,7 +68,7 @@ agent-resources/
 ├── AGENTS.md              # AI agent behavior guidelines (shared)
 ├── deploy.sh              # Engineering branch deployment script
 ├── guides/                # Step-by-step guides (shared across workflows)
-│   ├── adr.guide.md
+│   ├── architecture-review.guide.md
 │   ├── assumptions-review.guide.md
 │   └── ...
 └── workflows/             # Workflow definitions
