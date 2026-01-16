@@ -530,6 +530,6 @@ Before submitting a test plan, verify:
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [ADR Creation Guide](adr-creation-guide.md)
-- [PR Description Guide](pr-description-guide.md)
+- [ADR Creation Guide](adr-creation.guide.md)
+- [PR Description Guide](pr-description.guide.md)
 

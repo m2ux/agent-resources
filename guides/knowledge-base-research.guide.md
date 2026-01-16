@@ -328,6 +328,6 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Implementation Analysis Guide](implementation-analysis-guide.md)
-- [ADR Creation Guide](adr-creation-guide.md)
+- [Implementation Analysis Guide](implementation-analysis.guide.md)
+- [ADR Creation Guide](adr-creation.guide.md)
 

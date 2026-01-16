@@ -26,25 +26,25 @@ Start with [`_workflow.md`](_workflow.md) — the master document that defines a
 
 | File | Purpose |
 |------|---------|
-| [`requirements-elicitation-guide.md`](../../guides/requirements-elicitation-guide.md) | Structured approach to gathering requirements |
-| [`knowledge-base-research-guide.md`](../../guides/knowledge-base-research-guide.md) | Research using knowledge base tools |
-| [`design-framework-guide.md`](../../guides/design-framework-guide.md) | Design decision framework |
-| [`adr-creation-guide.md`](../../guides/adr-creation-guide.md) | Creating Architecture Decision Records |
-| [`test-plan-creation-guide.md`](../../guides/test-plan-creation-guide.md) | Test planning and strategy |
-| [`implementation-analysis-guide.md`](../../guides/implementation-analysis-guide.md) | Analyzing implementation approach |
-| [`issue-creation-guide.md`](../../guides/issue-creation-guide.md) | Creating GitHub issues |
-| [`pr-description-guide.md`](../../guides/pr-description-guide.md) | Writing PR descriptions |
-| [`self-review-guide.md`](../../guides/self-review-guide.md) | Pre-merge self-review checklist |
-| [`assumptions-guide.md`](../../guides/assumptions-guide.md) | Tracking assumptions during work |
+| [`requirements-elicitation.guide.md`](../../guides/requirements-elicitation.guide.md) | Structured approach to gathering requirements |
+| [`knowledge-base-research.guide.md`](../../guides/knowledge-base-research.guide.md) | Research using knowledge base tools |
+| [`design-framework.guide.md`](../../guides/design-framework.guide.md) | Design decision framework |
+| [`adr-creation.guide.md`](../../guides/adr-creation.guide.md) | Creating Architecture Decision Records |
+| [`test-plan-creation.guide.md`](../../guides/test-plan-creation.guide.md) | Test planning and strategy |
+| [`implementation-analysis.guide.md`](../../guides/implementation-analysis.guide.md) | Analyzing implementation approach |
+| [`issue-creation.guide.md`](../../guides/issue-creation.guide.md) | Creating GitHub issues |
+| [`pr-description.guide.md`](../../guides/pr-description.guide.md) | Writing PR descriptions |
+| [`self-review.guide.md`](../../guides/self-review.guide.md) | Pre-merge self-review checklist |
+| [`assumptions.guide.md`](../../guides/assumptions.guide.md) | Tracking assumptions during work |
 
 ## Templates
 
 | File | Purpose |
 |------|---------|
-| [`start-here.md`](start-here.md) | Entry point for work package folder |
-| [`readme.md`](readme.md) | Work package README |
-| [`plan.md`](plan.md) | Work package plan structure |
-| [`complete.md`](complete.md) | Completion checklist |
+| [`start-here.template.md`](start-here.template.md) | Entry point for work package folder |
+| [`readme.template.md`](readme.template.md) | Work package README |
+| [`plan.template.md`](plan.template.md) | Work package plan structure |
+| [`complete.template.md`](complete.template.md) | Completion checklist |
 
 ## Usage
 

@@ -808,6 +808,6 @@ Before submitting an ADR, verify:
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Test Plan Creation Guide](test-plan-creation-guide.md)
-- [PR Description Guide](pr-description-guide.md)
+- [Test Plan Creation Guide](test-plan-creation.guide.md)
+- [PR Description Guide](pr-description.guide.md)
 - [References](references.md) — External sources used in this guide

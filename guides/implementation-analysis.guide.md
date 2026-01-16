@@ -403,7 +403,7 @@ This guide supports Phase 0 (Planning) of the [Work Package Implementation Workf
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [Knowledge Base Research Guide](knowledge-base-research-guide.md)
-- [ADR Creation Guide](adr-creation-guide.md)
-- [Test Plan Creation Guide](test-plan-creation-guide.md)
+- [Knowledge Base Research Guide](knowledge-base-research.guide.md)
+- [ADR Creation Guide](adr-creation.guide.md)
+- [Test Plan Creation Guide](test-plan-creation.guide.md)
 

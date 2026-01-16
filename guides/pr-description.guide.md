@@ -112,8 +112,8 @@ Always link to related artifacts on the same line for easy scanning:
 
 **When to include each link:**
 - **Ticket** - Always include if work is tracked in a ticket
-- **ADR** - Include for architectural decisions (see [ADR Creation Guide](adr-creation-guide.md))
-- **Test Plan** - Include when formal test documentation exists (see [Test Plan Creation Guide](test-plan-creation-guide.md))
+- **ADR** - Include for architectural decisions (see [ADR Creation Guide](adr-creation.guide.md))
+- **Test Plan** - Include when formal test documentation exists (see [Test Plan Creation Guide](test-plan-creation.guide.md))
 
 **Important:** Link to ADRs and test plans on the *feature branch*, not main:
 - ✅ `https://github.com/OWNER/REPO/blob/feat/hybrid-search/docs/decisions/adr-hybrid-search.md`
@@ -469,7 +469,7 @@ Before submitting a PR, verify:
 ## Related Guides
 
 - [Work Package Implementation Workflow](_workflow.md)
-- [ADR Creation Guide](adr-creation-guide.md)
-- [Test Plan Creation Guide](test-plan-creation-guide.md)
+- [ADR Creation Guide](adr-creation.guide.md)
+- [Test Plan Creation Guide](test-plan-creation.guide.md)
 - [References](references.md) — External sources used in this guide
 
