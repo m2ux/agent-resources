@@ -1,14 +1,14 @@
-# High-Level Planning Workflow
+# Work Packages Workflow
 
-**Version:** 1.0  
-**Last Updated:** November 24, 2025  
-**Purpose:** Create comprehensive planning sessions that organize multiple features into an actionable roadmap
+**Version:** 1.1  
+**Last Updated:** January 2026  
+**Purpose:** Organize multiple related work packages into an actionable roadmap
 
 ---
 
 ## Overview
 
-This workflow defines how to create high-level planning sessions that organize multiple related features. Each planning session produces a structured folder with analysis, feature plans, and prioritization.
+This workflow defines how to plan and coordinate **multiple work packages** that share context, dependencies, or a common initiative. It produces a structured planning folder with analysis, prioritization, and links to individual work package plans.
 
 **Use this workflow when you have:**
 - Multiple related features to implement
@@ -16,13 +16,9 @@ This workflow defines how to create high-level planning sessions that organize m
 - Features that share context or build on each other
 - Need for prioritization across multiple initiatives
 
-**Not needed for:**
-- Quick bug fix (<30 min)
-- Minor refactoring with clear scope
+**For single work packages:** Use the [Work Package Workflow](_work-package.md) directly.
 
-> **Note:** Even single features should use the folder pattern for consistency. The [Work Package Workflow](_work-package.md) uses the same folder structure - this ensures all planning artifacts follow a unified pattern.
-
-**Related:** After planning, use the [Work Package Workflow](_work-package.md) to implement individual features.
+> **Key Principle:** This workflow handles **coordination and planning**. Individual work packages are implemented using the [Work Package Workflow](_work-package.md).
 
 ---
 
@@ -382,7 +378,7 @@ Based on codebase analysis:
 
 ---
 
-## Individual Feature Plans
+## Individual Work Package Plans
 
 ### Naming Pattern
 ```
@@ -397,7 +393,9 @@ Continue numbering from analysis documents.
 - `05-caching-strategy-plan.md` (Phase 5)
 - `06-resilience-patterns-plan.md` (Phase 6)
 
-### Feature Plan Template
+### Work Package Plan Template
+
+Each individual work package plan should provide enough context to begin implementation using the [Work Package Workflow](_work-package.md).
 
 ```markdown
 # Phase N: [Feature Name]
@@ -407,268 +405,73 @@ Continue numbering from analysis documents.
 **Status:** [Ready for Implementation/In Progress/Complete]
 **Estimated Effort:** X-Yh agentic + Zh review
 
-> **Note:** All time estimates refer to agentic (AI-assisted) development time plus human review time.
-
 ---
 
 ## Overview
 
 [1-2 paragraphs explaining:]
-- What this feature is
+- What this work package covers
 - Why it's needed
 - Expected impact
 
 ---
 
-## Knowledge Base Insights Applied
+## Context from Analysis
 
-### Core Concepts ([N concepts from analysis])
-
-1. **Concept A** - How it applies to this feature
-2. **Concept B** - Relevant architectural pattern
-3. **Concept C** - Design principle to follow
-
-[Reference concepts from CONCEPT-LEXICON-ANALYSIS or other analysis docs]
+[Reference relevant findings from analysis documents]
+- Key insight from 01-COMPLETION-ANALYSIS.md
+- Relevant pattern from 02-CONCEPT-ANALYSIS.md
 
 ---
 
-## Current State
+## Scope
 
-### What Exists ✅
-- ✅ Component A - Current capability
-- ✅ Component B - Current state
+### In Scope
+- Feature/capability A
+- Feature/capability B
 
-### What's Missing ❌
-- ❌ Feature X - Why needed
-- ❌ Feature Y - Impact of not having it
-
-### Current Metrics (Baseline)
-- 🔍 **Metric 1:** Current value
-- 🔍 **Metric 2:** Current value
-
----
-
-## Implementation Tasks
-
-Break feature into concrete tasks (Task N.1, N.2, N.3, etc.)
-
-### Task N.1: [Task Name] (X-Y min agentic)
-
-**Goal:** [Clear, measurable objective]
-
-**Tasks:**
-1. Specific subtask A
-2. Specific subtask B
-3. Specific subtask C
-
-**Deliverables:**
-- `src/path/to/file.ts` - Component description
-- `src/path/to/__tests__/file.test.ts` - Test coverage
-- Documentation update
-
-**Expected Impact:**
-- [Quantifiable improvement]
-
----
-
-### Task N.2: [Task Name] (X-Y min agentic)
-
-**Goal:** [Clear objective]
-
-**Tasks:**
-1. Subtask A
-2. Subtask B
-
-**Deliverables:**
-- File list with descriptions
-
-**Expected Impact:**
-- [Metric improvement]
-
----
-
-[Continue for all tasks...]
-
----
-
-## Detailed Implementation (Optional)
-
-### Example Code Structure
-
-**File:** `src/path/to/component.ts`
-
-```typescript
-/**
- * [Component description]
- */
-export class ComponentName {
-  constructor(/* dependencies */) {}
-  
-  method(): Result {
-    // Implementation approach
-  }
-}
-```
-
-### Architecture Diagram (If Complex)
-
-```
-┌─────────────┐
-│  Component A │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  Component B │
-└─────────────┘
-```
-
----
-
-## Success Criteria
-
-### Functional Requirements
-- [ ] Feature X implemented and working
-- [ ] Feature Y integrated correctly
-- [ ] Edge cases handled
-
-### Performance Targets
-- [ ] **Metric 1:** Achieve X (baseline: Y)
-- [ ] **Metric 2:** Achieve X (baseline: Y)
-- [ ] **Metric 3:** Below X (baseline: Y)
-
-### Quality Requirements
-- [ ] Test coverage ≥X% (unit tests)
-- [ ] Integration tests passing
-- [ ] No performance regressions
-- [ ] Documentation complete
-- [ ] ADR written (if significant decision)
-
----
-
-## Testing Strategy
-
-### Unit Tests
-- Component X: [Test scenarios]
-- Component Y: [Test scenarios]
-- Edge cases: [List]
-
-### Integration Tests
-- Integration A: [Scenario]
-- Integration B: [Scenario]
-
-### E2E/Performance Tests (If Applicable)
-- E2E flow: [Scenario]
-- Performance: Baseline vs target comparison
-- Load test: [Conditions]
-
----
-
-## Validation Steps
-
-1. **Baseline Measurement**
-   - Measure current metrics
-   - Document current behavior
-
-2. **Implementation**
-   - Follow task sequence (N.1, N.2, N.3...)
-   - Test after each task
-   - Commit after each task
-
-3. **Performance Comparison**
-   - Measure with new implementation
-   - Compare to baseline
-   - Verify targets met
-
-4. **Integration Validation**
-   - Test with other components
-   - Verify no regressions
-   - E2E testing
-
-5. **Load Testing** (If Applicable)
-   - Test under realistic conditions
-   - Verify performance holds
-
----
-
-## Documentation Requirements
-
-### ADR (If Significant Decision)
-- **ADR NNNN:** [Decision Title]
-  - **Context:** Why this decision needed
-  - **Decision:** What we chose and why
-  - **Consequences:** Trade-offs and impacts
-  - **Alternatives Considered:** What we rejected
-
-### User Documentation (If Needed)
-- Configuration guide
-- Usage examples
-- Troubleshooting section
-
-### Inline Documentation
-- JSDoc on all public APIs
-- Code comments for complex logic
-- Examples in docs
-
----
-
-## Estimated Timeline
-
-| Task | Duration (Agentic) | Review | Total |
-|------|-------------------|--------|-------|
-| N.1 [Name] | X-Y min | Z min | A-B min |
-| N.2 [Name] | X-Y min | Z min | A-B min |
-| N.3 [Name] | X-Y min | Z min | A-B min |
-| Testing | X min | Y min | Z min |
-| Documentation | X min | Y min | Z min |
-| **TOTAL** | **X-Y h** | **Z h** | **A-B h** |
-
----
-
-## Implementation Selection Matrix
-
-Use this to customize which tasks to implement.
-
-| Sub-Phase | Description | Duration | Include |
-|-----------|-------------|----------|---------|
-| Task N.1 | [Short description] | X-Y min | ✓ |
-| Task N.2 | [Short description] | X-Y min | ✓ |
-| Task N.3 | [Short description] | X-Y min | ✓ |
-| Task N.4 | [Short description] | X-Y min | ✓ |
-| Task N.5 | [Short description] | X-Y min | ✓ |
-
-**Instructions:** Replace ✓ with X for any task you wish to skip.
+### Out of Scope
+- Deferred to Phase N+1
+- Not part of this initiative
 
 ---
 
 ## Dependencies
 
 ### Requires (Blockers)
-- [ ] Feature A must be complete
-- [ ] External dependency B resolved
+- [ ] Phase N-1 must be complete
+- [ ] External dependency resolved
 
 ### Enables (Unlocks)
-- Enables Feature X
-- Required for Feature Y
+- Phase N+1 depends on this
+- Feature X requires this
 
 ---
 
-## Risks and Mitigation
+## Success Criteria
 
-### Risk 1: [Description]
-- **Likelihood:** High/Medium/Low
-- **Impact:** High/Medium/Low
-- **Mitigation:** [Strategy]
+- [ ] [Measurable outcome 1]
+- [ ] [Measurable outcome 2]
+- [ ] [Performance target if applicable]
 
-### Risk 2: [Description]
-- **Likelihood:** High/Medium/Low
-- **Impact:** High/Medium/Low
-- **Mitigation:** [Strategy]
+---
+
+## Implementation
+
+👉 **Follow the [Work Package Workflow](_work-package.md)** to implement this work package.
+
+The workflow will guide you through:
+- Requirements elicitation
+- Implementation analysis
+- Design and architecture review
+- Task breakdown and implementation
+- Testing and validation
+- PR creation and completion
 
 ---
 
 **Status:** Ready for implementation
-**Next Phase:** [Link to next feature plan, if dependent]
+**Next Phase:** [Link to next work package plan]
 ```
 
 ---
@@ -682,43 +485,23 @@ Before starting implementation:
 - [ ] Folder placed in `.engineering/artifacts/planning/`
 
 ### Core Documents
-- [ ] START-HERE.md written with:
-  - [ ] Executive summary (2-3 paragraphs)
-  - [ ] Progress summary (what was done)
-  - [ ] Features list with priorities
-  - [ ] Timeline with estimates
-  - [ ] Success criteria
-  - [ ] Document navigation
+- [ ] START-HERE.md written with executive summary, priorities, and navigation
+- [ ] README.md written with quick overview and document index
 
-- [ ] README.md written with:
-  - [ ] Quick overview
-  - [ ] Document index
-  - [ ] Priority table
-  - [ ] Getting started section
+### Analysis Documents (as needed)
+- [ ] Completion analysis (01-) if continuing previous work
+- [ ] Context/technical analysis (02-) for background
 
-### Analysis Documents
-- [ ] Completion analysis (01-) if continuing work
-- [ ] Concept/technical analysis (02-) as needed
-- [ ] Additional analysis documents as needed
-
-### Feature Plans
-- [ ] Each feature has detailed plan (03-, 04-, 05-...)
-- [ ] Each plan includes:
-  - [ ] Clear overview and rationale
-  - [ ] Current state assessment
-  - [ ] Tasks broken down with estimates
-  - [ ] Success criteria (functional, performance, quality)
-  - [ ] Testing strategy
-  - [ ] Implementation selection matrix
-  - [ ] Dependencies identified
+### Work Package Plans
+- [ ] Each work package has a plan document (03-, 04-, 05-...)
+- [ ] Each plan includes overview, scope, dependencies, and success criteria
+- [ ] Each plan references [Work Package Workflow](_work-package.md) for implementation
 
 ### Quality Checks
 - [ ] Priorities assigned (HIGH/MEDIUM/LOW)
 - [ ] Time estimates realistic (agentic + review)
-- [ ] Dependencies documented
+- [ ] Dependencies between work packages documented
 - [ ] Success criteria measurable
-- [ ] Testing strategy complete
-- [ ] All questions answered or noted
 
 ---
 
@@ -804,14 +587,10 @@ Features implemented one at a time following priority, with commits after each t
 
 ## Version History
 
+- **v1.1** (2026-01): Refactored to reference _work-package.md instead of duplicating implementation details
 - **v1.0** (2025-11-24): Initial version split from combined workflow
 
-**Derived From:** Template developed through production use
-- Example: `.engineering/artifacts/planning/YYYY-MM-DD-project-roadmap/`
-
-
-
-
+**Related:** [Work Package Workflow](_work-package.md) for implementing individual work packages
 
 
 
