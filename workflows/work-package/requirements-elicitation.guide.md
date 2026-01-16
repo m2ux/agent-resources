@@ -45,24 +45,6 @@ Use a **sequential, conversational approach** to explore requirements. Ask **one
 └─────────────────────────────────────┘
 ```
 
-**Question flow by domain:**
-
-```
-Problem Exploration (1-4 questions)
-        │
-        ▼
-Stakeholders & Context (1-4 questions)
-        │
-        ▼
-Scope Boundaries (1-4 questions)
-        │
-        ▼
-Success Criteria (1-4 questions)
-        │
-        ▼
-🛑 CHECKPOINT: Summarize & Confirm
-```
-
 ### Question Presentation Format
 
 Present each question using this format:
@@ -113,30 +95,11 @@ What's not working well today?
 - **If user says "skip all [category]"**: Move to the next category entirely
 - **If user says "done with questions"**: Proceed directly to the requirements checkpoint
 
-### The Five Elicitation Domains
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    1. PROBLEM                               │
-│    What's broken/missing? Why does it matter?               │
-├─────────────────────────────────────────────────────────────┤
-│                    2. STAKEHOLDERS                          │
-│    Who cares? Who uses it? Who's affected?                  │
-├─────────────────────────────────────────────────────────────┤
-│                    3. CONTEXT                               │
-│    What's the environment? What are the constraints?        │
-├─────────────────────────────────────────────────────────────┤
-│                    4. SCOPE                                 │
-│    What's in? What's out? What's the minimum viable?        │
-├─────────────────────────────────────────────────────────────┤
-│                    5. SUCCESS                               │
-│    How do we know it's done? What does good look like?      │
-└─────────────────────────────────────────────────────────────┘
-```
-
 ---
 
 ## Question Bank
+
+Ask questions from each domain sequentially. The five domains cover the complete requirements space:
 
 ### 1. Problem Exploration
 
@@ -419,16 +382,6 @@ Use this template to confirm elicited requirements with the user:
 ---
 
 ## Quick Reference
-
-### Elicitation Flow
-
-```
-1. Explore problem → 2. Identify stakeholders → 3. Understand context
-                              ↓
-4. Define scope ← 5. Establish success criteria
-                              ↓
-                    🛑 CHECKPOINT: Confirm
-```
 
 ### Minimum Viable Elicitation
 
