@@ -84,20 +84,26 @@ This workflow defines how to plan and implement ONE work package from inception 
    ├─ Build verification
    └─ Performance validation
 
-8. FINALIZE (15-30m)
+8. STRATEGIC REVIEW (15-30m)
+   ├─ Audit for speculative/unnecessary changes
+   ├─ Compare against baseline branch
+   ├─ Revert changes that don't support the solution
+   └─ 🛑 CHECKPOINT: "Are all changes minimal and necessary?"
+
+9. FINALIZE (15-30m)
    ├─ Update ADR status to Accepted (if ADR exists)
    ├─ Finalize test plan with source links
    ├─ Create WP-COMPLETE.md
    ├─ Inline documentation complete
    └─ 🛑 CHECKPOINT: "Does the PR description look correct?"
 
-9. UPDATE PR (10-15m)
-   ├─ Push all changes
-   ├─ Update PR description
-   ├─ 🛑 CHECKPOINT: "Ready to mark PR as ready for review?"
-   └─ Mark PR ready for review
+10. UPDATE PR (10-15m)
+    ├─ Push all changes
+    ├─ Update PR description
+    ├─ 🛑 CHECKPOINT: "Ready to mark PR as ready for review?"
+    └─ Mark PR ready for review
 
-10. POST-IMPLEMENTATION
+11. POST-IMPLEMENTATION
     ├─ Capture session history (if metadata repo exists)
     ├─ Workflow retrospective → 06-workflow-retrospective.md
     ├─ After PR merged: Update status
@@ -1521,11 +1527,94 @@ pytest tests/e2e            # E2E tests
 
 ---
 
-## Phase 8: Finalize
+## Phase 8: Strategic Review
+
+**Audit the implementation for speculative changes that are no longer required.** During investigation and debugging, it's common to add exploratory code, infrastructure changes, or fallback mechanisms that become unnecessary once the root cause is understood.
+
+📄 **Reference:** Follow the [Strategic Review Guide](strategic-review.guide.md) for the full checklist, common patterns, and checkpoint template.
+
+### 8.1 Speculative Changes Audit
+
+**Key questions to answer:**
+
+| Category | Question |
+|----------|----------|
+| **Files** | Is every changed file necessary for the solution? |
+| **Code** | Is every added line of code required? |
+| **Infrastructure** | Are CI/CD, build, or config changes minimal and necessary? |
+| **Dependencies** | Are all dependency changes required? |
+| **Debugging artifacts** | Has all debug/diagnostic code been removed? |
+
+### 8.2 Compare Against Baseline
+
+**List all changes and verify each is necessary:**
+
+```bash
+# List all files changed in this branch
+git diff --name-only <base-branch> HEAD
+
+# Review each file's changes
+git diff <base-branch> HEAD -- <file>
+```
+
+**For each changed file, ask:** Is this change directly required for the solution, or was it added during investigation/debugging?
+
+### 8.3 Revert Unnecessary Changes
+
+**Remove speculative changes that don't support the final solution:**
+
+```bash
+# Revert a file to match base branch
+git checkout <base-branch> -- <file>
+
+# Stage reverted changes
+git add <reverted-files>
+```
+
+### 8.4 🛑 Strategic Review Checkpoint
+
+After completing the review, **present findings to user:**
+
+```markdown
+## 🔍 Strategic Review Complete
+
+**Baseline Comparison:** Compared against `<base-branch>`
+
+### Changes Summary
+
+| File | Status | Rationale |
+|------|--------|-----------|
+| `path/to/file1` | ✅ Required | [Why needed] |
+| `path/to/file2` | ⏪ Reverted | [Was speculative] |
+
+### Speculative Changes Removed
+
+- [What was removed and why]
+
+### Verification
+
+- [ ] All remaining changes directly support the solution
+- [ ] No debugging or diagnostic code remains
+- [ ] Infrastructure changes are minimal and necessary
+
+---
+**Does this accurately capture the required changes?**
+```
+
+### 8.5 Strategic Review Checklist
+
+- [ ] All changed files audited against baseline
+- [ ] Speculative/debugging changes identified
+- [ ] Unnecessary changes reverted
+- [ ] 🛑 **Strategic review confirmed with user**
+
+---
+
+## Phase 9: Finalize
 
 > **Note:** This phase focuses on finalizing documentation after implementation is complete.
 
-### 8.1 Update ADR Status (If Applicable)
+### 9.1 Update ADR Status (If Applicable)
 
 **Skip this step if no ADR was created** (i.e., for bug fixes, refactoring, or minor features).
 
@@ -1543,7 +1632,7 @@ Commit this change:
 git commit -m "docs(adr): update ADR status to Accepted"
 ```
 
-### 8.2 Finalize Test Plan
+### 9.2 Finalize Test Plan
 
 If a placeholder test plan was created in Phase 4, update it with implementation details:
 
@@ -1562,13 +1651,13 @@ Commit with the ADR update or separately:
 git commit -m "docs: finalize test plan with source links"
 ```
 
-### 8.3 Work Package Completion Document
+### 9.3 Work Package Completion Document
 
 **Create:** `.engineering/artifacts/planning/YYYY-MM-DD-work-package-name/COMPLETE.md`
 
 📄 **Reference:** Follow the [Work Package Completion](complete.guide.md) for the full template and guidelines.
 
-### 8.4 Inline Documentation
+### 9.4 Inline Documentation
 
 Ensure documentation on all public APIs:
 
@@ -1596,11 +1685,11 @@ export function fn(param: Type): Result { ... }
 
 ---
 
-## Phase 9: Update PR
+## Phase 10: Update PR
 
 > **Note:** The PR was created in Phase 1. This phase updates the PR description with final implementation details.
 
-### 9.1 Pre-Finalization Verification
+### 10.1 Pre-Finalization Verification
 
 ```bash
 git branch --show-current    # On feature branch?
@@ -1609,7 +1698,7 @@ git log origin/main..HEAD    # Review all commits
 # Build and tests pass?
 ```
 
-### 9.2 Push Final Changes
+### 10.2 Push Final Changes
 
 Ensure all commits are pushed:
 
@@ -1617,7 +1706,7 @@ Ensure all commits are pushed:
 git push origin type/work-package-name
 ```
 
-### 9.3 Update PR Description
+### 10.3 Update PR Description
 
 Update the PR description to reflect the completed implementation.
 
@@ -1644,7 +1733,7 @@ EOF
 gh api repos/OWNER/REPO/pulls/PR_NUMBER -X PATCH -f body="$(cat /tmp/pr-body.md)"
 ```
 
-### 9.4 Mark PR Ready for Review
+### 10.4 Mark PR Ready for Review
 
 **Convert draft PR to ready for review:**
 
@@ -1653,7 +1742,7 @@ gh api repos/OWNER/REPO/pulls/PR_NUMBER -X PATCH -f body="$(cat /tmp/pr-body.md)
 gh pr ready
 ```
 
-### 9.5 🛑 PR Update Checkpoint
+### 10.5 🛑 PR Update Checkpoint
 
 Before marking PR ready for review, **present to user:**
 
@@ -1670,15 +1759,15 @@ Before marking PR ready for review, **present to user:**
 **Ready to mark PR as ready for review?**
 ```
 
-### 9.6 After PR Updated
+### 10.6 After PR Updated
 
 Update WP-COMPLETE.md with final PR number and status.
 
 ---
 
-## Phase 10: Post-Implementation
+## Phase 11: Post-Implementation
 
-### 10.1 Capture Session History (Private)
+### 11.1 Capture Session History (Private)
 
 **⚠️ PRIVATE DATA:** Chat history contains potentially sensitive session data. It must ONLY be stored in the private metadata location specified below. NEVER commit this data to the repository.
 
@@ -1754,7 +1843,7 @@ fi
 - ✅ ONLY store in `.engineering/agent/metadata/` (private, gitignored)
 - ✅ Ensure `.engineering/agent/` is in `.gitignore`
 
-### 10.2 Workflow Retrospective
+### 11.2 Workflow Retrospective
 
 **Analyze the session to identify potential workflow improvements.** Review all user questions, requests, and feedback that were NOT direct responses to checkpoint questions.
 
@@ -1771,7 +1860,7 @@ fi
 
 **Skip when:** Session was straightforward with only checkpoint responses, or work package was trivial (<30 min).
 
-### 10.3 After PR Merged
+### 11.3 After PR Merged
 
 Update work package plan status:
 ```markdown
@@ -1780,7 +1869,7 @@ Update work package plan status:
 **Merged:** [Date]
 ```
 
-### 10.4 Select Next Work Package
+### 11.4 Select Next Work Package
 
 - Review priority list
 - Check dependencies
@@ -1853,13 +1942,19 @@ Update work package plan status:
 - [ ] Architectural significance verified 🛑
 - [ ] ADR created (if architecturally significant; status: Accepted) 🛑
 
-### Finalize (Phase 8)
+### Strategic Review (Phase 8)
+- [ ] All changed files audited against baseline
+- [ ] Speculative/debugging changes identified
+- [ ] Unnecessary changes reverted
+- [ ] 🛑 **Strategic review confirmed with user**
+
+### Finalize (Phase 9)
 - [ ] ADR verified (if exists)
 - [ ] Test plan finalized with source links (if applicable)
 - [ ] COMPLETE.md written (see [Completion](complete.guide.md))
 - [ ] Inline docs complete
 
-### Update PR (Phase 9)
+### Update PR (Phase 10)
 - [ ] All changes pushed
 - [ ] PR description updated with implementation details 🛑
 - [ ] Draft PR marked ready for review
@@ -1895,6 +1990,7 @@ Update work package plan status:
 | Modify historical ADRs | ADRs are immutable historical records; create new ADR if decision changes |
 | Skip test plan | No traceability from docs to tests (see [Test Plan Creation Guide](test-plan.guide.md)) |
 | Skip validation | Broken code gets merged |
+| Skip strategic review | Speculative/debug code pollutes PR; unnecessary changes confuse reviewers (see [Strategic Review Guide](strategic-review.guide.md)) |
 | Multiple WPs at once | Mixed commits, confusing PRs |
 | Skip planning | Scope creep, wasted effort |
 | Skip checkpoints | Assumptions lead to wrong implementation |
