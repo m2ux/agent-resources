@@ -353,7 +353,7 @@ This guide supports the finalization stage of work package implementation:
 
 ## Related Guides
 
-- [Work Package Implementation Workflow](_work-package.md)
+- [Work Package Implementation Workflow](work-package.md)
 - [Work Package Plan](plan.guide.md)
 - [Work Package START-HERE](start-here.guide.md)
 - [Architecture Review Guide](architecture-review.guide.md)

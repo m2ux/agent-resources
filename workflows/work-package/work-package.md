@@ -3,7 +3,7 @@
 
 This workflow defines how to plan and implement ONE work package from inception to merged PR. A **work package** is a discrete unit of work such as a feature, bug-fix, enhancement, refactoring, or any other deliverable change.
 
-**For multiple related work packages:** Use the [Work Packages Workflow](_work-packages.md) to create a roadmap first.
+**For multiple related work packages:** Use the [Work Packages Workflow](work-packages.md) to create a roadmap first.
 
 ---
 
@@ -14,8 +14,14 @@ This workflow defines how to plan and implement ONE work package from inception 
 - **Summarize, then proceed** - Provide brief status before asking to continue
 - **One task at a time** - Complete current work before starting new work
 - **Explicit approval** - Get clear "yes" or "proceed" before major actions
+- **Decision points require user choice** - When issues are found, user decides whether to proceed or loop back
+
+### Notation
+- 🛑 **CHECKPOINT** — Requires user confirmation before proceeding
+- 🔀 **DECISION POINT** — User chooses path based on findings (proceed or loop back)
 
 ### Overview
+
 ```
 1. ISSUE VERIFICATION & PR CREATION (10-20m)
    ├─ Check if GitHub or Jira issue specified
@@ -63,12 +69,14 @@ This workflow defines how to plan and implement ONE work package from inception 
    ├─ 🛑 CHECKPOINT: "Significance assessment confirmed?"
    └─ ADR (if significant) 🛑 "ADR confirmed?"
 
-7. VALIDATE (30-60m)
-   └─ All tests pass, build succeeds (per Test Plan Guide)
+7. VERIFY & VALIDATE DESIGN (30-60m)
+   ├─ All tests pass, build succeeds (per Test Plan Guide)
+   └─ 🔀 DECISION: Pass → Phase 8 | Minor change → Phase 6 | Major change → Phase 5
 
 8. STRATEGIC REVIEW (15-30m)
    ├─ Complete review per Strategic Review Guide
-   └─ 🛑 CHECKPOINT: "Review findings confirmed?"
+   ├─ 🛑 CHECKPOINT: "Review findings confirmed?"
+   └─ 🔀 DECISION: Pass → Phase 9 | Issues → Phase 5
 
 9. FINALIZE (15-30m)
    └─ Complete finalization tasks per guides (ADR, test plan, COMPLETE.md)
@@ -561,7 +569,7 @@ If creating an ADR, **present to user for confirmation** using the checkpoint te
 
 ---
 
-## Phase 7: Testing & Validation
+## Phase 7: Verify & Validate Design
 
 **Validate the implementation through comprehensive testing.** All tests must pass before the work package is considered complete.
 
@@ -578,14 +586,46 @@ If creating an ADR, **present to user for confirmation** using the checkpoint te
 - No new linter errors
 - Performance targets met (if applicable)
 
-**Test Failure Policy:** A work package is NOT complete if any test fails. Fix failures before proceeding.
+### 7.2 🔀 Validation Decision Point
 
-### 7.2 Validation Checklist
+After running validation, **assess results and present decision to user:**
+
+| Outcome | Criteria | Action |
+|---------|----------|--------|
+| ✅ **Pass** | All tests pass, build succeeds | Proceed to Phase 8 |
+| 🔄 **Minor issues** | Isolated test failures, build fixes, localized bugs | Return to Phase 6 to fix specific tasks |
+| ⚠️ **Major issues** | Fundamental design problems, cascading failures, architectural flaws | Return to Phase 5 to re-plan approach |
+
+**Present to user:**
+
+```markdown
+## 🔀 Validation Decision
+
+**Results:**
+- Tests: [X passing / Y failing]
+- Build: [Pass/Fail]
+- Issues identified: [Summary]
+
+**Assessment:** [Pass | Minor issues | Major issues]
+
+**Recommendation:** [Proceed to Phase 8 | Return to Phase 6 | Return to Phase 5]
+
+**Rationale:** [Why this path is recommended]
+
+---
+**Which path should we take?**
+1. Proceed to Phase 8 (Strategic Review)
+2. Return to Phase 6 (fix specific tasks)
+3. Return to Phase 5 (re-plan approach)
+```
+
+### 7.3 Validation Checklist
 
 - [ ] All tests pass (unit, integration, e2e)
 - [ ] Build succeeds
 - [ ] No new linter errors
 - [ ] All TODOs completed
+- [ ] 🔀 **Decision point: user confirmed path**
 
 ---
 
@@ -599,10 +639,42 @@ If creating an ADR, **present to user for confirmation** using the checkpoint te
 
 After completing the review, **present findings to user** using the checkpoint template from the guide.
 
-### 8.2 Strategic Review Checklist
+### 8.2 🔀 Strategic Review Decision Point
+
+After presenting review findings, **assess whether issues require re-planning:**
+
+| Outcome | Criteria | Action |
+|---------|----------|--------|
+| ✅ **Pass** | Changes are minimal and focused; minor cleanup only | Proceed to Phase 9 |
+| ⚠️ **Issues found** | Speculative changes reveal flawed approach; significant rework needed | Return to Phase 5 to re-plan |
+
+**Present to user:**
+
+```markdown
+## 🔀 Strategic Review Decision
+
+**Findings:**
+- Files reviewed: [Count]
+- Required changes: [Count]
+- Speculative changes identified: [Count]
+
+**Assessment:** [Pass | Issues found]
+
+**Recommendation:** [Proceed to Phase 9 | Return to Phase 5]
+
+**Rationale:** [Why this path is recommended]
+
+---
+**Which path should we take?**
+1. Proceed to Phase 9 (Finalize)
+2. Return to Phase 5 (re-plan approach)
+```
+
+### 8.3 Strategic Review Checklist
 
 - [ ] Strategic review completed per guide
 - [ ] 🛑 **Review findings confirmed with user**
+- [ ] 🔀 **Decision point: user confirmed path**
 
 ---
 
@@ -732,9 +804,15 @@ Before marking PR ready for review, **present updated description to user** usin
 - [ ] 🛑 **Significance assessment confirmed with user**
 - [ ] ADR created if significant, 🛑 **confirmed with user**
 
+### Verify & Validate Design (Phase 7)
+- [ ] All tests pass (unit, integration, e2e)
+- [ ] Build succeeds
+- [ ] 🔀 **Decision point: user confirmed path (proceed/fix/re-plan)**
+
 ### Strategic Review (Phase 8)
 - [ ] Strategic review completed per guide
 - [ ] 🛑 **Review findings confirmed with user**
+- [ ] 🔀 **Decision point: user confirmed path (proceed/re-plan)**
 
 ### Finalize (Phase 9)
 - [ ] Finalization tasks completed per guides
@@ -779,6 +857,8 @@ Before marking PR ready for review, **present updated description to user** usin
 | Multiple WPs at once | Mixed commits, confusing PRs |
 | Skip planning | Scope creep, wasted effort |
 | Skip checkpoints | Assumptions lead to wrong implementation |
+| Ignore decision points | Unresolved issues compound; failing tests or flawed approach persists without structured resolution |
+| Proceed past validation failures | Broken code gets merged; decision points exist to enable structured recovery |
 | Skip assumption review | Hidden design decisions compound errors; user loses opportunity to correct course early |
 | Skip KB research | Missing applicable patterns and practices (see [KB Research Guide](knowledge-base-research.guide.md)) |
 | Skip `get_guidance` at session start | Inefficient searching, wrong tool selection, excessive tool calls |

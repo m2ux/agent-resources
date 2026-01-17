@@ -16,9 +16,9 @@ This workflow defines how to plan and coordinate **multiple work packages** that
 - Features that share context or build on each other
 - Need for prioritization across multiple initiatives
 
-**For single work packages:** Use the [Work Package Workflow](_work-package.md) directly.
+**For single work packages:** Use the [Work Package Workflow](work-package.md) directly.
 
-> **Key Principle:** This workflow handles **coordination and planning**. Individual work packages are implemented using the [Work Package Workflow](_work-package.md).
+> **Key Principle:** This workflow handles **coordination and planning**. Individual work packages are implemented using the [Work Package Workflow](work-package.md).
 
 ---
 
@@ -84,7 +84,7 @@ This workflow defines how to plan and coordinate **multiple work packages** that
 
 7. IMPLEMENTATION (ongoing)
    ├─ Select first work package by priority
-   ├─ Follow [Work Package Workflow](_work-package.md)
+   ├─ Follow [Work Package Workflow](work-package.md)
    ├─ After completion, return here
    ├─ Update roadmap status
    └─ Select next work package
@@ -331,7 +331,7 @@ For each work package:
 
 1. **Select** highest-priority work package not yet complete
 2. **Review** the work package plan (NN-feature-plan.md)
-3. **Implement** using [Work Package Workflow](_work-package.md)
+3. **Implement** using [Work Package Workflow](work-package.md)
 4. **Complete** and update roadmap status
 5. **Return** here to select next work package
 
@@ -531,7 +531,7 @@ This planning session integrates:
 1. Read this document (START-HERE.md) for context
 2. Review individual feature plans (03-*, 04-*, 05-*)
 3. Select first feature based on priority
-4. Follow [Work Package Workflow](_work-package.md)
+4. Follow [Work Package Workflow](work-package.md)
 5. Return here after completion to select next feature
 
 ---
@@ -615,7 +615,7 @@ This planning session integrates:
 1. Read [START-HERE.md](START-HERE.md) for full context
 2. Select feature based on priority
 3. Review detailed plan (e.g., `03-feature-plan.md`)
-4. Follow [Work Package Workflow](_work-package.md)
+4. Follow [Work Package Workflow](work-package.md)
 
 ---
 
@@ -717,7 +717,7 @@ Continue numbering from analysis documents.
 
 ### Work Package Plan Template
 
-Each individual work package plan should provide enough context to begin implementation using the [Work Package Workflow](_work-package.md).
+Each individual work package plan should provide enough context to begin implementation using the [Work Package Workflow](work-package.md).
 
 ```markdown
 # Phase N: [Feature Name]
@@ -780,7 +780,7 @@ Each individual work package plan should provide enough context to begin impleme
 
 ## Implementation
 
-👉 **Follow the [Work Package Workflow](_work-package.md)** to implement this work package.
+👉 **Follow the [Work Package Workflow](work-package.md)** to implement this work package.
 
 The workflow will guide you through:
 - Requirements elicitation
@@ -817,7 +817,7 @@ Before starting implementation:
 ### Work Package Plans
 - [ ] Each work package has a plan document (03-, 04-, 05-...)
 - [ ] Each plan includes overview, scope, dependencies, and success criteria
-- [ ] Each plan references [Work Package Workflow](_work-package.md) for implementation
+- [ ] Each plan references [Work Package Workflow](work-package.md) for implementation
 
 ### Quality Checks
 - [ ] Priorities assigned (HIGH/MEDIUM/LOW)
@@ -910,7 +910,7 @@ Features implemented one at a time following priority, with commits after each t
 ## Version History
 
 - **v1.2** (2026-01): Added structured workflow with rules and checkpoints
-- **v1.1** (2026-01): Refactored to reference _work-package.md instead of duplicating implementation details
+- **v1.1** (2026-01): Refactored to reference work-package.md instead of duplicating implementation details
 - **v1.0** (2025-11-24): Initial version split from combined workflow
 
-**Related:** [Work Package Workflow](_work-package.md) for implementing individual work packages
+**Related:** [Work Package Workflow](work-package.md) for implementing individual work packages

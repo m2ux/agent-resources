@@ -402,7 +402,7 @@ This guide supports implementation analysis:
 
 ## Related Guides
 
-- [Work Package Implementation Workflow](_work-package.md)
+- [Work Package Implementation Workflow](work-package.md)
 - [Knowledge Base Research Guide](knowledge-base-research.guide.md)
 - [Architecture Review Guide](architecture-review.guide.md)
 - [Test Plan Creation Guide](test-plan.guide.md)

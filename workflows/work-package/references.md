@@ -36,13 +36,13 @@ This document consolidates external references used across the work package work
 
 ## Internal Workflow Documents
 
-For navigation between workflow documents, see the [Work Package Workflow](_work-package.md) which serves as the central hub linking all guides.
+For navigation between workflow documents, see the [Work Package Workflow](work-package.md) which serves as the central hub linking all guides.
 
 ### Guides
 
 | Guide | Purpose |
 |-------|---------|
-| [Work Package Workflow](_work-package.md) | Single work package implementation |
+| [Work Package Workflow](work-package.md) | Single work package implementation |
 | [Assumptions Guide](assumptions-review.guide.md) | Assumption identification and documentation |
 | [Architecture Review Guide](architecture-review.guide.md) | Architecture Decision Records |
 | [Design Framework Guide](design-framework.guide.md) | Design approach structuring |
@@ -62,4 +62,4 @@ For navigation between workflow documents, see the [Work Package Workflow](_work
 | [Plan](plan.guide.md) | Implementation planning |
 | [README](readme.guide.md) | Work package folder README |
 | [START-HERE](start-here.guide.md) | Work package entry point |
-| [Work Packages Workflow](_work-packages.md) | Multi work package planning |
+| [Work Packages Workflow](work-packages.md) | Multi work package planning |

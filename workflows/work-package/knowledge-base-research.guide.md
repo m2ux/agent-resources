@@ -327,7 +327,7 @@ This guide supports knowledge base research:
 
 ## Related Guides
 
-- [Work Package Implementation Workflow](_work-package.md)
+- [Work Package Implementation Workflow](work-package.md)
 - [Implementation Analysis Guide](implementation-analysis.guide.md)
 - [Architecture Review Guide](architecture-review.guide.md)
 

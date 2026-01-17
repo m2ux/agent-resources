@@ -527,7 +527,7 @@ Before submitting a test plan, verify:
 
 ## Related Guides
 
-- [Work Package Implementation Workflow](_work-package.md)
+- [Work Package Implementation Workflow](work-package.md)
 - [Architecture Review Guide](architecture-review.guide.md)
 - [PR Description Guide](pr-description.guide.md)
 

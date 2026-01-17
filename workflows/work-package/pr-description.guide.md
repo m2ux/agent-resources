@@ -468,7 +468,7 @@ Before submitting a PR, verify:
 
 ## Related Guides
 
-- [Work Package Implementation Workflow](_work-package.md)
+- [Work Package Implementation Workflow](work-package.md)
 - [Architecture Review Guide](architecture-review.guide.md)
 - [Test Plan Creation Guide](test-plan.guide.md)
 - [References](references.md) — External sources used in this guide

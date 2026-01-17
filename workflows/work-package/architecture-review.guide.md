@@ -809,7 +809,7 @@ Before submitting an ADR, verify:
 
 ## Related Guides
 
-- [Work Package Implementation Workflow](_work-package.md)
+- [Work Package Implementation Workflow](work-package.md)
 - [Test Plan Creation Guide](test-plan.guide.md)
 - [PR Description Guide](pr-description.guide.md)
 - [References](references.md) — External sources used in this guide

@@ -332,5 +332,5 @@ git diff origin/main --name-only
 ## Related Guides
 
 - [Assumptions Guide](assumptions-review.guide.md) — Detailed assumption categories and log template
-- [Work Package Workflow](_work-package.md) — Overall implementation workflow
+- [Work Package Workflow](work-package.md) — Overall implementation workflow
 - [Architecture Review Guide](architecture-review.guide.md) — Architecture decision records

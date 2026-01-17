@@ -383,7 +383,7 @@ This guide supports work package planning:
 
 ## Related Guides
 
-- [Work Package Implementation Workflow](_work-package.md)
+- [Work Package Implementation Workflow](work-package.md)
 - [Work Package START-HERE](start-here.guide.md)
 - [Work Package README](readme.guide.md)
 - [Knowledge Base Research Guide](knowledge-base-research.guide.md)

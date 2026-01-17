@@ -21,18 +21,29 @@ This file contains critical guidelines for:
 
 ---
 
+## New Work or Resuming?
+
+| Situation | Document | When to Use |
+|-----------|----------|-------------|
+| **Starting fresh** | See [Choose Your Workflow](#choose-your-workflow) below | No existing branch or starting a new work package |
+| **Resuming work** | [resume-work.md](resume-work.md) | Continuing work on an existing branch (new chat session, work started elsewhere, etc.) |
+
+**If resuming:** The resume workflow will assess the current state of your branch/PR and determine where to continue in the standard workflow. Minimum requirement is an existing branch name.
+
+---
+
 ## Choose Your Workflow
 
 Select the appropriate workflow based on the scope of work:
 
 | Scope | Workflow | When to Use |
 |-------|----------|-------------|
-| **Single Work Package** | [_work-package.md](_work-package.md) | A focused task that can be completed in one work package |
-| **Multiple Work Packages** | [_work-packages.md](_work-packages.md) | Complex initiatives requiring multiple coordinated work packages |
+| **Single Work Package** | [work-package.md](work-package.md) | A focused task that can be completed in one work package |
+| **Multiple Work Packages** | [work-packages.md](work-packages.md) | Complex initiatives requiring multiple coordinated work packages |
 
 **How to decide:**
-- If the request involves a single feature, fix, or enhancement → use **_work-package.md**
-- If the request involves multiple phases, features, or requires high-level planning → use **_work-packages.md**
+- If the request involves a single feature, fix, or enhancement → use **work-package.md**
+- If the request involves multiple phases, features, or requires high-level planning → use **work-packages.md**
 
 ---
 
@@ -53,9 +64,12 @@ Both workflows define how to plan and implement work packages from inception to 
 ## Getting Started
 
 1. **Read [AGENTS.md](../../AGENTS.md)** (`.engineering/agent/resources/AGENTS.md`)
-2. **Select the appropriate workflow** based on scope (single or multiple work packages)
+2. **Determine if starting fresh or resuming:**
+   - **Resuming?** → Use [resume-work.md](resume-work.md) to assess state and find entry point
+   - **Starting fresh?** → Select workflow based on scope (single or multiple work packages)
 3. **Follow each phase in sequence**, respecting all checkpoints
 4. **Use the reference guides** linked from each workflow phase for detailed instructions
 
-📄 **Single Work Package:** [_work-package.md](_work-package.md)
-📄 **Multiple Work Packages:** [_work-packages.md](_work-packages.md)
+📄 **Resume Work:** [resume-work.md](resume-work.md)
+📄 **Single Work Package:** [work-package.md](work-package.md)
+📄 **Multiple Work Packages:** [work-packages.md](work-packages.md)
